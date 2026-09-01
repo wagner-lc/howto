@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            <a href="index.html">
+                <span>HoW</span>
+                <strong>to!</strong>
+            </a>
+        </div>
+
+        <p>
+            Meu manual pessoal de programação
+        </p>
+
+    </header>
+
+    <main>
+
+        <!-- =====================================================
+            GIT/GITHUB
+        ====================================================== -->
+
+        <section id="git"> 
+            <section id="git-inicio">
+
+                
+                <h2>🐈 Git & GitHub</h2>
+
+                <p>
+                    O <strong>Git</strong> é o sistema que controla as versões
+                    dos arquivos do projeto.
+                </p>
+
+                <p>
+                    O <strong>GitHub</strong> é um serviço onde podemos armazenar
+                    e compartilhar um repositório Git remotamente.
+                </p>
+
+                <h3>🧠 Git ≠ GitHub</h3>
+
+                <pre><code>Git
+                
+
+                ↓
+                Controla versões
+                na máquina
+
+                GitHub
+                ↓
+                Armazena o repositório
+                online</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                GUIA RÁPIDO
+            ====================================================== -->
+
+            <section id="git-guia">
+
+            
+            <h2>⚡ Guia rápido — Git</h2>
+
+            <pre><code>git status
+            
+
+            ↓
+            Ver o que mudou
+
+            git add .
+            ↓
+            Preparar alterações
+
+            git commit -m "mensagem"
+            ↓
+            Criar uma versão
+
+            git push
+            ↓
+            Enviar para o GitHub
+
+            git pull
+            ↓
+            Baixar alterações do GitHub</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                DO ZERO
+            ====================================================== -->
+
+            <section id="git-do-zero">
+
+            
+            <h2>🚀 Começar um projeto Git do zero</h2>
+
+            <p>
+                Quando temos uma pasta existente e queremos transformá-la
+                em um repositório Git:
+            </p>
+
+            <h3>1️⃣ Entrar na pasta</h3>
+
+            <pre><code>cd caminho/da/pasta</code></pre>
+
+            <p>
+                No Windows, também podemos abrir o terminal diretamente
+                dentro da pasta do projeto.
+            </p>
+
+
+            <h3>2️⃣ Inicializar o Git</h3>
+
+            <pre><code>git init</code></pre>
+
+            <p>
+                Cria o repositório Git dentro da pasta.
+            </p>
+
+            <h3>3️⃣ Conferir</h3>
+
+            <pre><code>git status</code></pre>
+
+            <p>
+                Mostra os arquivos modificados, novos arquivos e o estado
+                atual do repositório.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                CONFIGURAÇÃO
+            ====================================================== -->
+
+            <section id="git-config">
+
+            
+            <h2>⚙️ Configurar nome e e-mail</h2>
+
+            <p>
+                Normalmente fazemos essa configuração uma vez na máquina.
+            </p>
+
+            <pre><code>git config --global user.name "Seu Nome"
+            
+
+            git config --global user.email "[seu@email.com](mailto:seu@email.com)"</code></pre>
+
+            
+            <h3>Consultar as configurações</h3>
+
+            <pre><code>git config --global --list</code></pre>
+
+            <p>
+                O e-mail utilizado deve estar associado à conta do GitHub
+                se quisermos que os commits sejam identificados corretamente
+                nessa conta.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                GITHUB
+            ====================================================== -->
+
+            <section id="git-github">
+
+            
+            <h2>🐙 Associar a pasta ao GitHub</h2>
+
+            <p>
+                Depois de criar um repositório vazio no GitHub, podemos
+                conectar a pasta local ao repositório remoto.
+            </p>
+
+            <h3>1️⃣ Adicionar o repositório remoto</h3>
+
+            <pre><code>git remote add origin URL_DO_REPOSITORIO</code></pre>
+
+            <p>
+                <code>origin</code> é o nome normalmente utilizado para
+                representar o repositório remoto principal.
+            </p>
+
+            <h3>2️⃣ Conferir o endereço</h3>
+
+            <pre><code>git remote -v</code></pre>
+
+            <p>
+                Mostra para onde o Git está enviando e de onde está
+                buscando os arquivos.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                PRIMEIRO PUSH
+            ====================================================== -->
+
+            <section id="git-primeiro-push">
+
+            
+            <h2>📤 Primeiro envio para o GitHub</h2>
+
+            <h3>1️⃣ Adicionar arquivos</h3>
+
+            <pre><code>git add .</code></pre>
+
+            <h3>2️⃣ Criar o commit</h3>
+
+            <pre><code>git commit -m "Primeiro commit"</code></pre>
+
+            <h3>3️⃣ Definir a branch principal</h3>
+
+            <pre><code>git branch -M main</code></pre>
+
+            <h3>4️⃣ Enviar para o GitHub</h3>
+
+            <pre><code>git push -u origin main</code></pre>
+
+            <p>
+                O <code>-u</code> estabelece a relação entre a branch local
+                e a branch remota. Depois disso, normalmente podemos usar
+                apenas:
+            </p>
+
+            <pre><code>git push</code></pre>
+            
+
+            </section>
+
+            <!-- =====================================================
+                STATUS
+            ====================================================== -->
+
+            <section id="git-status">
+
+            
+            <h2>🔍 git status</h2>
+
+            <pre><code>git status</code></pre>
+
+            <p>
+                É provavelmente o comando que você mais deve usar.
+            </p>
+
+            <p>
+                Ele mostra o estado atual da pasta em relação ao último
+                commit.
+            </p>
+
+            <pre><code>git status
+            
+
+            ↓
+            O que mudou?
+            ↓
+            O que está preparado?
+            ↓
+            Em qual branch estou?
+            ↓
+            Existe algo para enviar?</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                ADD
+            ====================================================== -->
+
+            <section id="git-add">
+
+            
+            <h2>➕ git add</h2>
+
+            <pre><code>git add .</code></pre>
+
+            <p>
+                Adiciona as alterações ao chamado
+                <strong>staging area</strong>.
+            </p>
+
+            <h3>Adicionar um arquivo específico</h3>
+
+            <pre><code>git add arquivo.php</code></pre>
+
+            <h3>Adicionar vários arquivos</h3>
+
+            <pre><code>git add arquivo.php
+            
+
+            git add arquivo.js
+            git add css/estilo.css</code></pre>
+
+            
+            <h3>🧠 Importante</h3>
+
+            <p>
+                <code>git add</code> ainda não cria o commit.
+                Ele apenas prepara as alterações.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                COMMIT
+            ====================================================== -->
+
+            <section id="git-commit">
+
+            
+            <h2>💾 git commit</h2>
+
+            <pre><code>git commit -m "Corrige salvamento da inspeção"</code></pre>
+
+            <p>
+                Cria uma nova versão do projeto contendo as alterações
+                que estavam no staging.
+            </p>
+
+            <h3>Fluxo</h3>
+
+            <pre><code>Alterar arquivo
+            ↓
+            
+
+            git add
+            ↓
+            Staging
+            ↓
+            git commit
+            ↓
+            Nova versão local</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                PUSH
+            ====================================================== -->
+
+            <section id="git-push">
+
+            
+            <h2>📤 git push</h2>
+
+            <pre><code>git push</code></pre>
+
+            <p>
+                Envia os commits locais para o repositório remoto.
+            </p>
+
+            <p>
+                É o comando que normalmente usamos depois de terminar
+                uma alteração e criar o commit.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                PULL
+            ====================================================== -->
+
+            <section id="git-pull">
+
+            
+            <h2>📥 git pull</h2>
+
+            <pre><code>git pull</code></pre>
+
+            <p>
+                Busca alterações do repositório remoto e tenta integrá-las
+                à branch atual.
+            </p>
+
+            <h3>🧠 Regra prática</h3>
+
+            <pre><code>GitHub mudou?
+            
+
+            ↓
+            git pull
+            ↓
+            Minha pasta recebe as alterações</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                BRANCH
+            ====================================================== -->
+
+            <section id="git-branch">
+
+            
+            <h2>🌿 Branches</h2>
+
+            <p>
+                Uma <strong>branch</strong> é uma linha independente de
+                desenvolvimento dentro do repositório.
+            </p>
+
+            <p>
+                Um modelo simples para o GatMan pode ser:
+            </p>
+
+            <pre><code>main
+            
+
+            ↓
+            versão principal / estável
+
+            dev
+            ↓
+            desenvolvimento / testes</code></pre>
+
+            
+            <h3>Ver todas as branches</h3>
+
+            <pre><code>git branch</code></pre>
+
+            <h3>Criar uma branch</h3>
+
+            <pre><code>git branch dev</code></pre>
+
+            <h3>Criar e entrar nela</h3>
+
+            <pre><code>git switch -c dev</code></pre>
+            
+
+            </section>
+
+            <!-- =====================================================
+                TROCAR BRANCH
+            ====================================================== -->
+
+            <section id="git-switch">
+
+            
+            <h2>🔄 Trocar entre main e dev</h2>
+
+            <h3>Ir para main</h3>
+
+            <pre><code>git switch main</code></pre>
+
+            <h3>Ir para dev</h3>
+
+            <pre><code>git switch dev</code></pre>
+
+            <h3>Ver onde estou</h3>
+
+            <pre><code>git branch</code></pre>
+
+            <p>
+                A branch atual aparece marcada com <code>*</code>.
+            </p>
+
+            <pre><code>* dev
+            
+
+            main</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                FLUXO MAIN / DEV
+            ====================================================== -->
+
+            <section id="git-fluxo">
+
+            
+            <h2>🔀 Fluxo main ↔ dev</h2>
+
+            <p>
+                Uma maneira simples de trabalhar é desenvolver primeiro
+                na <code>dev</code> e só depois levar o código estável
+                para a <code>main</code>.
+            </p>
+
+            <pre><code>main
+            
+
+            │
+            │
+            └──────→ dev
+            │
+            ├── alteração
+            ├── teste
+            ├── correção
+            └── commit
+            │
+            ↓
+            dev
+            │
+            │ quando estiver pronto
+            ↓
+            main</code></pre>
+
+            
+            <h3>Começar o desenvolvimento</h3>
+
+            <pre><code>git switch dev</code></pre>
+
+            <h3>Fazer alterações</h3>
+
+            <pre><code>git add .
+            
+
+            git commit -m "Nova alteração"</code></pre>
+
+            
+            <h3>Enviar a dev</h3>
+
+            <pre><code>git push origin dev</code></pre>
+            
+
+            </section>
+
+            <!-- =====================================================
+                MERGE
+            ====================================================== -->
+
+            <section id="git-merge">
+
+            
+            <h2>🔗 Merge — levar dev para main</h2>
+
+            <p>
+                Quando a <code>dev</code> estiver testada e pronta,
+                podemos integrar suas alterações na <code>main</code>.
+            </p>
+
+            <h3>1️⃣ Ir para main</h3>
+
+            <pre><code>git switch main</code></pre>
+
+            <h3>2️⃣ Atualizar main</h3>
+
+            <pre><code>git pull</code></pre>
+
+            <h3>3️⃣ Fazer o merge</h3>
+
+            <pre><code>git merge dev</code></pre>
+
+            <h3>4️⃣ Enviar main para o GitHub</h3>
+
+            <pre><code>git push origin main</code></pre>
+
+            <h3>🧠 Resultado</h3>
+
+            <pre><code>dev
+            
+
+            ↓
+            git merge dev
+            ↓
+            main
+            ↓
+            git push
+            ↓
+            GitHub</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                LOG
+            ====================================================== -->
+
+            <section id="git-log">
+
+            
+            <h2>📜 Ver histórico</h2>
+
+            <pre><code>git log</code></pre>
+
+            <p>
+                Mostra o histórico dos commits.
+            </p>
+
+            <h3>Versão resumida</h3>
+
+            <pre><code>git log --oneline</code></pre>
+            
+
+            </section>
+
+            <!-- =====================================================
+                DIFF
+            ====================================================== -->
+
+            <section id="git-diff">
+
+            
+            <h2>🔎 Ver o que mudou</h2>
+
+            <pre><code>git diff</code></pre>
+
+            <p>
+                Mostra as alterações feitas nos arquivos que ainda não
+                foram adicionadas ao staging.
+            </p>
+
+            <p>
+                É especialmente útil antes de fazer
+                <code>git add</code>.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                CLONE
+            ====================================================== -->
+
+            <section id="git-clone">
+
+            
+            <h2>📥 Clonar um projeto existente</h2>
+
+            <p>
+                Se o projeto já existe no GitHub e queremos baixá-lo
+                para uma máquina:
+            </p>
+
+            <pre><code>git clone URL_DO_REPOSITORIO</code></pre>
+
+            <p>
+                O Git cria uma pasta contendo o projeto e seu histórico.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                COMANDOS PRINCIPAIS
+            ====================================================== -->
+
+            <section id="git-comandos">
+
+            
+            <h2>⚡ Comandos principais</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Comando</th>
+                        <th>Para que serve</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td><code>git init</code></td>
+                        <td>Inicializa um repositório</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git status</code></td>
+                        <td>Mostra o estado atual</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git add .</code></td>
+                        <td>Prepara alterações</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git commit</code></td>
+                        <td>Cria uma versão</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git push</code></td>
+                        <td>Envia para o GitHub</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git pull</code></td>
+                        <td>Baixa alterações</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git branch</code></td>
+                        <td>Lista branches</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git switch</code></td>
+                        <td>Troca de branch</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git merge</code></td>
+                        <td>Integra uma branch em outra</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git log</code></td>
+                        <td>Mostra o histórico</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git diff</code></td>
+                        <td>Mostra alterações</td>
+                    </tr>
+
+                    <tr>
+                        <td><code>git clone</code></td>
+                        <td>Clona um repositório</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+            
+
+            </section>
+
+            <!-- =====================================================
+                FLUXO DO DIA A DIA
+            ====================================================== -->
+
+            <section id="git-dia-dia">
+
+            
+            <h2>☀️ Git no dia a dia</h2>
+
+            <pre><code>1. Começar
+            
+
+            ↓
+            git pull
+
+            2. Trabalhar
+            ↓
+            editar arquivos
+
+            3. Conferir
+            ↓
+            git status
+            git diff
+
+            4. Preparar
+            ↓
+            git add .
+
+            5. Salvar versão
+            ↓
+            git commit -m "Descrição"
+
+            6. Enviar
+            ↓
+            git push</code></pre>
+
+            </section>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,3270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            <a href="index.html">
+                <span>HoW</span>
+                <strong>to!</strong>
+            </a>
+        </div>
+
+        <p>
+            Meu manual pessoal de programação
+        </p>
+
+    </header>
+
+    <main>
+
+        <!-- =====================================================
+            SQL
+        ====================================================== -->
+
+        <section id="sql">
+
+            <!-- =====================================================
+                MENU SQL
+            ====================================================== -->
+
+            <section class="howto-menu">
+
+                <h1>🗄️ SQL</h1>
+
+                <p class="howto-subtitulo">
+                    Guia rápido dos comandos mais usados
+                </p>
+
+                <div class="howto-grid">
+
+                    <a href="#guia-rapido" class="howto-card">
+                        <span class="howto-icon">⚡</span>
+                        <span class="howto-titulo">Guia rápido</span>
+                        <span class="howto-descricao">
+                            Comandos essenciais
+                        </span>
+                    </a>
+
+
+                    <a href="#criar-tabela" class="howto-card">
+                        <span class="howto-icon">🏗️</span>
+                        <span class="howto-titulo">Criar tabela</span>
+                        <span class="howto-descricao">
+                            CREATE TABLE
+                        </span>
+                    </a>
+
+
+                    <a href="#tipos-dados" class="howto-card">
+                        <span class="howto-icon">🔤</span>
+                        <span class="howto-titulo">Tipos de dados</span>
+                        <span class="howto-descricao">
+                            VARCHAR, INT, DATE...
+                        </span>
+                    </a>
+
+
+                    <a href="#regras-colunas" class="howto-card">
+                        <span class="howto-icon">⚙️</span>
+                        <span class="howto-titulo">Regras das colunas</span>
+                        <span class="howto-descricao">
+                            NOT NULL, DEFAULT...
+                        </span>
+                    </a>
+
+
+                    <a href="#innodb" class="howto-card">
+                        <span class="howto-icon">🗄️</span>
+                        <span class="howto-titulo">InnoDB</span>
+                        <span class="howto-descricao">
+                            Motor da tabela
+                        </span>
+                    </a>
+
+
+                    <a href="#consultar-dados" class="howto-card">
+                        <span class="howto-icon">🔍</span>
+                        <span class="howto-titulo">Consultar dados</span>
+                        <span class="howto-descricao">
+                            SELECT, WHERE, ORDER BY...
+                        </span>
+                    </a>
+
+
+                    <a href="#alterar-dados" class="howto-card">
+                        <span class="howto-icon">✏️</span>
+                        <span class="howto-titulo">Alterar dados</span>
+                        <span class="howto-descricao">
+                            UPDATE e DELETE
+                        </span>
+                    </a>
+
+
+                    <a href="#alterar-tabela" class="howto-card">
+                        <span class="howto-icon">🔧</span>
+                        <span class="howto-titulo">Alterar tabela</span>
+                        <span class="howto-descricao">
+                            ADD, MODIFY, DROP...
+                        </span>
+                    </a>
+
+
+                    <a href="#relacionamentos" class="howto-card">
+                        <span class="howto-icon">🔗</span>
+                        <span class="howto-titulo">Relacionamentos</span>
+                        <span class="howto-descricao">
+                            FOREIGN KEY e JOIN
+                        </span>
+                    </a>
+
+
+                    <a href="#group-by" class="howto-card">
+                        <span class="howto-icon">📊</span>
+                        <span class="howto-titulo">GROUP BY</span>
+                        <span class="howto-descricao">
+                            Agrupar resultados
+                        </span>
+                    </a>
+
+
+                    <a href="#having" class="howto-card">
+                        <span class="howto-icon">🎯</span>
+                        <span class="howto-titulo">HAVING</span>
+                        <span class="howto-descricao">
+                            Filtrar grupos
+                        </span>
+                    </a>
+
+
+                    <a href="#resumo-relacionamentos" class="howto-card">
+                        <span class="howto-icon">🧠</span>
+                        <span class="howto-titulo">Resumo</span>
+                        <span class="howto-descricao">
+                            Tudo em um só lugar
+                        </span>
+                    </a>
+
+                </div>
+
+            </section>  
+
+            <!-- =====================================================
+                SQL - GUIA RÁPIDO
+            ====================================================== -->
+
+            <section id="guia-rapido">
+
+                <h2>SQL — Guia rápido</h2>
+
+                <p>
+                    Os comandos que mais uso no dia a dia.
+                    Quando eu esquecer a sintaxe, começo por aqui.
+                </p>
+
+
+                <!-- =================================================
+                    COMANDOS PRINCIPAIS
+                ================================================== -->
+
+                <div class="sql-comandos">
+
+
+                    <!-- CREATE TABLE -->
+
+                    <article class="sql-comando">
+
+                        <h3>CREATE TABLE</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            criar uma nova tabela.
+                        </p>
+
+                        <pre><code>CREATE TABLE nome_tabela (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                nome VARCHAR(100) NOT NULL
+            );</code></pre>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>CREATE</code> = criar.
+                        </p>
+
+                    </article>
+
+
+                    <!-- INSERT -->
+
+                    <article class="sql-comando">
+
+                        <h3>INSERT INTO</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            inserir um novo registro.
+                        </p>
+
+                        <pre><code>INSERT INTO usuarios
+            (
+                nome,
+                email
+            )
+            VALUES
+            (
+                'Wagner',
+                'email@exemplo.com'
+            );</code></pre>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>INSERT</code> = inserir.
+                        </p>
+
+                    </article>
+
+
+                    <!-- SELECT -->
+
+                    <article class="sql-comando">
+
+                        <h3>SELECT</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            consultar ou buscar dados.
+                        </p>
+
+                        <pre><code>SELECT *
+            FROM usuarios;</code></pre>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>SELECT</code> = selecionar / consultar.
+                        </p>
+
+                    </article>
+
+
+                    <!-- WHERE -->
+
+                    <article class="sql-comando">
+
+                        <h3>WHERE</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            filtrar os registros que serão encontrados,
+                            alterados ou excluídos.
+                        </p>
+
+                        <pre><code>SELECT *
+            FROM usuarios
+            WHERE id = 5;</code></pre>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>WHERE</code> = onde / condição.
+                        </p>
+
+                    </article>
+
+
+                    <!-- ORDER BY -->
+
+                    <article class="sql-comando">
+
+                        <h3>ORDER BY</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            ordenar os resultados.
+                        </p>
+
+                        <pre><code>SELECT *
+            FROM usuarios
+            ORDER BY nome ASC;</code></pre>
+
+                        <p>
+                            <code>ASC</code> = crescente.
+                        </p>
+
+                        <p>
+                            <code>DESC</code> = decrescente.
+                        </p>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>ORDER BY</code> = ordenar por.
+                        </p>
+
+                    </article>
+
+
+                    <!-- UPDATE -->
+
+                    <article class="sql-comando">
+
+                        <h3>UPDATE</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            alterar um registro existente.
+                        </p>
+
+                        <pre><code>UPDATE usuarios
+            SET nome = 'Novo Nome'
+            WHERE id = 5;</code></pre>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>UPDATE</code> = atualizar / alterar.
+                        </p>
+
+                    </article>
+
+
+                    <!-- DELETE -->
+
+                    <article class="sql-comando">
+
+                        <h3>DELETE</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            excluir registros.
+                        </p>
+
+                        <pre><code>DELETE FROM usuarios
+            WHERE id = 5;</code></pre>
+
+                        <p>
+                            ⚠️ <strong>Cuidado!</strong>
+                            Sempre confira o <code>WHERE</code>.
+                        </p>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>DELETE</code> = apagar.
+                        </p>
+
+                    </article>
+
+
+                    <!-- ALTER TABLE -->
+
+                    <article class="sql-comando">
+
+                        <h3>ALTER TABLE</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            modificar a estrutura de uma tabela que já existe.
+                        </p>
+
+                        <h4>Adicionar uma coluna:</h4>
+
+                        <pre><code>ALTER TABLE usuarios
+            ADD telefone VARCHAR(20);</code></pre>
+
+                        <h4>Excluir uma coluna:</h4>
+
+                        <pre><code>ALTER TABLE usuarios
+            DROP COLUMN telefone;</code></pre>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>ALTER TABLE</code> = alterar a tabela.
+                        </p>
+
+                    </article>
+
+
+                    <!-- DROP TABLE -->
+
+                    <article class="sql-comando">
+
+                        <h3>DROP TABLE</h3>
+
+                        <p>
+                            <strong>Usado para:</strong>
+                            excluir uma tabela inteira.
+                        </p>
+
+                        <pre><code>DROP TABLE usuarios;</code></pre>
+
+                        <p>
+                            ⚠️ <strong>MUITO CUIDADO!</strong>
+                        </p>
+
+                        <p>
+                            Esse comando remove a tabela e seus dados.
+                        </p>
+
+                        <p>
+                            🧠 <strong>Lembre:</strong>
+                            <code>DROP</code> = remover.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                RESUMO DOS COMANDOS
+            ====================================================== -->
+
+            <section id="resumo-comandos">
+
+                <h2>Resumo para decorar</h2>
+
+                <div class="resumo-sql">
+
+                    <div class="resumo-item">
+                        <code>CREATE</code>
+                        <span>Criar</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>INSERT</code>
+                        <span>Inserir</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>SELECT</code>
+                        <span>Consultar</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>WHERE</code>
+                        <span>Filtrar</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>ORDER BY</code>
+                        <span>Ordenar</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>UPDATE</code>
+                        <span>Alterar</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>DELETE</code>
+                        <span>Excluir registros</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>ALTER TABLE</code>
+                        <span>Modificar tabela</span>
+                    </div>
+
+                    <div class="resumo-item">
+                        <code>DROP TABLE</code>
+                        <span>Excluir tabela</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================================
+                REGRA MENTAL
+            ====================================================== -->
+
+            <section id="regra-mental">
+
+                <h2>🧠 Regra mental</h2>
+
+                <p>
+                    Se eu esquecer completamente a sintaxe,
+                    primeiro penso no que quero fazer:
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>Quero criar algo?</strong>
+                        → <code>CREATE</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero colocar dados?</strong>
+                        → <code>INSERT</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero ver dados?</strong>
+                        → <code>SELECT</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero encontrar algo específico?</strong>
+                        → <code>WHERE</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero ordenar?</strong>
+                        → <code>ORDER BY</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero modificar dados?</strong>
+                        → <code>UPDATE</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero apagar dados?</strong>
+                        → <code>DELETE</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero mudar a estrutura da tabela?</strong>
+                        → <code>ALTER TABLE</code>
+                    </li>
+
+                    <li>
+                        <strong>Quero apagar a tabela inteira?</strong>
+                        → <code>DROP TABLE</code>
+                    </li>
+
+                </ul>
+
+            </section>
+
+            <!-- =====================================================
+                CRIAR TABELA
+            ====================================================== -->            
+            
+            <section id="criar-tabela">
+                <h2>Como criar uma tabela</h2>
+
+                <p>
+                    O comando <code>CREATE TABLE</code> é utilizado para criar
+                    uma nova tabela no banco de dados.
+                </p>
+
+                <h3>Exemplo:</h3>
+
+                <pre><code>CREATE TABLE inspecao_seguranca (
+
+                id INT AUTO_INCREMENT PRIMARY KEY,
+
+                andar VARCHAR(20) NOT NULL,
+
+                setor VARCHAR(30) NOT NULL,
+
+                item VARCHAR(100) NOT NULL,
+
+                status VARCHAR(20) NOT NULL,
+
+                modelo VARCHAR(50) DEFAULT NULL,
+
+                observacoes TEXT DEFAULT NULL,
+
+                data_manutencao DATE DEFAULT NULL,
+
+                data_inspecao DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+                usuario VARCHAR(100) NOT NULL
+
+            );</code></pre>                
+            </section>
+
+            <!-- =====================================================
+                SQL - TIPOS DE DADOS
+            ====================================================== -->
+
+            <section id="tipos-dados">
+
+                <h2>Tipos de dados</h2>
+
+                <p>
+                    Quando criamos uma tabela, cada coluna precisa informar
+                    que tipo de informação ela poderá armazenar.
+                </p>
+
+                <p>
+                    Os tipos mais usados no GatMan são:
+                </p>
+
+
+                <!-- =================================================
+                    INT
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>INT</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Armazena números inteiros, ou seja, números sem casas decimais.
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Para IDs, quantidades, contadores e outros valores inteiros.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>id INT</code></pre>
+
+                    <p>
+                        Pode armazenar valores como:
+                    </p>
+
+                    <pre><code>1
+            25
+            100
+            5000</code></pre>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Usar <code>VARCHAR</code> para números que serão utilizados
+                        matematicamente.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Se é realmente um número e você precisará fazer cálculos
+                        com ele, considere usar um tipo numérico.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    VARCHAR
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>VARCHAR</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Armazena texto de tamanho variável.
+                    </p>
+
+                    <h4>O que significa o número?</h4>
+
+                    <pre><code>VARCHAR(100)</code></pre>
+
+                    <p>
+                        O número entre parênteses define o limite de caracteres
+                        que a coluna pode armazenar.
+                    </p>
+
+                    <p>
+                        Portanto:
+                    </p>
+
+                    <pre><code>VARCHAR(20)</code></pre>
+
+                    <p>
+                        significa que o campo pode armazenar até 20 caracteres.
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Para textos relativamente curtos, como:
+                    </p>
+
+                    <ul>
+                        <li>Nome</li>
+                        <li>Setor</li>
+                        <li>Status</li>
+                        <li>Modelo</li>
+                        <li>Usuário</li>
+                        <li>Telefone</li>
+                    </ul>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>setor VARCHAR(30)</code></pre>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Colocar um tamanho muito pequeno para o conteúdo esperado.
+                    </p>
+
+                    <p>
+                        Por exemplo:
+                    </p>
+
+                    <pre><code>nome VARCHAR(5)</code></pre>
+
+                    <p>
+                        seria inadequado para nomes comuns.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Não precisa colocar um número gigantesco sem motivo.
+                        Pense no maior conteúdo que aquela coluna realmente precisa
+                        armazenar.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    TEXT
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>TEXT</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Armazena textos maiores.
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Para campos como observações, descrições, comentários
+                        e textos que podem variar bastante de tamanho.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>observacoes TEXT</code></pre>
+
+                    <h4>Por que não usar VARCHAR para tudo?</h4>
+
+                    <p>
+                        Porque nem todo texto possui o mesmo tamanho ou finalidade.
+                        Para textos maiores, <code>TEXT</code> pode representar melhor
+                        a intenção da coluna.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Usar <code>TEXT</code> para absolutamente todos os textos,
+                        mesmo quando um <code>VARCHAR</code> seria mais apropriado.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Pense em <code>VARCHAR</code> para textos curtos e
+                        <code>TEXT</code> para textos maiores.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    DATE
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>DATE</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Armazena somente uma data.
+                    </p>
+
+                    <h4>Formato:</h4>
+
+                    <pre><code>AAAA-MM-DD</code></pre>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>2026-08-16</code></pre>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Quando a hora não é importante.
+                    </p>
+
+                    <p>
+                        Por exemplo:
+                    </p>
+
+                    <pre><code>data_manutencao DATE</code></pre>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Usar <code>DATETIME</code> quando você só precisa da data.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Se você precisa saber somente "qual dia?",
+                        <code>DATE</code> normalmente é suficiente.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    DATETIME
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>DATETIME</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Armazena data e hora.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>2026-08-16 11:30:45</code></pre>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Quando é importante saber exatamente quando algo aconteceu.
+                    </p>
+
+                    <p>
+                        No GatMan, por exemplo:
+                    </p>
+
+                    <pre><code>data_inspecao DATETIME</code></pre>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Usar <code>DATE</code> quando a hora também é necessária.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        <code>DATE</code> = data.
+                        <br>
+                        <code>DATETIME</code> = data + hora.
+                    </p>
+
+                </article>
+
+            </section>
+
+
+            <!-- =====================================================
+                SQL - REGRAS DAS COLUNAS
+            ====================================================== -->
+
+            <section id="regras-colunas">
+
+                <h2>Regras das colunas</h2>
+
+                <p>
+                    Além do tipo de dado, podemos definir regras para determinar
+                    como aquela coluna poderá ser preenchida.
+                </p>
+
+
+                <!-- =================================================
+                    NOT NULL
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>NOT NULL</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Determina que a coluna não pode receber
+                        <code>NULL</code>.
+                    </p>
+
+                    <h4>Em outras palavras:</h4>
+
+                    <p>
+                        O valor é obrigatório.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>usuario VARCHAR(100) NOT NULL</code></pre>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Quando o registro não faz sentido sem aquela informação.
+                    </p>
+
+                    <h4>Exemplo no GatMan:</h4>
+
+                    <pre><code>item VARCHAR(100) NOT NULL</code></pre>
+
+                    <p>
+                        Uma inspeção precisa saber qual item está sendo inspecionado.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Tornar absolutamente todas as colunas obrigatórias,
+                        mesmo quando algumas informações são opcionais.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Pergunte:
+                        <strong>"Esse campo realmente precisa existir em todo registro?"</strong>
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    NULL
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>NULL</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Representa a ausência de um valor.
+                    </p>
+
+                    <p>
+                        <strong>NULL não significa exatamente a mesma coisa que vazio.</strong>
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>modelo VARCHAR(50) DEFAULT NULL</code></pre>
+
+                    <p>
+                        Significa que uma inspeção pode não ter um modelo informado.
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Quando determinada informação é realmente opcional.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Confundir:
+                    </p>
+
+                    <pre><code>NULL
+            ''
+            0</code></pre>
+
+                    <p>
+                        Esses valores possuem significados diferentes.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    DEFAULT
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>DEFAULT</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Define um valor padrão para a coluna quando nenhum valor
+                        é informado.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>status VARCHAR(20)
+            DEFAULT 'Pendente'</code></pre>
+
+                    <p>
+                        Se o INSERT não informar o status, o banco poderá utilizar
+                        automaticamente <code>Pendente</code>.
+                    </p>
+
+                    <h4>Outro exemplo:</h4>
+
+                    <pre><code>data_inspecao DATETIME
+            DEFAULT CURRENT_TIMESTAMP</code></pre>
+
+                    <p>
+                        Nesse caso, o banco registra automaticamente a data e hora
+                        da inserção.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        <code>DEFAULT</code> é muito útil para valores automáticos.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    AUTO_INCREMENT
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>AUTO_INCREMENT</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Faz o banco gerar automaticamente o próximo número
+                        para aquela coluna.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>id INT AUTO_INCREMENT</code></pre>
+
+                    <p>
+                        Os registros poderão receber:
+                    </p>
+
+                    <pre><code>1
+            2
+            3
+            4
+            5</code></pre>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        É muito comum utilizar em IDs numéricos.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Tentar informar manualmente o ID em todas as inserções
+                        quando o banco já está configurado para gerar o valor.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Normalmente aparece junto com
+                        <code>PRIMARY KEY</code>.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    PRIMARY KEY
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>PRIMARY KEY</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Define a chave principal da tabela.
+                    </p>
+
+                    <p>
+                        Ela identifica de forma única cada registro.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>id INT AUTO_INCREMENT PRIMARY KEY</code></pre>
+
+                    <h4>Na prática:</h4>
+
+                    <pre><code>id
+            ---
+            1
+            2
+            3
+            4</code></pre>
+
+                    <p>
+                        Cada registro possui seu próprio identificador.
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Praticamente toda tabela deve possuir uma forma de
+                        identificar seus registros de maneira única.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Pensar que <code>PRIMARY KEY</code> significa apenas
+                        "primeira coluna".
+                    </p>
+
+                    <p>
+                        Não é a posição da coluna que importa.
+                        É a função de identificação única.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        No GatMan, o padrão mais comum será:
+                    </p>
+
+                    <pre><code>id INT AUTO_INCREMENT PRIMARY KEY</code></pre>
+
+                </article>
+
+            </section>
+
+
+            <!-- =====================================================
+                SQL - MOTOR DA TABELA
+            ====================================================== -->
+
+            <section id="engine">
+
+                <h2>Engine — InnoDB</h2>
+
+                <article>
+
+                    <h3><code>InnoDB</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        É o mecanismo utilizado pelo MySQL/MariaDB para armazenar
+                        e gerenciar os dados da tabela.
+                    </p>
+
+                    <p>
+                        Pense nele como o "motor" da tabela.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>CREATE TABLE exemplo (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                nome VARCHAR(100)
+            ) ENGINE=InnoDB;</code></pre>
+
+                    <h4>Por que usamos InnoDB?</h4>
+
+                    <p>
+                        Ele oferece recursos importantes para aplicações como o GatMan,
+                        incluindo transações e relacionamentos entre tabelas.
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Para as tabelas do GatMan, InnoDB é uma escolha adequada
+                        e normalmente será o padrão.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Pensar que InnoDB é um tipo de dado como
+                        <code>VARCHAR</code> ou <code>INT</code>.
+                    </p>
+
+                    <p>
+                        Não é. É o mecanismo de armazenamento da tabela.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        <code>VARCHAR</code>, <code>INT</code> e
+                        <code>DATETIME</code> definem os dados.
+                    </p>
+
+                    <p>
+                        <code>InnoDB</code> define o mecanismo da tabela.
+                    </p>
+
+                </article>
+
+            </section>
+
+            <!-- =====================================================
+                SQL - CONSULTAR DADOS
+            ====================================================== -->
+
+            <section id="consultar-dados">
+
+                <h2>Como consultar dados</h2>
+
+                <p>
+                    O comando principal para consultar informações no banco
+                    é o <code>SELECT</code>.
+                </p>
+
+                <p>
+                    A partir dele podemos escolher quais colunas queremos ver,
+                    filtrar registros, ordenar resultados e limitar a quantidade
+                    de dados retornados.
+                </p>
+
+
+                <!-- =================================================
+                    SELECT *
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>SELECT *</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Retorna todas as colunas da tabela.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca;</code></pre>
+
+                    <h4>O que significa?</h4>
+
+                    <pre><code>SELECT  → quero consultar
+            *       → todas as colunas
+            FROM    → de qual tabela?
+            inspecao_seguranca → tabela escolhida</code></pre>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        É muito útil durante desenvolvimento e para verificar
+                        rapidamente todos os dados de uma tabela.
+                    </p>
+
+                    <h4>Quando evitar?</h4>
+
+                    <p>
+                        Em consultas definitivas de sistemas grandes, normalmente
+                        é melhor selecionar somente as colunas necessárias.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Usar <code>SELECT *</code> em absolutamente todas as consultas,
+                        mesmo quando você só precisa de duas ou três colunas.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Para testar rapidamente uma tabela, <code>SELECT *</code>
+                        é ótimo.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    SELECIONAR COLUNAS
+                ================================================== -->
+
+                <article>
+
+                    <h3>Selecionar colunas específicas</h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Em vez de trazer todas as colunas, podemos escolher
+                        exatamente quais queremos consultar.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT
+                andar,
+                setor,
+                item,
+                status
+            FROM inspecao_seguranca;</code></pre>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Quando você sabe exatamente quais informações precisa.
+                    </p>
+
+                    <h4>Vantagem:</h4>
+
+                    <p>
+                        A consulta fica mais clara e evita trazer informações
+                        desnecessárias.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Esquecer a vírgula entre as colunas.
+                    </p>
+
+                    <pre><code>-- ERRADO
+
+            SELECT
+                andar
+                setor
+                item</code></pre>
+
+                    <p>
+                        O correto:
+                    </p>
+
+                    <pre><code>SELECT
+                andar,
+                setor,
+                item
+            FROM inspecao_seguranca;</code></pre>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Uma coluna por linha deixa consultas maiores muito mais
+                        fáceis de ler.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    WHERE
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>WHERE</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Permite definir uma condição para escolher quais registros
+                        serão retornados.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            WHERE status = 'Pendente';</code></pre>
+
+                    <h4>O que significa?</h4>
+
+                    <p>
+                        "Mostre os registros da tabela onde o status seja
+                        <strong>Pendente</strong>."
+                    </p>
+
+                    <h4>Quando usar?</h4>
+
+                    <p>
+                        Sempre que você não quiser retornar todos os registros.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Esquecer as aspas ao comparar textos.
+                    </p>
+
+                    <pre><code>-- ERRADO
+
+            WHERE status = Pendente</code></pre>
+
+                    <p>
+                        O correto:
+                    </p>
+
+                    <pre><code>WHERE status = 'Pendente'</code></pre>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        <code>WHERE</code> é uma das palavras mais importantes
+                        do SQL.
+                    </p>
+
+                    <p>
+                        Pense:
+                        <strong>WHERE = onde / em quais condições?</strong>
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    OPERADORES
+                ================================================== -->
+
+                <article>
+
+                    <h3>Operadores de comparação</h3>
+
+                    <p>
+                        O <code>WHERE</code> pode utilizar diferentes operadores
+                        para criar condições.
+                    </p>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Operador</th>
+                                <th>Significado</th>
+                                <th>Exemplo</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>=</code></td>
+                                <td>igual</td>
+                                <td><code>id = 5</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>!=</code></td>
+                                <td>diferente</td>
+                                <td><code>status != 'OK'</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&gt;</code></td>
+                                <td>maior que</td>
+                                <td><code>id &gt; 10</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;</code></td>
+                                <td>menor que</td>
+                                <td><code>id &lt; 10</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&gt;=</code></td>
+                                <td>maior ou igual</td>
+                                <td><code>id &gt;= 10</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;=</code></td>
+                                <td>menor ou igual</td>
+                                <td><code>id &lt;= 10</code></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            WHERE id &gt; 10;</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    AND
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>AND</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Permite exigir que duas ou mais condições sejam verdadeiras
+                        ao mesmo tempo.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            WHERE andar = '1º Andar'
+            AND status = 'Pendente';</code></pre>
+
+                    <h4>O que significa?</h4>
+
+                    <p>
+                        O registro precisa estar no
+                        <strong>1º Andar</strong>
+                        <strong>E</strong>
+                        ter status
+                        <strong>Pendente</strong>.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Pense:
+                        <code>AND</code> = <strong>E</strong>.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    OR
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>OR</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Permite aceitar uma condição ou outra.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            WHERE status = 'Pendente'
+            OR status = 'Atenção';</code></pre>
+
+                    <h4>O que significa?</h4>
+
+                    <p>
+                        Retorne registros que sejam
+                        <strong>Pendente</strong>
+                        <strong>OU</strong>
+                        <strong>Atenção</strong>.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Pense:
+                        <code>OR</code> = <strong>OU</strong>.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    ORDER BY
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>ORDER BY</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Organiza os resultados da consulta.
+                    </p>
+
+                    <h4>Do menor para o maior:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            ORDER BY id ASC;</code></pre>
+
+                    <p>
+                        <code>ASC</code> significa crescente.
+                    </p>
+
+                    <h4>Do maior para o menor:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            ORDER BY id DESC;</code></pre>
+
+                    <p>
+                        <code>DESC</code> significa decrescente.
+                    </p>
+
+                    <h4>Exemplo muito usado no GatMan:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            ORDER BY data_inspecao DESC;</code></pre>
+
+                    <p>
+                        Assim os registros mais recentes aparecem primeiro.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Confundir <code>ASC</code> e <code>DESC</code>.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        <code>DESC</code> é muito útil para históricos,
+                        porque normalmente queremos mostrar o mais recente primeiro.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    LIMIT
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>LIMIT</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Limita a quantidade de registros retornados.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            LIMIT 10;</code></pre>
+
+                    <p>
+                        Retorna no máximo 10 registros.
+                    </p>
+
+                    <h4>Combinando com ORDER BY:</h4>
+
+                    <pre><code>SELECT *
+            FROM inspecao_seguranca
+            ORDER BY data_inspecao DESC
+            LIMIT 10;</code></pre>
+
+                    <p>
+                        Retorna os 10 registros mais recentes.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        <code>ORDER BY + LIMIT</code> é uma combinação extremamente
+                        útil.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    COMBINANDO TUDO
+                ================================================== -->
+
+                <article>
+
+                    <h3>Combinando os comandos</h3>
+
+                    <p>
+                        Agora podemos juntar várias partes de uma consulta.
+                    </p>
+
+                    <pre><code>SELECT
+                id,
+                andar,
+                setor,
+                item,
+                status,
+                data_inspecao
+
+            FROM inspecao_seguranca
+
+            WHERE status = 'Pendente'
+
+            ORDER BY data_inspecao DESC
+
+            LIMIT 10;</code></pre>
+
+                    <h4>Como ler isso?</h4>
+
+                    <ol>
+
+                        <li>
+                            <code>SELECT</code> →
+                            quais informações quero?
+                        </li>
+
+                        <li>
+                            <code>FROM</code> →
+                            de qual tabela?
+                        </li>
+
+                        <li>
+                            <code>WHERE</code> →
+                            quais registros?
+                        </li>
+
+                        <li>
+                            <code>ORDER BY</code> →
+                            em qual ordem?
+                        </li>
+
+                        <li>
+                            <code>LIMIT</code> →
+                            quantos quero receber?
+                        </li>
+
+                    </ol>
+
+                    <h4>🧠 Regra mental:</h4>
+
+                    <pre><code>SELECT
+                ↓
+            O que quero ver?
+
+            FROM
+                ↓
+            De onde?
+
+            WHERE
+                ↓
+            Quais?
+
+            ORDER BY
+                ↓
+            Em qual ordem?
+
+            LIMIT
+                ↓
+            Quantos?</code></pre>
+
+                </article>
+
+            </section>  
+            
+            <!-- =====================================================
+                SQL - ALTERAR DADOS
+            ====================================================== -->
+
+            <section id="alterar-dados">
+
+                <h2>Como alterar dados</h2>
+
+                <p>
+                    Depois de inserir informações no banco, podemos precisar
+                    corrigir, atualizar ou excluir algum registro.
+                </p>
+
+                <p>
+                    Os dois comandos principais para isso são:
+                </p>
+
+                <ul>
+                    <li><code>UPDATE</code> → alterar dados</li>
+                    <li><code>DELETE</code> → excluir dados</li>
+                </ul>
+
+
+                <!-- =================================================
+                    UPDATE
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>UPDATE</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        O comando <code>UPDATE</code> altera dados que já existem
+                        em uma tabela.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>UPDATE inspecao_seguranca
+            SET status = 'Resolvido'
+            WHERE id = 5;</code></pre>
+
+                    <h4>O que está acontecendo?</h4>
+
+                    <pre><code>UPDATE inspecao_seguranca
+                    ↓
+            Qual tabela quero alterar?
+
+            SET status = 'Resolvido'
+                    ↓
+            Qual informação quero modificar?
+
+            WHERE id = 5
+                    ↓
+            Qual registro?</code></pre>
+
+                    <p>
+                        Nesse exemplo, somente o registro cujo
+                        <code>id</code> é <code>5</code> terá o status alterado.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    UPDATE - VÁRIAS COLUNAS
+                ================================================== -->
+
+                <article>
+
+                    <h3>Alterar várias colunas</h3>
+
+                    <p>
+                        Podemos alterar mais de uma coluna no mesmo comando.
+                    </p>
+
+                    <pre><code>UPDATE inspecao_seguranca
+            SET
+                status = 'Resolvido',
+                observacoes = 'Problema corrigido'
+            WHERE id = 5;</code></pre>
+
+                    <p>
+                        Nesse caso, duas informações do mesmo registro
+                        serão alteradas.
+                    </p>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Separe cada alteração com uma vírgula.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    UPDATE COM WHERE
+                ================================================== -->
+
+                <article>
+
+                    <h3>⚠️ Cuidado com o <code>WHERE</code></h3>
+
+                    <p>
+                        Essa é uma das coisas mais importantes para lembrar
+                        quando usamos <code>UPDATE</code>.
+                    </p>
+
+                    <h4>Seguro:</h4>
+
+                    <pre><code>UPDATE inspecao_seguranca
+            SET status = 'Resolvido'
+            WHERE id = 5;</code></pre>
+
+                    <p>
+                        Apenas o registro com <code>id = 5</code> será alterado.
+                    </p>
+
+                    <h4>Muito perigoso:</h4>
+
+                    <pre><code>UPDATE inspecao_seguranca
+            SET status = 'Resolvido';</code></pre>
+
+                    <p>
+                        Sem <code>WHERE</code>, o banco pode alterar
+                        <strong>todos os registros da tabela</strong>.
+                    </p>
+
+                    <p>
+                        🧠 <strong>Regra do HoW to!:</strong>
+                    </p>
+
+                    <blockquote>
+                        Antes de executar um UPDATE, confira o WHERE.
+                    </blockquote>
+
+                </article>
+
+
+                <!-- =================================================
+                    DELETE
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>DELETE</code></h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Exclui registros da tabela.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>DELETE FROM inspecao_seguranca
+            WHERE id = 5;</code></pre>
+
+                    <p>
+                        Nesse exemplo, o registro com <code>id = 5</code>
+                        será excluído.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    DELETE SEM WHERE
+                ================================================== -->
+
+                <article>
+
+                    <h3>🚨 DELETE sem WHERE</h3>
+
+                    <p>
+                        Assim como no <code>UPDATE</code>, precisamos ter
+                        muito cuidado com o <code>WHERE</code>.
+                    </p>
+
+                    <pre><code>DELETE FROM inspecao_seguranca;</code></pre>
+
+                    <p>
+                        Esse comando remove <strong>todos os registros</strong>
+                        da tabela.
+                    </p>
+
+                    <p>
+                        A tabela continua existindo, mas seus registros
+                        serão removidos.
+                    </p>
+
+                    <h4>🧠 Regra do HoW to!:</h4>
+
+                    <pre><code>UPDATE → cuidado com WHERE
+            DELETE → cuidado com WHERE</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    DIFERENÇA UPDATE / DELETE
+                ================================================== -->
+
+                <article>
+
+                    <h3>UPDATE × DELETE</h3>
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Comando</th>
+                                <th>O que faz?</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>UPDATE</code></td>
+                                <td>Altera dados existentes.</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DELETE</code></td>
+                                <td>Remove registros.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <pre><code>UPDATE
+            ↓
+            "Quero mudar alguma coisa."
+
+            DELETE
+            ↓
+            "Quero remover alguma coisa."</code></pre>
+
+                </article>
+
+            </section>            
+
+            <!-- =====================================================
+                SQL - ALTERAR ESTRUTURA DA TABELA
+            ====================================================== -->
+
+            <section id="alterar-tabela">
+
+                <h2>Como alterar uma tabela</h2>
+
+                <p>
+                    Depois que uma tabela já foi criada, podemos perceber
+                    que precisamos adicionar, remover ou modificar alguma coluna.
+                </p>
+
+                <p>
+                    Para isso usamos o comando
+                    <code>ALTER TABLE</code>.
+                </p>
+
+
+                <!-- =================================================
+                    DIFERENÇA UPDATE / ALTER TABLE
+                ================================================== -->
+
+                <article>
+
+                    <h3>🧠 Primeiro: não confundir</h3>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Comando</th>
+                                <th>Altera o quê?</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>UPDATE</code></td>
+                                <td>Os dados dos registros.</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>ALTER TABLE</code></td>
+                                <td>A estrutura da tabela.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <h4>Exemplo:</h4>
+
+                    <p>
+                        Se quero mudar:
+                    </p>
+
+                    <pre><code>status = 'Pendente'</code></pre>
+
+                    <p>
+                        uso <code>UPDATE</code>.
+                    </p>
+
+                    <p>
+                        Se quero criar uma nova coluna chamada:
+                    </p>
+
+                    <pre><code>prioridade</code></pre>
+
+                    <p>
+                        uso <code>ALTER TABLE</code>.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    ADD
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>ADD</code> — adicionar coluna</h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Adiciona uma nova coluna a uma tabela existente.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            ADD prioridade VARCHAR(20);</code></pre>
+
+                    <p>
+                        Agora a tabela passa a possuir a coluna
+                        <code>prioridade</code>.
+                    </p>
+
+                    <h4>Outro exemplo:</h4>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            ADD localizacao VARCHAR(100);</code></pre>
+
+                    <h4>Dica:</h4>
+
+                    <p>
+                        Pense:
+                        <code>ADD</code> = adicionar.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    DROP COLUMN
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>DROP COLUMN</code> — remover coluna</h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Remove uma coluna da tabela.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            DROP COLUMN prioridade;</code></pre>
+
+                    <p>
+                        A coluna <code>prioridade</code> deixa de existir.
+                    </p>
+
+                    <p>
+                        ⚠️ Os dados que estavam nessa coluna também serão perdidos.
+                    </p>
+
+                    <h4>Erro comum:</h4>
+
+                    <p>
+                        Confundir:
+                    </p>
+
+                    <pre><code>DELETE</code></pre>
+
+                    <p>
+                        com:
+                    </p>
+
+                    <pre><code>DROP COLUMN</code></pre>
+
+                    <p>
+                        <code>DELETE</code> remove registros.
+                    </p>
+
+                    <p>
+                        <code>DROP COLUMN</code> remove uma coluna da estrutura.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    MODIFY
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>MODIFY</code> — modificar uma coluna</h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        Permite alterar a definição de uma coluna existente.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <p>
+                        Imagine que criamos:
+                    </p>
+
+                    <pre><code>modelo VARCHAR(50)</code></pre>
+
+                    <p>
+                        e depois percebemos que precisamos de mais espaço.
+                    </p>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            MODIFY modelo VARCHAR(100);</code></pre>
+
+                    <p>
+                        Agora a coluna passa a aceitar até 100 caracteres.
+                    </p>
+
+                    <h4>Também podemos alterar regras:</h4>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            MODIFY modelo VARCHAR(100) NOT NULL;</code></pre>
+
+                    <p>
+                        Nesse caso, além do tamanho, estamos tornando
+                        a coluna obrigatória.
+                    </p>
+
+                    <h4>⚠️ Atenção:</h4>
+
+                    <p>
+                        Antes de modificar uma coluna, confira os dados que já
+                        existem nela. Uma alteração inadequada pode causar
+                        problemas ou perda de informação.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    CHANGE
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>CHANGE</code> — alterar nome e definição</h3>
+
+                    <h4>O que é?</h4>
+
+                    <p>
+                        O <code>CHANGE</code> permite alterar o nome de uma coluna
+                        e também sua definição.
+                    </p>
+
+                    <h4>Exemplo:</h4>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            CHANGE modelo modelo_equipamento VARCHAR(100);</code></pre>
+
+                    <p>
+                        A coluna:
+                    </p>
+
+                    <pre><code>modelo</code></pre>
+
+                    <p>
+                        passa a se chamar:
+                    </p>
+
+                    <pre><code>modelo_equipamento</code></pre>
+
+                    <h4>🧠 Diferença importante:</h4>
+
+                    <pre><code>MODIFY
+            ↓
+            modifica a definição
+
+            CHANGE
+            ↓
+            pode modificar o nome + definição</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    ALTER TABLE - EXEMPLO COMPLETO
+                ================================================== -->
+
+                <article>
+
+                    <h3>Exemplo completo</h3>
+
+                    <p>
+                        Imagine que a tabela já existe:
+                    </p>
+
+                    <pre><code>inspecao_seguranca</code></pre>
+
+                    <p>
+                        E precisamos adicionar uma prioridade:
+                    </p>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            ADD prioridade VARCHAR(20);</code></pre>
+
+                    <p>
+                        Depois percebemos que precisamos aumentar o tamanho:
+                    </p>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            MODIFY prioridade VARCHAR(50);</code></pre>
+
+                    <p>
+                        E finalmente decidimos que o nome deveria ser
+                        <code>nivel_prioridade</code>:
+                    </p>
+
+                    <pre><code>ALTER TABLE inspecao_seguranca
+            CHANGE prioridade nivel_prioridade VARCHAR(50);</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    RESUMO
+                ================================================== -->
+
+                <article>
+
+                    <h3>🧠 Resumo</h3>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Comando</th>
+                                <th>Função</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>ADD</code></td>
+                                <td>Adicionar coluna.</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DROP COLUMN</code></td>
+                                <td>Remover coluna.</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>MODIFY</code></td>
+                                <td>Modificar definição da coluna.</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>CHANGE</code></td>
+                                <td>Alterar nome e definição da coluna.</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <pre><code>ALTER TABLE
+                │
+                ├── ADD
+                │     └── adicionar
+                │
+                ├── DROP COLUMN
+                │     └── remover
+                │
+                ├── MODIFY
+                │     └── modificar definição
+                │
+                └── CHANGE
+                    └── alterar nome + definição</code></pre>
+
+                </article>
+
+            </section>
+
+            <!-- =====================================================
+                SQL - RELACIONAMENTOS
+            ====================================================== -->
+
+            <section id="relacionamentos">
+
+                <h2>🔗 Relacionamentos entre tabelas</h2>
+
+                <p>
+                    Em um sistema real, normalmente não colocamos tudo
+                    dentro de uma única tabela.
+                </p>
+
+                <p>
+                    Criamos tabelas diferentes e fazemos com que elas
+                    possam se relacionar.
+                </p>
+
+                <h3>Exemplo no GatMan</h3>
+
+                <pre><code>usuarios
+                │
+                └── inspeções
+                        │
+                        └── manutenção</code></pre>
+
+                <p>
+                    Uma inspeção pode estar associada a um usuário,
+                    e uma manutenção pode estar associada a uma inspeção.
+                </p>
+
+            </section>
+
+
+            <!-- =====================================================
+                FOREIGN KEY
+            ====================================================== -->
+
+            <section id="foreign-key">
+
+                <h2><code>FOREIGN KEY</code></h2>
+
+                <article>
+
+                    <h3>O que é?</h3>
+
+                    <p>
+                        Uma <code>FOREIGN KEY</code> é uma chave utilizada
+                        para criar um relacionamento entre duas tabelas.
+                    </p>
+
+                    <p>
+                        Enquanto a <code>PRIMARY KEY</code> identifica um
+                        registro dentro da própria tabela, a
+                        <code>FOREIGN KEY</code> permite apontar para um
+                        registro de outra tabela.
+                    </p>
+
+                </article>
+
+
+                <!-- =================================================
+                    PRIMARY KEY X FOREIGN KEY
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>PRIMARY KEY</code> × <code>FOREIGN KEY</code></h3>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Função</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>PRIMARY KEY</code></td>
+                                <td>
+                                    Identifica unicamente um registro.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><code>FOREIGN KEY</code></td>
+                                <td>
+                                    Cria uma ligação com outra tabela.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <p>
+                        🧠 Pense assim:
+                    </p>
+
+                    <pre><code>PRIMARY KEY
+            ↓
+            "Quem sou eu?"
+
+            FOREIGN KEY
+            ↓
+            "Com quem estou relacionado?"</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    EXEMPLO
+                ================================================== -->
+
+                <article>
+
+                    <h3>Exemplo simples</h3>
+
+                    <p>
+                        Imagine que temos uma tabela de usuários:
+                    </p>
+
+                    <pre><code>CREATE TABLE usuarios (
+
+                id INT AUTO_INCREMENT PRIMARY KEY,
+
+                nome VARCHAR(100) NOT NULL
+
+            ) ENGINE=InnoDB;</code></pre>
+
+                    <p>
+                        Agora queremos criar uma tabela de inspeções.
+                    </p>
+
+                    <pre><code>CREATE TABLE inspecoes (
+
+                id INT AUTO_INCREMENT PRIMARY KEY,
+
+                descricao VARCHAR(200) NOT NULL,
+
+                usuario_id INT,
+
+                FOREIGN KEY (usuario_id)
+                    REFERENCES usuarios(id)
+
+            ) ENGINE=InnoDB;</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    EXPLICANDO
+                ================================================== -->
+
+                <article>
+
+                    <h3>O que está acontecendo?</h3>
+
+                    <pre><code>usuarios
+            │
+            ├── id = 1
+            │   └── Wagner
+            │
+            ├── id = 2
+            │   └── João
+            │
+            └── id = 3
+                └── Maria
+
+
+            inspecoes
+            │
+            ├── id = 1
+            │   └── usuario_id = 1
+            │
+            ├── id = 2
+            │   └── usuario_id = 1
+            │
+            └── id = 3
+                └── usuario_id = 2</code></pre>
+
+                    <p>
+                        A coluna <code>usuario_id</code> da tabela
+                        <code>inspecoes</code> aponta para a coluna
+                        <code>id</code> da tabela <code>usuarios</code>.
+                    </p>
+
+                    <p>
+                        Portanto:
+                    </p>
+
+                    <pre><code>inspecoes.usuario_id
+                    ↓
+            usuarios.id</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    REFERENCES
+                ================================================== -->
+
+                <article>
+
+                    <h3><code>REFERENCES</code></h3>
+
+                    <p>
+                        A palavra <code>REFERENCES</code> indica qual tabela
+                        e qual coluna serão referenciadas.
+                    </p>
+
+                    <pre><code>FOREIGN KEY (usuario_id)
+            REFERENCES usuarios(id)</code></pre>
+
+                    <p>
+                        Leia como:
+                    </p>
+
+                    <blockquote>
+                        A coluna <code>usuario_id</code> referencia
+                        o <code>id</code> da tabela <code>usuarios</code>.
+                    </blockquote>
+
+                    <h4>🧠 Regra mental:</h4>
+
+                    <pre><code>FOREIGN KEY
+                ↓
+            qual é a minha coluna?
+
+            REFERENCES
+                ↓
+            qual tabela e coluna ela aponta?</code></pre>
+
+                </article>
+
+
+                <!-- =================================================
+                    JOIN
+                ================================================== -->
+
+                <section id="join">
+
+                    <h2><code>JOIN</code></h2>
+
+                    <article>
+
+                        <h3>O que é?</h3>
+
+                        <p>
+                            O <code>JOIN</code> permite consultar informações
+                            que estão em tabelas diferentes.
+                        </p>
+
+                        <p>
+                            Se temos:
+                        </p>
+
+                        <pre><code>usuarios
+            inspecoes</code></pre>
+
+                        <p>
+                            podemos fazer uma consulta que mostre dados das duas
+                            tabelas ao mesmo tempo.
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        INNER JOIN
+                    ============================================== -->
+
+                    <article>
+
+                        <h3><code>INNER JOIN</code></h3>
+
+                        <h4>O que é?</h4>
+
+                        <p>
+                            Retorna somente os registros que possuem
+                            correspondência entre as tabelas.
+                        </p>
+
+                        <h4>Exemplo:</h4>
+
+                        <pre><code>SELECT
+                inspecoes.id,
+                inspecoes.descricao,
+                usuarios.nome
+
+            FROM inspecoes
+
+            INNER JOIN usuarios
+                ON inspecoes.usuario_id = usuarios.id;</code></pre>
+
+                        <h4>O que aconteceu?</h4>
+
+                        <p>
+                            Estamos pegando:
+                        </p>
+
+                        <pre><code>inspecoes
+                ↓
+            usuario_id
+
+                    +
+
+            usuarios
+                ↓
+            id</code></pre>
+
+                        <p>
+                            E dizendo ao banco:
+                        </p>
+
+                        <pre><code>ON inspecoes.usuario_id = usuarios.id</code></pre>
+
+                        <p>
+                            Ou seja:
+                            <strong>
+                                "Relacione essas duas colunas quando os valores forem iguais."
+                            </strong>
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        RESULTADO JOIN
+                    ============================================== -->
+
+                    <article>
+
+                        <h3>Visualizando o resultado</h3>
+
+                        <p>
+                            Imagine que temos:
+                        </p>
+
+                        <pre><code>usuarios
+
+            id | nome
+            ---|-------
+            1  | Wagner
+            2  | João
+            3  | Maria</code></pre>
+
+                        <pre><code>inspecoes
+
+            id | descricao       | usuario_id
+            ---|-----------------|-----------
+            1  | Extintor        | 1
+            2  | Porta corta-fogo| 1
+            3  | Corrimão        | 2</code></pre>
+
+                        <p>
+                            Depois do <code>JOIN</code>:
+                        </p>
+
+                        <pre><code>id | descricao        | nome
+            ---|------------------|-------
+            1  | Extintor         | Wagner
+            2  | Porta corta-fogo | Wagner
+            3  | Corrimão         | João</code></pre>
+
+                        <p>
+                            O banco juntou as informações das duas tabelas.
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        LEFT JOIN
+                    ============================================== -->
+
+                    <article>
+
+                        <h3><code>LEFT JOIN</code></h3>
+
+                        <h4>O que é?</h4>
+
+                        <p>
+                            Retorna todos os registros da tabela da esquerda,
+                            mesmo quando não existe correspondência na tabela
+                            da direita.
+                        </p>
+
+                        <h4>Exemplo:</h4>
+
+                        <pre><code>SELECT
+                usuarios.nome,
+                inspecoes.descricao
+
+            FROM usuarios
+
+            LEFT JOIN inspecoes
+                ON inspecoes.usuario_id = usuarios.id;</code></pre>
+
+                        <p>
+                            Se um usuário ainda não tiver nenhuma inspeção,
+                            ele continuará aparecendo no resultado.
+                        </p>
+
+                        <h4>🧠 Pense assim:</h4>
+
+                        <pre><code>INNER JOIN
+            ↓
+            quero somente os que possuem correspondência
+
+            LEFT JOIN
+            ↓
+            quero todos da tabela principal,
+            mesmo que não tenham correspondência</code></pre>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        ON
+                    ============================================== -->
+
+                    <article>
+
+                        <h3><code>ON</code></h3>
+
+                        <p>
+                            O <code>ON</code> define a condição usada para
+                            relacionar as tabelas.
+                        </p>
+
+                        <pre><code>INNER JOIN usuarios
+                ON inspecoes.usuario_id = usuarios.id;</code></pre>
+
+                        <p>
+                            Nesse caso:
+                        </p>
+
+                        <pre><code>inspecoes.usuario_id
+                    =
+            usuarios.id</code></pre>
+
+                        <p>
+                            Essa igualdade é o "elo" entre as duas tabelas.
+                        </p>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================================
+                    GROUP BY
+                ================================================== -->
+
+                <section id="group-by">
+
+                    <h2><code>GROUP BY</code></h2>
+
+                    <article>
+
+                        <h3>O que é?</h3>
+
+                        <p>
+                            O <code>GROUP BY</code> agrupa registros que possuem
+                            o mesmo valor em determinada coluna.
+                        </p>
+
+                        <p>
+                            Ele é muito utilizado junto com funções como:
+                        </p>
+
+                        <ul>
+                            <li><code>COUNT()</code></li>
+                            <li><code>SUM()</code></li>
+                            <li><code>AVG()</code></li>
+                            <li><code>MIN()</code></li>
+                            <li><code>MAX()</code></li>
+                        </ul>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        COUNT
+                    ============================================== -->
+
+                    <article>
+
+                        <h3><code>COUNT()</code> + <code>GROUP BY</code></h3>
+
+                        <p>
+                            Imagine que queremos saber quantas inspeções
+                            existem por status.
+                        </p>
+
+                        <pre><code>SELECT
+                status,
+                COUNT(*) AS quantidade
+
+            FROM inspecao_seguranca
+
+            GROUP BY status;</code></pre>
+
+                        <p>
+                            O resultado poderia ser:
+                        </p>
+
+                        <pre><code>status       | quantidade
+            -------------|----------
+            OK           | 25
+            Pendente     | 8
+            Atenção      | 4</code></pre>
+
+                        <p>
+                            Em vez de mostrar todas as inspeções individualmente,
+                            o banco agrupou os registros pelo campo
+                            <code>status</code>.
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        OUTROS AGREGADORES
+                    ============================================== -->
+
+                    <article>
+
+                        <h3>Funções de agrupamento</h3>
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Função</th>
+                                    <th>O que faz?</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td><code>COUNT()</code></td>
+                                    <td>Conta registros.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>SUM()</code></td>
+                                    <td>Soma valores.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>AVG()</code></td>
+                                    <td>Calcula uma média.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>MIN()</code></td>
+                                    <td>Encontra o menor valor.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>MAX()</code></td>
+                                    <td>Encontra o maior valor.</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        AS
+                    ============================================== -->
+
+                    <article>
+
+                        <h3><code>AS</code></h3>
+
+                        <p>
+                            O <code>AS</code> permite criar um nome temporário
+                            para uma coluna ou resultado.
+                        </p>
+
+                        <pre><code>SELECT
+                status,
+                COUNT(*) AS quantidade
+
+            FROM inspecao_seguranca
+
+            GROUP BY status;</code></pre>
+
+                        <p>
+                            Nesse caso:
+                        </p>
+
+                        <pre><code>COUNT(*)
+                ↓
+            resultado da contagem
+
+            AS quantidade
+                ↓
+            nome que aparecerá no resultado</code></pre>
+
+                        <p>
+                            O <code>AS</code> não altera o nome da coluna no banco.
+                            Ele apenas dá um nome ao resultado daquela consulta.
+                        </p>
+
+                    </article>
+
+                </section>
+
+
+                <!-- =================================================
+                    HAVING
+                ================================================== -->
+
+                <section id="having">
+
+                    <h2><code>HAVING</code></h2>
+
+                    <article>
+
+                        <h3>O que é?</h3>
+
+                        <p>
+                            O <code>HAVING</code> permite filtrar resultados
+                            depois que eles foram agrupados.
+                        </p>
+
+                        <p>
+                            Ele é muito utilizado junto com
+                            <code>GROUP BY</code>.
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        WHERE X HAVING
+                    ============================================== -->
+
+                    <article>
+
+                        <h3><code>WHERE</code> × <code>HAVING</code></h3>
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Comando</th>
+                                    <th>Filtra o quê?</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td><code>WHERE</code></td>
+                                    <td>Registros antes do agrupamento.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><code>HAVING</code></td>
+                                    <td>Grupos depois do agrupamento.</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                        <p>
+                            Essa diferença é muito importante.
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        EXEMPLO HAVING
+                    ============================================== -->
+
+                    <article>
+
+                        <h3>Exemplo</h3>
+
+                        <p>
+                            Imagine que queremos descobrir quais status possuem
+                            mais de 5 inspeções.
+                        </p>
+
+                        <pre><code>SELECT
+                status,
+                COUNT(*) AS quantidade
+
+            FROM inspecao_seguranca
+
+            GROUP BY status
+
+            HAVING COUNT(*) > 5;</code></pre>
+
+                        <p>
+                            Primeiro o banco agrupa por <code>status</code>.
+                        </p>
+
+                        <p>
+                            Depois o <code>HAVING</code> mantém somente os grupos
+                            cuja quantidade seja maior que 5.
+                        </p>
+
+                    </article>
+
+
+                    <!-- =============================================
+                        REGRA MENTAL
+                    ============================================== -->
+
+                    <article>
+
+                        <h3>🧠 Regra mental</h3>
+
+                        <pre><code>WHERE
+            ↓
+            filtra registros
+
+            GROUP BY
+            ↓
+            agrupa registros
+
+            HAVING
+            ↓
+            filtra os grupos</code></pre>
+
+                    </article>
+
+                </section>
+
+            </section>
+
+            <!-- =================================================
+                RESUMO RELACIONAMENTOS
+            ====================================================== -->
+
+            <section id="resumo-relacionamentos">
+
+                <h2>🧠 Resumo dos relacionamentos</h2>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Comando</th>
+                            <th>Função</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>FOREIGN KEY</code></td>
+                            <td>
+                                Cria uma ligação entre tabelas.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><code>REFERENCES</code></td>
+                            <td>
+                                Define para onde a chave aponta.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><code>JOIN</code></td>
+                            <td>
+                                Combina dados de tabelas diferentes.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><code>INNER JOIN</code></td>
+                            <td>
+                                Retorna correspondências entre tabelas.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><code>LEFT JOIN</code></td>
+                            <td>
+                                Mantém todos os registros da tabela da esquerda.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><code>GROUP BY</code></td>
+                            <td>
+                                Agrupa registros.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><code>HAVING</code></td>
+                            <td>
+                                Filtra grupos.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+
+                <h3>🧠 Para lembrar</h3>
+
+                <pre><code>PRIMARY KEY
+            ↓
+            identifica
+
+            FOREIGN KEY
+            ↓
+            relaciona
+
+            JOIN
+            ↓
+            junta
+
+            GROUP BY
+            ↓
+            agrupa
+
+            HAVING
+            ↓
+            filtra grupos</code></pre>
+
+            </section>
+
+        </section>        
+    </main>
+</body>
+</html>

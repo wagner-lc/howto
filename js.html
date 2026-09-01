@@ -1,0 +1,5170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="logo">
+            <a href="index.html">
+                <span>HoW</span>
+                <strong>to!</strong>
+            </a>
+        </div>
+
+        <p>
+            Meu manual pessoal de programação
+        </p>
+
+    </header>
+
+    <main>
+                <!-- =====================================================
+            JS
+        ====================================================== -->
+
+        <section id="js">
+
+            <!-- =====================================================
+                JS - MENU
+            ====================================================== -->
+            
+            <section id="menu-js" class="howto-menu">
+
+
+            <h1>⚡ JavaScript</h1>
+
+            <p class="howto-subtitulo">
+                Guia rápido para consultar e relembrar JavaScript,
+                desde os fundamentos até a comunicação com PHP.
+            </p>
+
+            <div class="howto-grid">
+
+                <a href="#funcoes" class="howto-card">
+                    <span>🧩</span>
+                    <strong>Funções</strong>
+                    <small>
+                        Funções tradicionais, arrow functions e parâmetros.
+                    </small>
+                </a>
+
+                <a href="#arrays" class="howto-card">
+                    <span>📚</span>
+                    <strong>Arrays</strong>
+                    <small>
+                        map, filter, find, forEach e outros métodos.
+                    </small>
+                </a>
+
+                <a href="#elementos" class="howto-card">
+                    <span>🎯</span>
+                    <strong>Elementos</strong>
+                    <small>
+                        Como encontrar e acessar elementos do HTML.
+                    </small>
+                </a>
+
+                <a href="#eventos" class="howto-card">
+                    <span>🖱️</span>
+                    <strong>Eventos</strong>
+                    <small>
+                        click, submit, input, change e outros eventos.
+                    </small>
+                </a>
+
+                <a href="#dom" class="howto-card">
+                    <span>🖥️</span>
+                    <strong>DOM</strong>
+                    <small>
+                        Alterar textos, classes, atributos e elementos.
+                    </small>
+                </a>
+
+                <a href="#fetch" class="howto-card">
+                    <span>📤</span>
+                    <strong>Fetch</strong>
+                    <small>
+                        Enviar e receber dados através do JavaScript.
+                    </small>
+                </a>
+
+                <a href="#json" class="howto-card">
+                    <span>📦</span>
+                    <strong>JSON</strong>
+                    <small>
+                        Estrutura e comunicação de dados entre JS e PHP.
+                    </small>
+                </a>
+
+                <a href="#async-await" class="howto-card">
+                    <span>⏳</span>
+                    <strong>Async / Await</strong>
+                    <small>
+                        Operações assíncronas e tratamento de erros.
+                    </small>
+                </a>
+
+                <a href="#resposta" class="howto-card">
+                    <span>📥</span>
+                    <strong>Resposta do PHP</strong>
+                    <small>
+                        Como interpretar sucesso, erros e dados recebidos.
+                    </small>
+                </a>
+
+                <a href="#aplicacao" class="howto-card">
+                    <span>🏨</span>
+                    <strong>JS de aplicação</strong>
+                    <small>
+                        Validação, loading, formulários, CRUD e interface.
+                    </small>
+                </a>
+
+                <a href="#guia-aplicacao" class="howto-card">
+                    <span>⚡</span>
+                    <strong>Guia rápido</strong>
+                    <small>
+                        Comandos e padrões para consulta rápida.
+                    </small>
+                </a>
+
+                <a href="#debug" class="howto-card">
+                    <span>🐞</span>
+                    <strong>Debug</strong>
+                    <small>
+                        console.log, console.error e ferramentas de diagnóstico.
+                    </small>
+                </a>
+
+            </div>
+
+
+            </section>
+
+            <!-- =====================================================
+                JS - FUNÇÕES
+            ====================================================== -->
+
+            <section id="funcoes">
+
+            
+            <h2>🧩 Funções</h2>
+
+            <p>
+                Uma função é um bloco de código que podemos executar
+                quando necessário.
+            </p>
+
+
+            <h3>🔹 Função tradicional</h3>
+
+            <pre><code>function salvar() {
+
+            console.log('Salvando...');
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Para executar:
+            </p>
+
+            <pre><code>salvar();</code></pre>
+
+
+            <h3>📥 Função com parâmetro</h3>
+
+            <pre><code>function saudacao(nome) {
+
+            console.log('Olá, ' + nome);
+            
+
+            }</code></pre>
+
+            
+            <pre><code>saudacao('Wagner');</code></pre>
+
+
+            <h3>↩️ Return</h3>
+
+            <pre><code>function somar(a, b) {
+
+            return a + b;
+            
+
+            }
+
+            const resultado = somar(10, 5);
+
+            console.log(resultado);</code></pre>
+
+            
+            <p>
+                O <code>return</code> devolve um valor para quem chamou
+                a função.
+            </p>
+
+
+            <h3>⚡ Arrow Function</h3>
+
+            <p>
+                Arrow Function é uma forma mais curta de escrever
+                funções.
+            </p>
+
+            <p>
+                A mesma função tradicional:
+            </p>
+
+            <pre><code>function somar(a, b) {
+
+            return a + b;
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Pode ser escrita como:
+            </p>
+
+            <pre><code>const somar = (a, b) =&gt; {
+
+            return a + b;
+            
+
+            };</code></pre>
+
+            
+            <h3>🧠 Como ler</h3>
+
+            <pre><code>const somar = (a, b) =&gt; {
+                        ↑
+                    parâmetros
+
+                        =&gt;
+                        "vai para"
+
+                            {
+                            código
+                            }</code></pre>
+
+
+            <h3>⚡ Arrow Function curta</h3>
+
+            <p>
+                Quando a função possui apenas uma expressão que será
+                retornada, podemos simplificá-la ainda mais.
+            </p>
+
+            <pre><code>const somar = (a, b) =&gt; a + b;</code></pre>
+
+            <p>
+                Isso equivale a:
+            </p>
+
+            <pre><code>const somar = (a, b) =&gt; {
+
+            return a + b;
+            
+
+            };</code></pre>
+
+            
+            <h3>👤 Apenas um parâmetro</h3>
+
+            <p>
+                Quando existe apenas um parâmetro, os parênteses podem
+                ser omitidos.
+            </p>
+
+            <pre><code>const dobrar = numero =&gt; numero * 2;</code></pre>
+
+            <p>
+                Também podemos escrever:
+            </p>
+
+            <pre><code>const dobrar = (numero) =&gt; numero * 2;</code></pre>
+
+            <p>
+                As duas formas são válidas.
+            </p>
+
+
+            <h3>🛠️ Arrow Function com bloco</h3>
+
+            <pre><code>const verificar = (status) =&gt; {
+
+            if (status === 'Concluído') {
+
+                console.log('Tudo certo!');
+
+            } else {
+
+                console.log('Ainda pendente.');
+
+            }
+            
+
+            };</code></pre>
+
+            
+            <h3>📌 Onde vamos usar no GatMan?</h3>
+
+            <p>
+                Arrow Functions aparecem bastante quando trabalhamos
+                com eventos, respostas do <code>fetch()</code> e métodos
+                de arrays.
+            </p>
+
+            <pre><code>botao.addEventListener('click', () =&gt; {
+
+            console.log('Clicou!');
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Portanto, vale muito a pena entender Arrow Functions
+                antes de avançarmos para os eventos.
+            </p>
+
+
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>Função tradicional:
+            
+
+            function nome() {
+
+            }
+
+            Arrow Function:
+
+            const nome = () => {
+
+            }
+
+            Com parâmetros:
+
+            const nome = (parametro) => {
+
+            }
+
+            Retornando diretamente:
+
+            const somar = (a, b) => a + b;</code></pre>
+
+            </section>
+
+            <!-- =====================================================
+                JS - MÉTODOS DE ARRAYS
+            ====================================================== -->
+
+            <section id="arrays">
+
+            
+            <h2>📚 Arrays e métodos úteis</h2>
+
+            <p>
+                Arrays são estruturas usadas para guardar vários valores
+                dentro de uma única variável.
+            </p>
+
+            <pre><code>const nomes = [
+            'João',
+            'Maria',
+            'Carlos'
+            
+
+            ];</code></pre>
+
+            
+            <p>
+                O JavaScript possui vários métodos para trabalhar com
+                esses valores. Alguns dos mais importantes são
+                <code>forEach()</code>, <code>map()</code>,
+                <code>filter()</code> e <code>find()</code>.
+            </p>
+
+
+            <!-- =================================================
+                FOREACH
+            ================================================== -->
+
+            <h3>🔁 forEach()</h3>
+
+            <p>
+                Executa uma função para cada item do array.
+            </p>
+
+            <pre><code>const nomes = ['João', 'Maria', 'Carlos'];
+            
+
+            nomes.forEach((nome) => {
+
+            
+            console.log(nome);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>João
+            
+
+            Maria
+            Carlos</code></pre>
+
+            
+            <p>
+                O <code>forEach()</code> é muito útil quando queremos
+                simplesmente executar alguma ação para cada elemento.
+            </p>
+
+            <h4>⚠️ Importante</h4>
+
+            <p>
+                O <code>forEach()</code> não é utilizado para criar um
+                novo array com os resultados.
+            </p>
+
+
+            <!-- =================================================
+                MAP
+            ================================================== -->
+
+            <h3>🗺️ map()</h3>
+
+            <p>
+                O <code>map()</code> percorre o array e cria
+                <strong>um novo array</strong> com o resultado da
+                transformação de cada item.
+            </p>
+
+            <pre><code>const numeros = [1, 2, 3, 4];
+            
+
+            const dobrados = numeros.map((numero) => {
+
+            
+            return numero * 2;
+            
+
+            });
+
+            console.log(dobrados);</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>[2, 4, 6, 8]</code></pre>
+
+            <h4>🧠 Como pensar no map()</h4>
+
+            <pre><code>1 → 2
+            
+
+            2 → 4
+            3 → 6
+            4 → 8
+
+            Cada item
+            ↓
+            é transformado
+            ↓
+            novo array</code></pre>
+
+            
+            <h4>⚡ Forma curta</h4>
+
+            <pre><code>const dobrados = numeros.map(numero =&gt; numero * 2);</code></pre>
+
+            <p>
+                Aqui temos novamente uma Arrow Function.
+            </p>
+
+
+            <!-- =================================================
+                FILTER
+            ================================================== -->
+
+            <h3>🔎 filter()</h3>
+
+            <p>
+                O <code>filter()</code> cria um novo array contendo
+                somente os elementos que atendem a uma condição.
+            </p>
+
+            <pre><code>const numeros = [1, 2, 3, 4, 5, 6];
+            
+
+            const pares = numeros.filter((numero) => {
+
+            
+            return numero % 2 === 0;
+            
+
+            });
+
+            console.log(pares);</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>[2, 4, 6]</code></pre>
+
+            <h4>🧠 Como pensar no filter()</h4>
+
+            <pre><code>1 → ❌
+            
+
+            2 → ✅
+            3 → ❌
+            4 → ✅
+            5 → ❌
+            6 → ✅
+
+            Somente os que passam
+            na condição
+            ↓
+            novo array</code></pre>
+
+            
+            <h4>🏨 Exemplo parecido com o GatMan</h4>
+
+            <pre><code>const inspeções = [
+
+            { status: 'Pendente' },
+            { status: 'Concluído' },
+            { status: 'Pendente' }
+            
+
+            ];
+
+            const pendentes = inspeções.filter((inspecao) => {
+
+            
+            return inspecao.status === 'Pendente';
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Agora <code>pendentes</code> contém somente as inspeções
+                cujo status é <code>Pendente</code>.
+            </p>
+
+
+            <!-- =================================================
+                FIND
+            ================================================== -->
+
+            <h3>🎯 find()</h3>
+
+            <p>
+                O <code>find()</code> procura um elemento que atenda
+                a uma condição e retorna o <strong>primeiro</strong>
+                encontrado.
+            </p>
+
+            <pre><code>const nomes = ['João', 'Maria', 'Carlos'];
+            
+
+            const resultado = nomes.find((nome) => {
+
+            
+            return nome === 'Maria';
+            
+
+            });
+
+            console.log(resultado);</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>Maria</code></pre>
+
+            <h4>🧠 Diferença entre find() e filter()</h4>
+
+            <pre><code>find()
+            
+
+            ↓
+            encontra UM elemento
+
+            filter()
+            ↓
+            encontra VÁRIOS elementos</code></pre>
+
+            
+            <!-- =================================================
+                SOME
+            ================================================== -->
+
+            <h3>❓ some()</h3>
+
+            <p>
+                Verifica se <strong>pelo menos um</strong> elemento
+                atende à condição.
+            </p>
+
+            <p>
+                O resultado é <code>true</code> ou <code>false</code>.
+            </p>
+
+            <pre><code>const numeros = [1, 3, 5, 8];
+            
+
+            const existePar = numeros.some((numero) => {
+
+            
+            return numero % 2 === 0;
+            
+
+            });
+
+            console.log(existePar);</code></pre>
+
+            
+            <pre><code>true</code></pre>
+
+            <p>
+                Existe pelo menos um número par: <code>8</code>.
+            </p>
+
+
+            <!-- =================================================
+                EVERY
+            ================================================== -->
+
+            <h3>✅ every()</h3>
+
+            <p>
+                Verifica se <strong>todos</strong> os elementos atendem
+                à condição.
+            </p>
+
+            <pre><code>const numeros = [2, 4, 6, 8];
+            
+
+            const todosPares = numeros.every((numero) => {
+
+            
+            return numero % 2 === 0;
+            
+
+            });
+
+            console.log(todosPares);</code></pre>
+
+            
+            <pre><code>true</code></pre>
+
+
+            <!-- =================================================
+                INCLUDES
+            ================================================== -->
+
+            <h3>🔍 includes()</h3>
+
+            <p>
+                Verifica se um determinado valor existe no array.
+            </p>
+
+            <pre><code>const setores = [
+            'Recepção',
+            'Cozinha',
+            'Manutenção'
+            
+
+            ];
+
+            console.log(setores.includes('Cozinha'));</code></pre>
+
+            
+            <pre><code>true</code></pre>
+
+            <p>
+                Se o valor não existir:
+            </p>
+
+            <pre><code>console.log(setores.includes('RH'));</code></pre>
+
+            <pre><code>false</code></pre>
+
+
+            <!-- =================================================
+                RESUMO
+            ================================================== -->
+
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>forEach()
+            
+
+            ↓
+            faz algo para cada item
+
+            map()
+            ↓
+            transforma cada item
+            → novo array
+
+            filter()
+            ↓
+            seleciona itens
+            → novo array
+
+            find()
+            ↓
+            encontra o primeiro item
+
+            some()
+            ↓
+            pelo menos um?
+
+            every()
+            ↓
+            todos?
+
+            includes()
+            ↓
+            existe esse valor?</code></pre>
+
+            
+            <!-- =================================================
+                COMPARAÇÃO
+            ================================================== -->
+
+            <h3>🧠 Qual usar?</h3>
+
+            <pre><code>Quero executar algo para cada item?
+                ↓
+            forEach()
+            
+
+            Quero transformar os itens?
+            ↓
+            map()
+
+            Quero somente alguns itens?
+            ↓
+            filter()
+
+            Quero encontrar um item?
+            ↓
+            find()
+
+            Quero saber se existe pelo menos um?
+            ↓
+            some()
+
+            Quero saber se todos atendem?
+            ↓
+            every()
+
+            Quero saber se um valor existe?
+            ↓
+            includes()</code></pre>
+
+            
+            <h3>⚠️ Erro comum</h3>
+
+            <p>
+                Um erro bastante comum é usar <code>map()</code> quando
+                queremos apenas executar uma ação.
+            </p>
+
+            <p>
+                Por exemplo:
+            </p>
+
+            <pre><code>nomes.map((nome) =&gt; {
+
+            console.log(nome);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Se não precisamos do novo array, o mais apropriado é:
+            </p>
+
+            <pre><code>nomes.forEach((nome) =&gt; {
+
+            console.log(nome);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Outra confusão comum é usar <code>filter()</code> esperando
+                receber um único objeto. O <code>filter()</code> sempre
+                retorna um array, mesmo que encontre apenas um elemento.
+            </p>
+
+            <pre><code>const resultado = lista.filter(...);
+            
+
+            console.log(resultado);
+            // → array</code></pre>
+
+            
+            <p>
+                Se queremos apenas o primeiro resultado, normalmente
+                usamos <code>find()</code>.
+            </p>
+
+
+            <h3>🏨 Exemplo completo</h3>
+
+            <pre><code>const inspeções = [
+
+            {
+                item: 'Extintor',
+                status: 'Pendente'
+            },
+
+            {
+                item: 'Alarme',
+                status: 'Concluído'
+            },
+
+            {
+                item: 'Porta corta-fogo',
+                status: 'Pendente'
+            }
+            
+
+            ];
+
+            const pendentes = inspeções.filter((inspecao) => {
+
+            
+            return inspecao.status === 'Pendente';
+            
+
+            });
+
+            const nomes = pendentes.map((inspecao) => {
+
+            
+            return inspecao.item;
+            
+
+            });
+
+            console.log(nomes);</code></pre>
+
+            
+            <p>
+                Primeiro usamos <code>filter()</code> para selecionar
+                somente as inspeções pendentes.
+            </p>
+
+            <p>
+                Depois usamos <code>map()</code> para transformar essas
+                inspeções em apenas seus nomes.
+            </p>
+
+            <pre><code>[
+            'Extintor',
+            'Porta corta-fogo'
+            
+
+            ]</code></pre>
+
+            
+            <p>
+                Essa combinação de métodos é muito comum em JavaScript.
+            </p>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - ELEMENTOS HTML
+            ====================================================== -->
+
+            <section id="elementos">
+
+
+            <h2>🎯 Selecionando elementos HTML</h2>
+
+            <p>
+                Para o JavaScript interagir com um elemento HTML,
+                primeiro precisamos encontrá-lo.
+            </p>
+
+            <p>
+                Existem várias formas de fazer isso. No código moderno,
+                <code>querySelector()</code> e <code>querySelectorAll()</code>
+                são especialmente úteis porque utilizam seletores CSS.
+            </p>
+
+
+            <h3>🎯 querySelector()</h3>
+
+            <p>
+                Seleciona o <strong>primeiro elemento</strong> que corresponde
+                ao seletor informado.
+            </p>
+
+            <pre><code>const botao = document.querySelector('#salvar');</code></pre>
+
+            <p>
+                Se temos:
+            </p>
+
+            <pre><code>&lt;button id="salvar"&gt;Salvar&lt;/button&gt;</code></pre>
+
+            <p>
+                O JavaScript encontra esse botão através do seu
+                <code>id</code>.
+            </p>
+
+
+            <h3>🔵 ID</h3>
+
+            <pre><code>document.querySelector('#salvar');</code></pre>
+
+            <p>
+                O <code>#</code> indica que estamos procurando um
+                <code>id</code>.
+            </p>
+
+
+            <h3>🟢 Classe</h3>
+
+            <pre><code>document.querySelector('.botao-salvar');</code></pre>
+
+            <p>
+                O <code>.</code> indica uma classe.
+            </p>
+
+            <pre><code>&lt;button class="botao-salvar"&gt;
+            Salvar
+
+
+            </button></code></pre>
+
+
+            <h3>🏷️ Tag</h3>
+
+            <pre><code>document.querySelector('button');</code></pre>
+
+            <p>
+                Também podemos procurar diretamente pelo nome da tag.
+            </p>
+
+            <p>
+                Porém, como <code>querySelector()</code> retorna apenas
+                o primeiro resultado, se houver vários botões ele pegará
+                somente o primeiro.
+            </p>
+
+
+            <h3>🎯 Seletores mais específicos</h3>
+
+            <p>
+                Como <code>querySelector()</code> utiliza seletores CSS,
+                podemos combinar seletores.
+            </p>
+
+            <pre><code>document.querySelector('#formulario .botao-salvar');</code></pre>
+
+            <p>
+                Nesse caso estamos procurando um elemento com a classe
+                <code>botao-salvar</code> que esteja dentro do elemento
+                com o ID <code>formulario</code>.
+            </p>
+
+
+            <h3>📚 querySelectorAll()</h3>
+
+            <p>
+                Enquanto <code>querySelector()</code> pega o primeiro
+                elemento, <code>querySelectorAll()</code> pega
+                <strong>todos</strong> os elementos correspondentes.
+            </p>
+
+            <pre><code>const botoes = document.querySelectorAll('.botao');</code></pre>
+
+            <p>
+                Se existirem vários elementos:
+            </p>
+
+            <pre><code>&lt;button class="botao"&gt;Salvar&lt;/button&gt;
+
+
+            <button class="botao">Editar</button>
+            <button class="botao">Excluir</button></code></pre>
+
+
+            <p>
+                O JavaScript terá uma coleção contendo os três elementos.
+            </p>
+
+
+            <h3>🔁 Percorrendo vários elementos</h3>
+
+            <pre><code>const botoes = document.querySelectorAll('.botao');
+
+
+            botoes.forEach((botao) => {
+
+
+            console.log(botao);
+
+
+            });</code></pre>
+
+
+            <p>
+                Aqui aparece novamente uma <strong>Arrow Function</strong>:
+            </p>
+
+            <pre><code>(botao) =&gt; {
+
+            console.log(botao);
+
+
+            }</code></pre>
+
+
+            <p>
+                O <code>forEach()</code> executa a função uma vez para
+                cada elemento encontrado.
+            </p>
+
+
+            <h3>🆔 getElementById()</h3>
+
+            <p>
+                Existe também uma forma específica para buscar elementos
+                pelo ID:
+            </p>
+
+            <pre><code>const botao = document.getElementById('salvar');</code></pre>
+
+            <p>
+                Nesse caso não usamos <code>#</code>.
+            </p>
+
+            <p>
+                Isso:
+            </p>
+
+            <pre><code>document.getElementById('salvar');</code></pre>
+
+            <p>
+                equivale, na prática, a:
+            </p>
+
+            <pre><code>document.querySelector('#salvar');</code></pre>
+
+
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>Primeiro elemento:
+
+
+            document.querySelector('#id');
+
+            Todos os elementos:
+
+            document.querySelectorAll('.classe');
+
+            Pelo ID:
+
+            document.getElementById('id');
+
+            Classe:
+
+            document.querySelector('.classe');
+
+            Tag:
+
+            document.querySelector('button');</code></pre>
+
+
+            <h3>🧠 Regra para o GatMan</h3>
+
+            <pre><code>querySelector()
+
+
+            ↓
+            1 elemento
+
+            querySelectorAll()
+            ↓
+            vários elementos
+
+            getElementById()
+            ↓
+            1 elemento pelo ID</code></pre>
+
+
+            <h3>🔗 Próximo passo</h3>
+
+            <p>
+                Encontrar o elemento é apenas o primeiro passo.
+                Depois precisamos fazer alguma coisa quando o usuário
+                interagir com ele.
+            </p>
+
+            <a href="#eventos" class="howto-link">
+                🖱️ Próximo: Eventos e addEventListener()
+            </a>
+
+
+            </section>
+
+            <!-- =====================================================
+                JS - EVENTOS
+            ====================================================== -->
+
+            <section id="eventos">
+
+            
+            <h2>🖱️ Eventos e addEventListener()</h2>
+
+            <p>
+                Um evento é uma ação que acontece na página.
+                Por exemplo: clicar em um botão, enviar um formulário,
+                alterar um campo, passar o mouse ou pressionar uma tecla.
+            </p>
+
+            <p>
+                O JavaScript pode "escutar" esses eventos e executar
+                alguma ação quando eles acontecerem.
+            </p>
+
+
+            <h3>👂 addEventListener()</h3>
+
+            <pre><code>elemento.addEventListener('evento', funcao);</code></pre>
+
+            <p>
+                Podemos interpretar assim:
+            </p>
+
+            <pre><code>elemento
+            ↓
+            
+
+            quem vamos observar
+
+            'evento'
+            ↓
+            o que estamos esperando acontecer
+
+            funcao
+            ↓
+            o que devemos fazer quando acontecer</code></pre>
+
+            
+            <h3>🖱️ Exemplo com clique</h3>
+
+            <p>
+                HTML:
+            </p>
+
+            <pre><code>&lt;button id="salvar"&gt;Salvar&lt;/button&gt;</code></pre>
+
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>const botao = document.querySelector('#salvar');
+            
+
+            botao.addEventListener('click', () => {
+
+            
+            console.log('O botão foi clicado!');
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Nesse exemplo, o JavaScript encontra o botão e fica
+                esperando o evento <code>click</code>.
+            </p>
+
+            <p>
+                Quando o usuário clicar, a Arrow Function será executada.
+            </p>
+
+
+            <h3>⚡ Forma de pensar</h3>
+
+            <pre><code>Quando
+            ↓
+            
+
+            o botão receber um
+            ↓
+            click
+            ↓
+            faça isso</code></pre>
+
+            
+            <h3>🧩 Função separada</h3>
+
+            <p>
+                A função não precisa necessariamente ficar diretamente
+                dentro do <code>addEventListener()</code>.
+            </p>
+
+            <pre><code>function salvar() {
+
+            console.log('Salvando...');
+            
+
+            }
+
+            const botao = document.querySelector('#salvar');
+
+            botao.addEventListener('click', salvar);</code></pre>
+
+            
+            <p>
+                Aqui passamos a função sem colocar
+                <code>()</code> depois do nome.
+            </p>
+
+            <pre><code>botao.addEventListener('click', salvar);</code></pre>
+
+            <p>
+                Não fazemos:
+            </p>
+
+            <pre><code>botao.addEventListener('click', salvar());</code></pre>
+
+            <p>
+                Porque <code>salvar()</code> executaria a função
+                imediatamente, em vez de esperar o clique.
+            </p>
+
+
+            <h3>📝 Evento de formulário — submit</h3>
+
+            <p>
+                Para formulários, um dos eventos mais importantes é
+                <code>submit</code>.
+            </p>
+
+            <pre><code>const formulario = document.querySelector('#formulario');
+            
+
+            formulario.addEventListener('submit', (event) => {
+
+            
+            event.preventDefault();
+
+            console.log('Formulário enviado!');
+            
+
+            });</code></pre>
+
+            
+            <h3>🛑 preventDefault()</h3>
+
+            <pre><code>event.preventDefault();</code></pre>
+
+            <p>
+                Impede o comportamento padrão daquele evento.
+            </p>
+
+            <p>
+                Em um formulário HTML, o comportamento padrão normalmente
+                envolve o navegador enviar o formulário e recarregar ou
+                navegar para outra página.
+            </p>
+
+            <p>
+                No GatMan, podemos impedir esse comportamento para que
+                o JavaScript possa enviar os dados usando
+                <code>fetch()</code>.
+            </p>
+
+
+            <h3>📦 O objeto event</h3>
+
+            <pre><code>formulario.addEventListener('submit', (event) =&gt; {
+
+            console.log(event);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                O parâmetro <code>event</code> contém informações sobre
+                o evento que aconteceu.
+            </p>
+
+            <p>
+                Podemos dar outro nome para ele:
+            </p>
+
+            <pre><code>formulario.addEventListener('submit', (e) =&gt; {
+
+            e.preventDefault();
+            
+
+            });</code></pre>
+
+            
+            <p>
+                <code>event</code> e <code>e</code> são apenas nomes de
+                variáveis. O nome não muda o funcionamento.
+            </p>
+
+
+            <h3>⌨️ Outros eventos comuns</h3>
+
+            <pre><code>click
+            
+
+            ↓
+            clique
+
+            submit
+            ↓
+            envio de formulário
+
+            change
+            ↓
+            valor de um campo foi alterado
+
+            input
+            ↓
+            valor do campo está sendo digitado/alterado
+
+            focus
+            ↓
+            elemento recebeu foco
+
+            blur
+            ↓
+            elemento perdeu foco
+
+            keydown
+            ↓
+            tecla pressionada
+
+            keyup
+            ↓
+            tecla liberada
+
+            mouseenter
+            ↓
+            mouse entrou no elemento
+
+            mouseleave
+            ↓
+            mouse saiu do elemento</code></pre>
+
+            
+            <h3>🎯 Exemplo com input</h3>
+
+            <pre><code>const campo = document.querySelector('#nome');
+            
+
+            campo.addEventListener('input', (event) => {
+
+            
+            console.log(event.target.value);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                <code>event.target</code> representa o elemento que
+                disparou o evento.
+            </p>
+
+            <p>
+                Portanto:
+            </p>
+
+            <pre><code>event.target.value</code></pre>
+
+            <p>
+                significa o valor atual daquele campo.
+            </p>
+
+
+            <h3>🔘 Vários botões</h3>
+
+            <pre><code>const botoes = document.querySelectorAll('.botao');
+            
+
+            botoes.forEach((botao) => {
+
+            
+            botao.addEventListener('click', () =&gt; {
+
+                console.log('Botão clicado!');
+
+            });
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Aqui juntamos três conceitos que já aprendemos:
+            </p>
+
+            <pre><code>querySelectorAll()
+                ↓
+            
+
+            encontra vários elementos
+
+            forEach()
+            ↓
+            percorre os elementos
+
+            addEventListener()
+            ↓
+            escuta o evento de cada elemento</code></pre>
+
+            
+            <h3>💾 O padrão que usaremos no GatMan</h3>
+
+            <pre><code>const formulario = document.querySelector('#formulario');
+            
+
+            formulario.addEventListener('submit', (event) => {
+
+            
+            event.preventDefault();
+
+            // pegar dados
+
+            // enviar para PHP
+
+            // receber resposta
+
+            // atualizar a página
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Esse padrão será a base para os formulários que conversam
+                com os arquivos PHP do GatMan.
+            </p>
+
+
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>Elemento:
+            
+
+            const botao = document.querySelector('#botao');
+
+            Escutar clique:
+
+            botao.addEventListener('click', () => {
+
+            });
+
+            Escutar formulário:
+
+            formulario.addEventListener('submit', (event) => {
+
+            
+            event.preventDefault();
+            
+
+            });
+
+            Valor do elemento:
+
+            event.target.value</code></pre>
+
+            
+            <h3>🔗 Próximo passo</h3>
+
+            <p>
+                Agora que sabemos encontrar elementos e reagir aos eventos,
+                podemos aprender a pegar os dados de um formulário e
+                enviá-los para o PHP.
+            </p>
+
+            <a href="php.html#salvar" class="howto-link">
+                🐘 Ver como o PHP recebe os dados
+            </a>
+
+            <a href="#fetch" class="howto-link">
+                📤 Próximo: Enviar dados com fetch()
+            </a>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - MANIPULAR O DOM
+            ====================================================== -->
+
+            <section id="dom">
+
+            
+            <h2>🖥️ Manipulando o HTML (DOM)</h2>
+
+            <p>
+                DOM significa <strong>Document Object Model</strong>.
+                É a representação da página HTML que o JavaScript consegue
+                acessar e modificar.
+            </p>
+
+            <p>
+                Em termos simples:
+            </p>
+
+            <pre><code>HTML
+            
+
+            ↓
+            DOM
+            ↓
+            JavaScript
+            ↓
+            altera a página</code></pre>
+
+            
+            <h3>🎯 Selecionar um elemento</h3>
+
+            <pre><code>const titulo = document.querySelector('#titulo');</code></pre>
+
+            <p>
+                Depois de guardar o elemento em uma variável, podemos
+                trabalhar com ele.
+            </p>
+
+
+            <h3>📝 textContent</h3>
+
+            <p>
+                <code>textContent</code> permite ler ou alterar o texto
+                de um elemento.
+            </p>
+
+            <pre><code>const titulo = document.querySelector('#titulo');
+            
+
+            titulo.textContent = 'Novo título';</code></pre>
+
+            
+            <p>
+                HTML:
+            </p>
+
+            <pre><code>&lt;h2 id="titulo"&gt;Título antigo&lt;/h2&gt;</code></pre>
+
+            <p>
+                Depois do JavaScript:
+            </p>
+
+            <pre><code>&lt;h2 id="titulo"&gt;Novo título&lt;/h2&gt;</code></pre>
+
+
+            <h3>📖 innerHTML</h3>
+
+            <p>
+                <code>innerHTML</code> permite alterar o conteúdo HTML
+                que está dentro de um elemento.
+            </p>
+
+            <pre><code>const mensagem = document.querySelector('#mensagem');
+            
+
+            mensagem.innerHTML = '<strong>Salvo com sucesso!</strong>';</code></pre>
+
+            
+            <p>
+                A diferença principal:
+            </p>
+
+            <pre><code>textContent
+            
+
+            ↓
+            trata como texto
+
+            innerHTML
+            ↓
+            interpreta HTML</code></pre>
+
+            
+            <h4>⚠️ Cuidado com innerHTML</h4>
+
+            <p>
+                Evite colocar diretamente no <code>innerHTML</code>
+                conteúdo que veio de usuários ou de fontes não confiáveis.
+                Para simplesmente alterar texto, prefira
+                <code>textContent</code>.
+            </p>
+
+
+            <h3>📥 value</h3>
+
+            <p>
+                Para campos de formulário, usamos principalmente
+                <code>value</code> para acessar ou alterar o valor.
+            </p>
+
+            <pre><code>const nome = document.querySelector('#nome');
+            
+
+            console.log(nome.value);</code></pre>
+
+            
+            <p>
+                Para alterar:
+            </p>
+
+            <pre><code>nome.value = 'Wagner';</code></pre>
+
+            <p>
+                Exemplo:
+            </p>
+
+            <pre><code>&lt;input
+            type="text"
+            id="nome"
+            
+
+            ></code></pre>
+
+            
+            <h3>🧹 Limpando um formulário</h3>
+
+            <p>
+                Podemos limpar um campo individual:
+            </p>
+
+            <pre><code>campo.value = '';</code></pre>
+
+            <p>
+                Ou podemos limpar o formulário inteiro usando
+                <code>reset()</code>.
+            </p>
+
+            <pre><code>formulario.reset();</code></pre>
+
+            <p>
+                Isso é muito útil depois que um cadastro foi salvo
+                com sucesso.
+            </p>
+
+
+            <h3>👁️ Mostrar e esconder elementos</h3>
+
+            <p>
+                Podemos acessar o estilo de um elemento através de
+                <code>style</code>.
+            </p>
+
+            <pre><code>const mensagem = document.querySelector('#mensagem');
+            
+
+            mensagem.style.display = 'none';</code></pre>
+
+            
+            <p>
+                Para mostrar novamente:
+            </p>
+
+            <pre><code>mensagem.style.display = 'block';</code></pre>
+
+            <h4>⚠️ Mas existe uma forma melhor</h4>
+
+            <p>
+                Em projetos maiores, normalmente é melhor controlar a
+                aparência através de classes CSS em vez de colocar estilos
+                diretamente no JavaScript.
+            </p>
+
+
+            <h3>🎨 classList</h3>
+
+            <p>
+                <code>classList</code> permite adicionar, remover e verificar
+                classes CSS.
+            </p>
+
+            <h4>Adicionar classe</h4>
+
+            <pre><code>elemento.classList.add('ativo');</code></pre>
+
+            <h4>Remover classe</h4>
+
+            <pre><code>elemento.classList.remove('ativo');</code></pre>
+
+            <h4>Alternar classe</h4>
+
+            <pre><code>elemento.classList.toggle('ativo');</code></pre>
+
+            <p>
+                O <code>toggle()</code> adiciona a classe se ela não existir
+                e remove se ela já existir.
+            </p>
+
+            <h4>Verificar classe</h4>
+
+            <pre><code>elemento.classList.contains('ativo');</code></pre>
+
+            <p>
+                Retorna <code>true</code> ou <code>false</code>.
+            </p>
+
+
+            <h3>🔗 Atributos</h3>
+
+            <p>
+                Podemos ler ou alterar atributos HTML usando
+                <code>getAttribute()</code> e <code>setAttribute()</code>.
+            </p>
+
+            <h4>Ler atributo</h4>
+
+            <pre><code>const imagem = document.querySelector('#foto');
+            
+
+            const caminho = imagem.getAttribute('src');</code></pre>
+
+            
+            <h4>Alterar atributo</h4>
+
+            <pre><code>imagem.setAttribute('src', 'nova-foto.jpg');</code></pre>
+
+
+            <h3>🆕 Criar elementos</h3>
+
+            <p>
+                O JavaScript também pode criar novos elementos HTML.
+            </p>
+
+            <pre><code>const novoParagrafo = document.createElement('p');
+            
+
+            novoParagrafo.textContent = 'Novo texto';</code></pre>
+
+            
+            <p>
+                Criar o elemento não significa que ele já apareceu na página.
+                Precisamos adicioná-lo ao DOM.
+            </p>
+
+            <pre><code>document.body.appendChild(novoParagrafo);</code></pre>
+
+
+            <h3>➕ append()</h3>
+
+            <p>
+                Podemos adicionar conteúdo dentro de um elemento utilizando
+                <code>append()</code>.
+            </p>
+
+            <pre><code>const lista = document.querySelector('#lista');
+            
+
+            const item = document.createElement('li');
+
+            item.textContent = 'Novo item';
+
+            lista.append(item);</code></pre>
+
+            
+            <h3>🗑️ Remover elemento</h3>
+
+            <p>
+                Um elemento pode ser removido usando <code>remove()</code>.
+            </p>
+
+            <pre><code>const mensagem = document.querySelector('#mensagem');
+            
+
+            mensagem.remove();</code></pre>
+
+            
+            <h3>🧠 Exemplo prático</h3>
+
+            <p>
+                Imagine que temos uma mensagem de sucesso:
+            </p>
+
+            <pre><code>&lt;div id="mensagem" class="mensagem"&gt;&lt;/div&gt;</code></pre>
+
+            <p>
+                Depois de salvar alguma coisa:
+            </p>
+
+            <pre><code>const mensagem = document.querySelector('#mensagem');
+            
+
+            mensagem.textContent = 'Salvo com sucesso!';
+
+            mensagem.classList.add('sucesso');</code></pre>
+
+            
+            <p>
+                O JavaScript encontrou o elemento, alterou seu texto
+                e adicionou uma classe CSS.
+            </p>
+
+
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>Texto:
+            
+
+            elemento.textContent = 'Texto';
+
+            HTML:
+
+            elemento.innerHTML = '<strong>Texto</strong>';
+
+            Valor de input:
+
+            campo.value;
+
+            Limpar campo:
+
+            campo.value = '';
+
+            Limpar formulário:
+
+            formulario.reset();
+
+            Adicionar classe:
+
+            elemento.classList.add('classe');
+
+            Remover classe:
+
+            elemento.classList.remove('classe');
+
+            Alternar classe:
+
+            elemento.classList.toggle('classe');
+
+            Verificar classe:
+
+            elemento.classList.contains('classe');
+
+            Ler atributo:
+
+            elemento.getAttribute('atributo');
+
+            Alterar atributo:
+
+            elemento.setAttribute('atributo', 'valor');
+
+            Criar elemento:
+
+            document.createElement('div');
+
+            Remover elemento:
+
+            elemento.remove();</code></pre>
+
+            
+            <h3>🧠 Regra prática</h3>
+
+            <pre><code>Quero alterar TEXTO?
+                ↓
+            
+
+            textContent
+
+            Quero colocar HTML?
+            ↓
+            innerHTML
+
+            Quero pegar valor de INPUT?
+            ↓
+            value
+
+            Quero alterar aparência?
+            ↓
+            classList
+
+            Quero criar elemento?
+            ↓
+            createElement()
+
+            Quero remover?
+            ↓
+            remove()</code></pre>
+
+            
+            <h3>🔗 Próximo passo</h3>
+
+            <p>
+                Agora já conseguimos encontrar elementos, reagir a eventos
+                e modificar a página.
+            </p>
+
+            <p>
+                O próximo passo é juntar tudo isso com os dados que vêm
+                do PHP: entender a resposta JSON e atualizar a interface
+                de acordo com o resultado.
+            </p>
+
+            <a href="#resposta" class="howto-link">
+                📥 Próximo: Resposta do PHP e JSON
+            </a>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - COMUNICAÇÃO COM PHP
+            ====================================================== -->
+
+            <section id="fetch">
+
+            
+            <h2>📤 Enviando dados para o PHP</h2>
+
+            <p>
+                Depois de aprender a encontrar elementos e reagir aos
+                eventos, podemos fazer o JavaScript conversar com o PHP.
+            </p>
+
+            <p>
+                No GatMan, um dos principais mecanismos para isso é o
+                <code>fetch()</code>.
+            </p>
+
+
+            <h3>🌐 O que é fetch()?</h3>
+
+            <p>
+                <code>fetch()</code> permite fazer uma requisição HTTP
+                para outro arquivo ou endereço.
+            </p>
+
+            <p>
+                Na prática, podemos usar o JavaScript para enviar dados
+                para um arquivo PHP sem precisar recarregar a página.
+            </p>
+
+            <pre><code>JavaScript
+            ↓
+            
+
+            fetch()
+            ↓
+            salvar.php
+            ↓
+            Banco de dados</code></pre>
+
+            
+            <h3>📝 Exemplo completo</h3>
+
+            <p>
+                HTML:
+            </p>
+
+            <pre><code>&lt;form id="formulario"&gt;
+
+            &lt;input type="text" name="andar"&gt;
+
+            &lt;input type="text" name="setor"&gt;
+
+            &lt;button type="submit"&gt;
+                Salvar
+            &lt;/button&gt;
+            
+
+            </form></code></pre>
+
+            
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>const formulario = document.querySelector('#formulario');
+            
+
+            formulario.addEventListener('submit', (event) => {
+
+            
+            event.preventDefault();
+
+            const dados = new FormData(formulario);
+
+            fetch('salvar.php', {
+
+                method: 'POST',
+
+                body: dados
+
+            });
+            
+
+            });</code></pre>
+
+            
+            <h3>📦 FormData</h3>
+
+            <pre><code>const dados = new FormData(formulario);</code></pre>
+
+            <p>
+                <code>FormData</code> pega os dados dos campos do formulário
+                e cria uma estrutura que pode ser enviada para o servidor.
+            </p>
+
+            <p>
+                O mais importante é que os campos precisam possuir
+                o atributo <code>name</code>.
+            </p>
+
+            <pre><code>&lt;input
+            type="text"
+            name="andar"
+            
+
+            ></code></pre>
+
+            
+            <p>
+                O PHP poderá receber esse valor através de:
+            </p>
+
+            <pre><code>$_POST['andar']</code></pre>
+
+            <p>
+                Portanto:
+            </p>
+
+            <pre><code>HTML
+            
+
+            name="andar"
+            ↓
+            FormData
+            ↓
+            POST
+            ↓
+            PHP
+            $_POST['andar']</code></pre>
+
+            
+            <h3>📨 method: 'POST'</h3>
+
+            <pre><code>fetch('salvar.php', {
+
+            method: 'POST',
+
+            body: dados
+            
+
+            });</code></pre>
+
+            
+            <p>
+                <code>method</code> informa qual método HTTP será utilizado.
+            </p>
+
+            <p>
+                Para enviar dados de formulários para o PHP, usamos
+                normalmente <code>POST</code>.
+            </p>
+
+
+            <h3>📦 body</h3>
+
+            <pre><code>body: dados</code></pre>
+
+            <p>
+                O <code>body</code> contém os dados que serão enviados
+                para o PHP.
+            </p>
+
+            <p>
+                Neste caso, estamos enviando o objeto
+                <code>FormData</code>.
+            </p>
+
+
+            <h3>🧠 Como tudo se conecta</h3>
+
+            <pre><code>const formulario = document.querySelector('#formulario');
+
+                ↓
+            
+
+            formulario.addEventListener('submit', ...)
+
+            
+                ↓
+            
+
+            event.preventDefault();
+
+            
+                ↓
+            
+
+            const dados = new FormData(formulario);
+
+            
+                ↓
+            
+
+            fetch('salvar.php', {
+
+            
+            method: 'POST',
+            body: dados
+            
+
+            });</code></pre>
+
+            
+            <h3>🐘 O PHP recebe</h3>
+
+            <p>
+                Se o formulário possuir:
+            </p>
+
+            <pre><code>&lt;input name="andar"&gt;
+            
+
+            <input name="setor">
+            <input name="item"></code></pre>
+
+            
+            <p>
+                O PHP poderá receber:
+            </p>
+
+            <pre><code>$andar = $_POST['andar'] ?? '';
+            
+
+            $setor = $_POST['setor'] ?? '';
+
+            $item = $_POST['item'] ?? '';</code></pre>
+
+            
+            <p>
+                É exatamente aqui que o JavaScript e o PHP se encontram.
+            </p>
+
+
+            <h3>⏳ fetch() é assíncrono</h3>
+
+            <p>
+                O <code>fetch()</code> faz uma requisição que pode levar
+                algum tempo para terminar.
+            </p>
+
+            <p>
+                Por isso, precisamos aguardar a resposta do PHP antes de
+                trabalhar com o resultado.
+            </p>
+
+            <p>
+                Podemos fazer isso usando <code>then()</code>.
+            </p>
+
+            <pre><code>fetch('salvar.php', {
+
+            method: 'POST',
+            body: dados
+            
+
+            })
+            .then((resposta) => {
+
+            
+            return resposta.json();
+            
+
+            })
+            .then((data) => {
+
+            
+            console.log(data);
+            
+
+            });</code></pre>
+
+            
+            <h3>📥 response.json()</h3>
+
+            <pre><code>resposta.json()</code></pre>
+
+            <p>
+                Converte a resposta recebida do PHP em um objeto JavaScript
+                quando o PHP retornou JSON válido.
+            </p>
+
+            <p>
+                Por exemplo, o PHP pode retornar:
+            </p>
+
+            <pre><code>{
+            "sucesso": true,
+            "mensagem": "Inspeção salva com sucesso!"
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Depois do <code>json()</code>, podemos acessar:
+            </p>
+
+            <pre><code>data.sucesso
+            
+
+            data.mensagem</code></pre>
+
+            
+            <h3>✅ Verificando o resultado</h3>
+
+            <pre><code>fetch('salvar.php', {
+
+            method: 'POST',
+            body: dados
+            
+
+            })
+            .then((resposta) => {
+
+            
+            return resposta.json();
+            
+
+            })
+            .then((data) => {
+
+            
+            if (data.sucesso) {
+
+                console.log(data.mensagem);
+
+            } else {
+
+                console.log(data.mensagem);
+
+            }
+            
+
+            });</code></pre>
+
+            
+            <h3>⚠️ Tratando erros</h3>
+
+            <p>
+                Também podemos utilizar <code>catch()</code> para tratar
+                problemas na requisição ou no processamento da Promise.
+            </p>
+
+            <pre><code>fetch('salvar.php', {
+
+            method: 'POST',
+            body: dados
+            
+
+            })
+            .then((resposta) => {
+
+            
+            return resposta.json();
+            
+
+            })
+            .then((data) => {
+
+            
+            console.log(data);
+            
+
+            })
+            .catch((erro) => {
+
+            
+            console.error('Erro:', erro);
+            
+
+            });</code></pre>
+
+            
+            <h3>🚀 Versão moderna com async/await</h3>
+
+            <p>
+                Outra forma, geralmente mais fácil de ler, é utilizar
+                <code>async</code> e <code>await</code>.
+            </p>
+
+            <pre><code>formulario.addEventListener('submit', async (event) =&gt; {
+
+            event.preventDefault();
+
+            const dados = new FormData(formulario);
+
+            try {
+
+                const resposta = await fetch('salvar.php', {
+
+                    method: 'POST',
+                    body: dados
+
+                });
+
+                const data = await resposta.json();
+
+                console.log(data);
+
+            } catch (erro) {
+
+                console.error('Erro:', erro);
+
+            }
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Aqui usamos <code>await</code> para aguardar o resultado
+                do <code>fetch()</code> e também da conversão para JSON.
+            </p>
+
+
+            <h3>🧠 Guia rápido</h3>
+
+            <pre><code>Selecionar formulário:
+            
+
+            const formulario = document.querySelector('#formulario');
+
+            Escutar envio:
+
+            formulario.addEventListener('submit', async (event) => {
+
+            Impedir recarregamento:
+
+            event.preventDefault();
+
+            Pegar dados:
+
+            const dados = new FormData(formulario);
+
+            Enviar para PHP:
+
+            const resposta = await fetch('salvar.php', {
+
+            
+            method: 'POST',
+            body: dados
+            
+
+            });
+
+            Converter resposta JSON:
+
+            const data = await resposta.json();
+
+            Ver resultado:
+
+            console.log(data.sucesso);
+
+            console.log(data.mensagem);</code></pre>
+
+            
+            <h3>🔗 Ligação com o PHP</h3>
+
+            <pre><code>⚡ JavaScript
+            
+
+            FormData
+            ↓
+            fetch()
+            ↓
+            POST
+            ↓
+
+            🐘 PHP
+
+            $_POST
+            ↓
+            prepare()
+            ↓
+            execute()
+            ↓
+            Banco de dados
+
+            🐘 PHP
+
+            json_encode()
+            ↓
+            JSON
+            ↓
+
+            ⚡ JavaScript
+
+            response.json()
+            ↓
+            data.sucesso
+            data.mensagem</code></pre>
+
+            
+            <a href="php.html#salvar" class="howto-link">
+                🐘 Ver o PHP que recebe e salva os dados
+            </a>
+
+            <a href="#resposta" class="howto-link">
+                📥 Próximo: Trabalhando com a resposta do PHP
+            </a>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - JSON
+            ====================================================== -->            
+
+            <section id="json">
+
+            
+            <h2>📦 JSON — PHP falando com JavaScript</h2>
+
+            <p>
+                JSON significa <strong>JavaScript Object Notation</strong>.
+            </p>
+
+            <p>
+                É um formato utilizado para representar e transportar dados.
+                No GatMan, ele aparece principalmente quando o PHP precisa
+                devolver uma resposta para o JavaScript.
+            </p>
+
+
+            <h3>🧠 A ideia básica</h3>
+
+            <pre><code>JavaScript
+            ↓
+            
+
+            fetch()
+            ↓
+            PHP
+            ↓
+            processa
+            ↓
+            JSON
+            ↓
+            JavaScript</code></pre>
+
+            
+            <p>
+                O PHP pode responder algo como:
+            </p>
+
+            <pre><code>{
+            "sucesso": true,
+            "mensagem": "Inspeção salva com sucesso!"
+            
+
+            }</code></pre>
+
+            
+            <h3>🐘 PHP — json_encode()</h3>
+
+            <p>
+                No PHP, utilizamos <code>json_encode()</code> para transformar
+                um array ou outro valor compatível em JSON.
+            </p>
+
+            <pre><code>$resposta = [
+            'sucesso' =&gt; true,
+            'mensagem' =&gt; 'Inspeção salva com sucesso!'
+            
+
+            ];
+
+            echo json_encode($resposta);</code></pre>
+
+            
+            <p>
+                O PHP envia para o JavaScript:
+            </p>
+
+            <pre><code>{
+            "sucesso": true,
+            "mensagem": "Inspeção salva com sucesso!"
+            
+
+            }</code></pre>
+
+            
+            <h3>🔤 JSON e PHP são diferentes</h3>
+
+            <p>
+                É importante não confundir a sintaxe do array PHP com
+                a sintaxe do JSON.
+            </p>
+
+            <pre><code>PHP:
+            
+
+            [
+            'sucesso' => true
+            ]</code></pre>
+
+            
+            <p>
+                Depois do <code>json_encode()</code>:
+            </p>
+
+            <pre><code>JSON:
+            
+
+            {
+            "sucesso": true
+            }</code></pre>
+
+            
+            <p>
+                O <code>json_encode()</code> faz essa conversão.
+            </p>
+
+
+            <h3>📋 Tipos de dados no JSON</h3>
+
+            <p>
+                JSON pode representar vários tipos de dados.
+            </p>
+
+            <pre><code>String:
+            
+
+            "João"
+
+            Número:
+
+            25
+
+            Boolean:
+
+            true
+
+            false
+
+            Nulo:
+
+            null
+
+            Array:
+
+            ["João", "Maria", "Carlos"]
+
+            Objeto:
+
+            {
+            "nome": "João",
+            "idade": 25
+            }</code></pre>
+
+            
+            <h3>🧱 Objeto JSON</h3>
+
+            <p>
+                Um objeto JSON utiliza pares de:
+            </p>
+
+            <pre><code>"chave": valor</code></pre>
+
+            <p>
+                Por exemplo:
+            </p>
+
+            <pre><code>{
+            "nome": "João",
+            "idade": 30,
+            "ativo": true
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Podemos acessar essas informações no JavaScript através
+                da chave.
+            </p>
+
+            <pre><code>data.nome
+            
+
+            data.idade
+
+            data.ativo</code></pre>
+
+            
+            <h3>📥 JavaScript — response.json()</h3>
+
+            <p>
+                Quando o PHP responde em JSON, precisamos transformar a
+                resposta recebida pelo <code>fetch()</code> em um objeto
+                JavaScript.
+            </p>
+
+            <pre><code>const resposta = await fetch('salvar.php');
+            
+
+            const data = await resposta.json();</code></pre>
+
+            
+            <p>
+                Depois disso, podemos acessar os valores:
+            </p>
+
+            <pre><code>console.log(data.sucesso);
+            
+
+            console.log(data.mensagem);</code></pre>
+
+            
+            <h3>🎯 Exemplo completo</h3>
+
+            <p>
+                PHP:
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true,
+            'mensagem' =&gt; 'Inspeção salva com sucesso!'
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>const resposta = await fetch('salvar.php');
+            
+
+            const data = await resposta.json();
+
+            console.log(data.sucesso);
+
+            console.log(data.mensagem);</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>true
+            
+
+            "Inspeção salva com sucesso!"</code></pre>
+
+            
+            <h3>✅ Usando if</h3>
+
+            <p>
+                Como <code>sucesso</code> é um booleano, podemos utilizá-lo
+                diretamente em uma condição.
+            </p>
+
+            <pre><code>if (data.sucesso) {
+
+            console.log('Deu certo!');
+            
+
+            } else {
+
+            
+            console.log('Deu errado!');
+            
+
+            }</code></pre>
+
+            
+            <h3>💬 Exibindo a mensagem na página</h3>
+
+            <p>
+                Podemos combinar JSON com o DOM.
+            </p>
+
+            <p>
+                HTML:
+            </p>
+
+            <pre><code>&lt;div id="mensagem"&gt;&lt;/div&gt;</code></pre>
+
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>const mensagem = document.querySelector('#mensagem');
+            
+
+            mensagem.textContent = data.mensagem;</code></pre>
+
+            
+            <p>
+                Agora a mensagem enviada pelo PHP aparece diretamente
+                na página.
+            </p>
+
+
+            <h3>🚦 Sucesso e erro</h3>
+
+            <p>
+                Podemos fazer o PHP informar diferentes resultados.
+            </p>
+
+            <pre><code>if ($salvou) {
+
+            echo json_encode([
+                'sucesso' =&gt; true,
+                'mensagem' =&gt; 'Registro salvo com sucesso!'
+            ]);
+            
+
+            } else {
+
+            
+            echo json_encode([
+                'sucesso' =&gt; false,
+                'mensagem' =&gt; 'Não foi possível salvar o registro.'
+            ]);
+            
+
+            }</code></pre>
+
+            
+            <p>
+                O JavaScript recebe a mesma estrutura nos dois casos:
+            </p>
+
+            <pre><code>if (data.sucesso) {
+
+            // sucesso
+            
+
+            } else {
+
+            
+            // erro
+            
+
+            }</code></pre>
+
+            
+            <h3>📦 Enviando vários dados</h3>
+
+            <p>
+                O PHP também pode devolver várias informações de uma vez.
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true,
+            'mensagem' =&gt; 'Registro salvo!',
+            'id' =&gt; 25,
+            'usuario' =&gt; 'João'
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                No JavaScript:
+            </p>
+
+            <pre><code>console.log(data.sucesso);
+            
+
+            console.log(data.mensagem);
+
+            console.log(data.id);
+
+            console.log(data.usuario);</code></pre>
+
+            
+            <h3>📚 JSON com arrays</h3>
+
+            <p>
+                Podemos também devolver uma lista de registros.
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true,
+            'dados' =&gt; [
+                [
+                    'id' =&gt; 1,
+                    'item' =&gt; 'Extintor',
+                    'status' =&gt; 'Pendente'
+                ],
+                [
+                    'id' =&gt; 2,
+                    'item' =&gt; 'Alarme',
+                    'status' =&gt; 'Concluído'
+                ]
+            ]
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                No JavaScript:
+            </p>
+
+            <pre><code>console.log(data.dados);</code></pre>
+
+            <p>
+                Podemos então utilizar os métodos que já aprendemos:
+            </p>
+
+            <pre><code>data.dados.forEach((item) =&gt; {
+
+            console.log(item.item);
+            
+
+            });</code></pre>
+
+            
+            <h3>⚠️ Erro comum — esquecer o JSON</h3>
+
+            <p>
+                Se o JavaScript espera JSON:
+            </p>
+
+            <pre><code>const data = await resposta.json();</code></pre>
+
+            <p>
+                O PHP precisa devolver JSON válido.
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                Se o PHP imprimir texto aleatório, HTML, warnings ou erros
+                antes do JSON, o JavaScript poderá não conseguir interpretar
+                a resposta.
+            </p>
+
+
+            <h3>⚠️ Outro erro comum — misturar JSON com texto</h3>
+
+            <p>
+                Evite fazer:
+            </p>
+
+            <pre><code>echo 'Salvo com sucesso!';
+            
+
+            echo json_encode([
+            'sucesso' => true
+            ]);</code></pre>
+
+            
+            <p>
+                A resposta deixa de ser um JSON válido.
+            </p>
+
+            <p>
+                Se queremos uma mensagem, coloque-a dentro do próprio JSON:
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true,
+            'mensagem' =&gt; 'Salvo com sucesso!'
+            
+
+            ]);</code></pre>
+
+            
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>PHP → JSON:
+            
+
+            echo json_encode([
+            'sucesso' => true,
+            'mensagem' => 'Salvo!'
+            ]);
+
+            JavaScript → JSON:
+
+            const data = await resposta.json();
+
+            Acessar valor:
+
+            data.sucesso
+
+            data.mensagem
+
+            Verificar sucesso:
+
+            if (data.sucesso) {
+
+            }
+
+            Acessar array:
+
+            data.dados
+
+            Percorrer:
+
+            data.dados.forEach((item) => {
+
+            });</code></pre>
+
+            
+            <h3>🏨 O fluxo completo do GatMan</h3>
+
+            <pre><code>FORMULÁRIO
+            ↓
+            
+
+            JavaScript
+            ↓
+            FormData
+            ↓
+            fetch()
+            ↓
+            POST
+            ↓
+            PHP
+            ↓
+            $_POST
+            ↓
+            prepare()
+            ↓
+            execute()
+            ↓
+            Banco de dados
+            ↓
+            json_encode()
+            ↓
+            JSON
+            ↓
+            response.json()
+            ↓
+            data
+            ↓
+            if (data.sucesso)
+            ↓
+            DOM
+            ↓
+            mensagem / tabela / modal / formulário</code></pre>
+
+            
+            <h3>🔗 Próximo passo</h3>
+
+            <p>
+                Agora já conseguimos fazer o caminho completo entre
+                formulário, JavaScript, PHP, banco de dados e resposta.
+            </p>
+
+            <p>
+                O próximo passo é aprender a usar essa resposta para
+                atualizar a interface: mostrar mensagens, adicionar
+                registros na tabela, limpar formulários, abrir ou fechar
+                modais e muito mais.
+            </p>
+
+            <a href="#dom" class="howto-link">
+                🖥️ Rever manipulação do DOM
+            </a>
+
+            <a href="#fetch" class="howto-link">
+                📤 Rever fetch()
+            </a>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - RECEBER DO PHP
+            ====================================================== -->            
+
+            <section id="async-await">
+
+            
+            <h2>⏳ async, await e try/catch</h2>
+
+            <p>
+                Muitas operações em JavaScript não terminam imediatamente.
+                Por exemplo, uma requisição <code>fetch()</code> pode precisar
+                de algum tempo para chegar ao servidor e receber uma resposta.
+            </p>
+
+            <p>
+                Para trabalhar melhor com esse tipo de operação, usamos
+                principalmente <code>async</code> e <code>await</code>.
+            </p>
+
+
+            <h3>⏳ O que significa assíncrono?</h3>
+
+            <p>
+                Uma operação assíncrona é uma operação que pode continuar
+                acontecendo enquanto o restante da aplicação aguarda
+                o resultado.
+            </p>
+
+            <p>
+                Um exemplo clássico é uma requisição para o PHP:
+            </p>
+
+            <pre><code>JavaScript
+            ↓
+            
+
+            "PHP, faça isso"
+            ↓
+            requisição
+            ↓
+            ⏳ aguardando resposta
+            ↓
+            PHP responde
+            ↓
+            JavaScript continua</code></pre>
+
+            
+            <h3>⚡ async</h3>
+
+            <p>
+                Quando colocamos <code>async</code> antes de uma função,
+                estamos indicando que aquela função trabalha de forma
+                assíncrona e poderá utilizar <code>await</code>.
+            </p>
+
+            <pre><code>async function salvar() {
+
+            // código assíncrono
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Também podemos utilizar com Arrow Functions:
+            </p>
+
+            <pre><code>const salvar = async () =&gt; {
+
+            // código assíncrono
+            
+
+            };</code></pre>
+
+            
+            <h3>⏸️ await</h3>
+
+            <p>
+                <code>await</code> significa, de forma simplificada:
+            </p>
+
+            <pre><code>"Espere esta operação terminar
+            
+
+            antes de continuar esta função."</code></pre>
+
+            
+            <p>
+                Exemplo:
+            </p>
+
+            <pre><code>const resposta = await fetch('salvar.php');</code></pre>
+
+            <p>
+                O JavaScript aguarda o resultado do
+                <code>fetch()</code> antes de passar para a próxima linha
+                daquela função.
+            </p>
+
+
+            <h3>📦 await não funciona sozinho</h3>
+
+            <p>
+                Normalmente, <code>await</code> é utilizado dentro de uma
+                função marcada com <code>async</code>.
+            </p>
+
+            <pre><code>async function salvar() {
+
+            const resposta = await fetch('salvar.php');
+            
+
+            }</code></pre>
+
+            
+            <h3>🌐 fetch() com async/await</h3>
+
+            <pre><code>const salvar = async () =&gt; {
+
+            const resposta = await fetch('salvar.php');
+
+            const data = await resposta.json();
+
+            console.log(data);
+            
+
+            };</code></pre>
+
+            
+            <p>
+                Temos duas operações que precisam ser aguardadas:
+            </p>
+
+            <pre><code>fetch()
+            
+
+            ↓
+            resposta
+
+            resposta.json()
+            ↓
+            data</code></pre>
+
+            
+            <h3>🧠 O que acontece linha por linha?</h3>
+
+            <pre><code>const resposta = await fetch('salvar.php');</code></pre>
+
+            <p>
+                Envia a requisição para o PHP e aguarda a resposta.
+            </p>
+
+            <pre><code>const data = await resposta.json();</code></pre>
+
+            <p>
+                Pega a resposta recebida e converte o JSON em um objeto
+                JavaScript.
+            </p>
+
+            <pre><code>console.log(data);</code></pre>
+
+            <p>
+                Agora podemos trabalhar com os dados recebidos.
+            </p>
+
+
+            <h3>🛡️ try</h3>
+
+            <p>
+                O <code>try</code> define um bloco de código que queremos
+                tentar executar.
+            </p>
+
+            <pre><code>try {
+
+            // tente executar este código
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Se alguma operação dentro dele gerar um erro que possa ser
+                tratado, podemos capturá-lo no <code>catch</code>.
+            </p>
+
+
+            <h3>🚨 catch</h3>
+
+            <pre><code>try {
+
+            // código
+            
+
+            } catch (erro) {
+
+            
+            // tratamento do erro
+            
+
+            }</code></pre>
+
+            
+            <p>
+                O parâmetro <code>erro</code> contém informações sobre
+                o erro capturado.
+            </p>
+
+            <pre><code>console.error(erro);</code></pre>
+
+
+            <h3>🔗 fetch() + try/catch</h3>
+
+            <pre><code>try {
+
+            const resposta = await fetch('salvar.php');
+
+            const data = await resposta.json();
+
+            console.log(data);
+            
+
+            } catch (erro) {
+
+            
+            console.error('Erro na comunicação:', erro);
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Se houver um problema que faça a operação falhar,
+                o código passa para o <code>catch</code>.
+            </p>
+
+
+            <h3>💾 Exemplo completo de salvar</h3>
+
+            <pre><code>const formulario = document.querySelector('#formulario');
+            
+
+            formulario.addEventListener('submit', async (event) => {
+
+            
+            event.preventDefault();
+
+            const dados = new FormData(formulario);
+
+            try {
+
+                const resposta = await fetch('salvar.php', {
+
+                    method: 'POST',
+                    body: dados
+
+                });
+
+                const data = await resposta.json();
+
+                if (data.sucesso) {
+
+                    console.log(data.mensagem);
+
+                    formulario.reset();
+
+                } else {
+
+                    console.log(data.mensagem);
+
+                }
+
+            } catch (erro) {
+
+                console.error('Erro:', erro);
+
+            }
+            
+
+            });</code></pre>
+
+            
+            <h3>🧩 Desmontando o código</h3>
+
+            <pre><code>async (event) =&gt;</code></pre>
+
+            <p>
+                A função do evento é assíncrona, permitindo utilizar
+                <code>await</code>.
+            </p>
+
+            <pre><code>event.preventDefault();</code></pre>
+
+            <p>
+                Impede o comportamento padrão do formulário.
+            </p>
+
+            <pre><code>const dados = new FormData(formulario);</code></pre>
+
+            <p>
+                Pega os dados do formulário.
+            </p>
+
+            <pre><code>const resposta = await fetch(...);</code></pre>
+
+            <p>
+                Envia os dados e aguarda a resposta do PHP.
+            </p>
+
+            <pre><code>const data = await resposta.json();</code></pre>
+
+            <p>
+                Converte a resposta JSON em um objeto JavaScript.
+            </p>
+
+            <pre><code>if (data.sucesso)</code></pre>
+
+            <p>
+                Verifica se o PHP informou que a operação foi bem-sucedida.
+            </p>
+
+            <pre><code>catch (erro)</code></pre>
+
+            <p>
+                Trata problemas que ocorrerem durante a operação.
+            </p>
+
+
+            <h3>⚠️ Erro importante: HTTP não é automaticamente erro</h3>
+
+            <p>
+                Existe uma pegadinha importante com <code>fetch()</code>:
+                uma resposta HTTP como <code>404</code> ou <code>500</code>
+                não faz necessariamente o <code>fetch()</code> cair
+                automaticamente no <code>catch</code>.
+            </p>
+
+            <p>
+                Por isso, podemos verificar:
+            </p>
+
+            <pre><code>if (!resposta.ok) {
+
+            throw new Error('Erro HTTP: ' + resposta.status);
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Assim, podemos transformar uma resposta HTTP problemática
+                em um erro que será capturado pelo <code>catch</code>.
+            </p>
+
+
+            <h3>🛡️ Versão mais completa</h3>
+
+            <pre><code>try {
+
+            const resposta = await fetch('salvar.php', {
+
+                method: 'POST',
+                body: dados
+
+            });
+
+            if (!resposta.ok) {
+
+                throw new Error(
+                    'Erro HTTP: ' + resposta.status
+                );
+
+            }
+
+            const data = await resposta.json();
+
+            if (data.sucesso) {
+
+                console.log(data.mensagem);
+
+            } else {
+
+                console.log(data.mensagem);
+
+            }
+            
+
+            } catch (erro) {
+
+            
+            console.error('Erro:', erro);
+            
+
+            }</code></pre>
+
+            
+            <h3>🔨 throw</h3>
+
+            <p>
+                <code>throw</code> permite criar ou lançar um erro
+                manualmente.
+            </p>
+
+            <pre><code>throw new Error('Algo deu errado!');</code></pre>
+
+            <p>
+                Quando isso acontece dentro de um <code>try</code>,
+                o código passa para o <code>catch</code>.
+            </p>
+
+            <pre><code>try {
+
+            throw new Error('Teste');
+            
+
+            } catch (erro) {
+
+            
+            console.error(erro);
+            
+
+            }</code></pre>
+
+            
+            <h3>🧹 finally</h3>
+
+            <p>
+                Existe ainda o <code>finally</code>.
+                Ele é executado independentemente de ter ocorrido
+                erro ou não.
+            </p>
+
+            <pre><code>try {
+
+            // código
+            
+
+            } catch (erro) {
+
+            
+            // erro
+            
+
+            } finally {
+
+            
+            // sempre executa
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Pode ser útil para ações como esconder um indicador
+                de carregamento depois que uma operação terminou.
+            </p>
+
+
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>async
+            
+
+            ↓
+            permite usar await
+
+            await
+            ↓
+            aguarda uma Promise
+
+            try
+            ↓
+            tenta executar
+
+            catch
+            ↓
+            captura erro
+
+            throw
+            ↓
+            lança um erro
+
+            finally
+            ↓
+            executa no final,
+            com erro ou sem erro</code></pre>
+
+            
+            <h3>🏨 Padrão para o GatMan</h3>
+
+            <pre><code>formulario.addEventListener('submit', async (event) =&gt; {
+
+            event.preventDefault();
+
+            const dados = new FormData(formulario);
+
+            try {
+
+                const resposta = await fetch('salvar.php', {
+
+                    method: 'POST',
+                    body: dados
+
+                });
+
+                if (!resposta.ok) {
+
+                    throw new Error(
+                        'Erro HTTP: ' + resposta.status
+                    );
+
+                }
+
+                const data = await resposta.json();
+
+                if (data.sucesso) {
+
+                    // sucesso
+
+                } else {
+
+                    // erro informado pelo PHP
+
+                }
+
+            } catch (erro) {
+
+                // erro de comunicação ou execução
+
+                console.error(erro);
+
+            }
+            
+
+            });</code></pre>
+
+            
+            <h3>🧠 A sequência para memorizar</h3>
+
+            <pre><code>async
+            
+
+            ↓
+            await fetch()
+            ↓
+            verificar resposta
+            ↓
+            await response.json()
+            ↓
+            data
+            ↓
+            if (data.sucesso)
+            ↓
+            sucesso ou erro</code></pre>
+
+            
+            <a href="#fetch" class="howto-link">
+                📤 Rever fetch()
+            </a>
+
+            <a href="#json" class="howto-link">
+                📦 Rever JSON
+            </a>
+
+            <a href="#dom" class="howto-link">
+                🖥️ Rever DOM
+            </a>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - RESPOSTA DO PHP
+            ====================================================== -->            
+
+            <section id="resposta">
+
+            
+            <h2>📥 Trabalhando com a resposta do PHP</h2>
+
+            <p>
+                Depois que o JavaScript envia os dados para o PHP usando
+                <code>fetch()</code>, o PHP processa a requisição e devolve
+                uma resposta.
+            </p>
+
+            <p>
+                No nosso padrão, essa resposta será normalmente um
+                <strong>JSON</strong>.
+            </p>
+
+            <pre><code>JavaScript
+            ↓
+            
+
+            fetch()
+            ↓
+            PHP
+            ↓
+            Banco de dados
+            ↓
+            json_encode()
+            ↓
+            JavaScript</code></pre>
+
+            
+            <h3>🐘 PHP devolvendo sucesso</h3>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true,
+            'mensagem' =&gt; 'Registro salvo com sucesso!'
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                O JavaScript recebe:
+            </p>
+
+            <pre><code>{
+            "sucesso": true,
+            "mensagem": "Registro salvo com sucesso!"
+            
+
+            }</code></pre>
+
+            
+            <h3>📥 JavaScript recebe a resposta</h3>
+
+            <pre><code>const resposta = await fetch('salvar.php');
+            
+
+            const data = await resposta.json();</code></pre>
+
+            
+            <p>
+                Agora <code>data</code> contém o objeto enviado pelo PHP.
+            </p>
+
+            <pre><code>data.sucesso
+            
+
+            data.mensagem</code></pre>
+
+            
+            <h3>✅ Verificando sucesso</h3>
+
+            <pre><code>if (data.sucesso) {
+
+            console.log('Deu certo!');
+            
+
+            } else {
+
+            
+            console.log('Deu errado!');
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Essa estrutura é extremamente comum no GatMan.
+            </p>
+
+
+            <h3>💬 Mostrar a mensagem</h3>
+
+            <p>
+                Podemos colocar a mensagem recebida pelo PHP diretamente
+                na página.
+            </p>
+
+            <pre><code>const mensagem = document.querySelector('#mensagem');
+            
+
+            mensagem.textContent = data.mensagem;</code></pre>
+
+            
+            <h3>🎨 Sucesso e erro com CSS</h3>
+
+            <p>
+                Podemos utilizar <code>classList</code> para mudar a aparência
+                da mensagem.
+            </p>
+
+            <pre><code>if (data.sucesso) {
+
+            mensagem.textContent = data.mensagem;
+
+            mensagem.classList.add('sucesso');
+            
+
+            } else {
+
+            
+            mensagem.textContent = data.mensagem;
+
+            mensagem.classList.add('erro');
+            
+
+            }</code></pre>
+
+            
+            <p>
+                O CSS pode então definir a aparência dessas classes.
+            </p>
+
+            <pre><code>.sucesso {
+            /* aparência de sucesso */
+            
+
+            }
+
+            .erro {
+            /* aparência de erro */
+            }</code></pre>
+
+            
+            <h3>🧹 Limpar o formulário após salvar</h3>
+
+            <pre><code>if (data.sucesso) {
+
+            mensagem.textContent = data.mensagem;
+
+            formulario.reset();
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Assim o formulário só é limpo quando o PHP informa que
+                o registro realmente foi salvo.
+            </p>
+
+
+            <h3>🔄 Atualizar a página sem recarregar</h3>
+
+            <p>
+                Uma das grandes vantagens de utilizar
+                <code>fetch()</code> é poder atualizar somente uma parte
+                da página.
+            </p>
+
+            <pre><code>if (data.sucesso) {
+
+            formulario.reset();
+
+            mensagem.textContent = data.mensagem;
+
+            carregarInspecoes();
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Nesse exemplo, depois de salvar, chamamos uma função que
+                pode buscar novamente os registros e atualizar a tabela.
+            </p>
+
+
+            <h3>📊 Recebendo dados do PHP</h3>
+
+            <p>
+                O PHP pode devolver não apenas uma mensagem, mas também
+                registros do banco.
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; true,
+            'dados' =&gt; $registros
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                No JavaScript:
+            </p>
+
+            <pre><code>const data = await resposta.json();
+            
+
+            console.log(data.dados);</code></pre>
+
+            
+            <p>
+                Como <code>dados</code> é um array, podemos utilizar
+                os métodos que já aprendemos.
+            </p>
+
+            <pre><code>data.dados.forEach((registro) =&gt; {
+
+            console.log(registro);
+            
+
+            });</code></pre>
+
+            
+            <h3>🎯 Exemplo de registro</h3>
+
+            <p>
+                Imagine que o PHP devolveu:
+            </p>
+
+            <pre><code>{
+            "sucesso": true,
+            "dados": [
+                {
+                    "id": 1,
+                    "item": "Extintor",
+                    "status": "Pendente"
+                },
+                {
+                    "id": 2,
+                    "item": "Alarme",
+                    "status": "Concluído"
+                }
+            ]
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Podemos acessar:
+            </p>
+
+            <pre><code>data.dados[0].item
+            
+
+            data.dados[0].status</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>Extintor
+            
+
+            Pendente</code></pre>
+
+            
+            <h3>🛑 Erro informado pelo PHP</h3>
+
+            <p>
+                Nem todo erro significa que o <code>fetch()</code> falhou.
+                O PHP pode funcionar normalmente e simplesmente informar
+                que não conseguiu realizar a operação.
+            </p>
+
+            <p>
+                Por exemplo:
+            </p>
+
+            <pre><code>echo json_encode([
+            'sucesso' =&gt; false,
+            'mensagem' =&gt; 'Preencha todos os campos obrigatórios.'
+            
+
+            ]);</code></pre>
+
+            
+            <p>
+                O JavaScript recebe normalmente:
+            </p>
+
+            <pre><code>if (data.sucesso) {
+
+            // sucesso
+            
+
+            } else {
+
+            
+            mensagem.textContent = data.mensagem;
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Portanto, precisamos diferenciar:
+            </p>
+
+            <pre><code>fetch falhou
+            
+
+            ↓
+            problema na comunicação
+
+            fetch funcionou
+            ↓
+            PHP respondeu
+            ↓
+            sucesso = false
+            ↓
+            erro da operação</code></pre>
+
+            
+            <h3>🚨 Erro de comunicação</h3>
+
+            <pre><code>try {
+
+            const resposta = await fetch('salvar.php');
+
+            const data = await resposta.json();
+            
+
+            } catch (erro) {
+
+            
+            console.error(erro);
+            
+
+            }</code></pre>
+
+            
+            <p>
+                O <code>catch</code> trata problemas como falha na requisição
+                ou outras exceções ocorridas durante o processamento.
+            </p>
+
+            <p>
+                Podemos mostrar uma mensagem para o usuário:
+            </p>
+
+            <pre><code>catch (erro) {
+
+            mensagem.textContent =
+                'Não foi possível comunicar com o servidor.';
+            
+
+            }</code></pre>
+
+            
+            <h3>⏳ Mostrar "Salvando..."</h3>
+
+            <p>
+                Enquanto o PHP está processando a requisição, podemos
+                informar ao usuário que algo está acontecendo.
+            </p>
+
+            <pre><code>botao.disabled = true;
+            
+
+            botao.textContent = 'Salvando...';</code></pre>
+
+            
+            <p>
+                Depois que terminar:
+            </p>
+
+            <pre><code>botao.disabled = false;
+            
+
+            botao.textContent = 'Salvar';</code></pre>
+
+            
+            <h3>🧹 finally</h3>
+
+            <p>
+                O <code>finally</code> é perfeito para ações que precisam
+                acontecer independentemente de sucesso ou erro.
+            </p>
+
+            <pre><code>try {
+
+            const resposta = await fetch('salvar.php');
+
+            const data = await resposta.json();
+            
+
+            } catch (erro) {
+
+            
+            console.error(erro);
+            
+
+            } finally {
+
+            
+            botao.disabled = false;
+
+            botao.textContent = 'Salvar';
+            
+
+            }</code></pre>
+
+            
+            <h3>💾 Exemplo completo do salvar</h3>
+
+            <p>
+                Este é um exemplo bastante próximo do padrão utilizado
+                em uma aplicação como o GatMan.
+            </p>
+
+            <pre><code>const formulario = document.querySelector('#formulario');
+            
+
+            const botao = formulario.querySelector(
+            'button[type="submit"]'
+            );
+
+            const mensagem = document.querySelector('#mensagem');
+
+            formulario.addEventListener('submit', async (event) => {
+
+            
+            event.preventDefault();
+
+            const dados = new FormData(formulario);
+
+            botao.disabled = true;
+
+            botao.textContent = 'Salvando...';
+
+            try {
+
+                const resposta = await fetch('salvar.php', {
+
+                    method: 'POST',
+                    body: dados
+
+                });
+
+                if (!resposta.ok) {
+
+                    throw new Error(
+                        'Erro HTTP: ' + resposta.status
+                    );
+
+                }
+
+                const data = await resposta.json();
+
+                mensagem.textContent = data.mensagem;
+
+                if (data.sucesso) {
+
+                    mensagem.classList.add('sucesso');
+
+                    formulario.reset();
+
+                } else {
+
+                    mensagem.classList.add('erro');
+
+                }
+
+            } catch (erro) {
+
+                console.error(erro);
+
+                mensagem.textContent =
+                    'Erro ao comunicar com o servidor.';
+
+                mensagem.classList.add('erro');
+
+            } finally {
+
+                botao.disabled = false;
+
+                botao.textContent = 'Salvar';
+
+            }
+            
+
+            });</code></pre>
+
+            
+            <h3>🧠 O que esse código faz?</h3>
+
+            <pre><code>1. Usuário envia formulário
+                ↓
+            
+
+            2. preventDefault()
+            ↓
+            3. Pega os dados
+            ↓
+            4. Desabilita botão
+            ↓
+            5. Mostra "Salvando..."
+            ↓
+            6. fetch()
+            ↓
+            7. PHP processa
+            ↓
+            8. PHP retorna JSON
+            ↓
+            9. JavaScript lê JSON
+            ↓
+            10. Verifica data.sucesso
+            ↓
+            11. Mostra mensagem
+            ↓
+            12. Limpa formulário se deu certo
+            ↓
+            13. finally libera o botão</code></pre>
+
+            
+            <h3>⚡ Guia rápido</h3>
+
+            <pre><code>Resposta do PHP:
+            
+
+            const data = await resposta.json();
+
+            Mensagem:
+
+            data.mensagem
+
+            Sucesso:
+
+            data.sucesso
+
+            Dados:
+
+            data.dados
+
+            Verificar:
+
+            if (data.sucesso) {
+
+            }
+
+            Erro:
+
+            catch (erro) {
+
+            }
+
+            Sempre executar no final:
+
+            finally {
+
+            }
+
+            Desabilitar botão:
+
+            botao.disabled = true;
+
+            Habilitar:
+
+            botao.disabled = false;
+
+            Limpar formulário:
+
+            formulario.reset();</code></pre>
+
+            
+            <h3>🏨 O ciclo completo</h3>
+
+            <pre><code>HTML
+            
+
+            ↓
+            evento submit
+            ↓
+            JavaScript
+            ↓
+            FormData
+            ↓
+            fetch()
+            ↓
+            POST
+            ↓
+            PHP
+            ↓
+            $_POST
+            ↓
+            validação
+            ↓
+            prepare()
+            ↓
+            execute()
+            ↓
+            MySQL
+            ↓
+            json_encode()
+            ↓
+            JSON
+            ↓
+            response.json()
+            ↓
+            data
+            ↓
+            if (data.sucesso)
+            ↓
+            DOM
+            ↓
+            usuário vê o resultado</code></pre>
+
+            
+            <h3>🏁 Fim do bloco PHP ↔ JS</h3>
+
+            <p>
+                Com isso, já temos conhecimento suficiente para criar
+                um formulário completo que conversa com PHP e banco de
+                dados sem precisar recarregar a página.
+            </p>
+
+            <p>
+                A partir daqui começa uma nova etapa:
+                <strong>JavaScript de aplicação</strong>.
+            </p>
+
+            <a href="#fetch" class="howto-link">
+                📤 Rever fetch()
+            </a>
+
+            <a href="#json" class="howto-link">
+                📦 Rever JSON
+            </a>
+
+            <a href="#async-await" class="howto-link">
+                ⏳ Rever async/await
+            </a>
+            
+
+            </section>
+
+            <!-- =====================================================
+                JS - JS DE APLICAÇÃO
+            ====================================================== -->            
+
+            <section id="aplicacao">
+
+            
+            <h2>🏨 JavaScript de aplicação</h2>
+
+            <p>
+                Até aqui aprendemos os fundamentos do JavaScript e como
+                fazer comunicação com o PHP.
+            </p>
+
+            <p>
+                Agora vamos juntar esses conhecimentos para criar
+                comportamentos reais de uma aplicação.
+            </p>
+
+            <pre><code>HTML
+            
+
+            ↓
+            JavaScript
+            ↓
+            usuário interage
+            ↓
+            JavaScript processa
+            ↓
+            PHP
+            ↓
+            Banco de dados
+            ↓
+            JSON
+            ↓
+            JavaScript
+            ↓
+            HTML atualizado</code></pre>
+
+            
+            <!-- ==================== VALIDAÇÃO ==================== -->
+
+            <h3 id="validacao">✅ Validação de formulários</h3>
+
+            <p>
+                Antes de enviar dados para o servidor, podemos verificar
+                se os campos possuem valores válidos.
+            </p>
+
+            <pre><code>if (nome.value.trim() === '') {
+
+            mensagem.textContent = 'Informe o nome.';
+
+            return;
+            
+
+            }</code></pre>
+
+            
+            <p>
+                O <code>trim()</code> remove espaços no início e no final
+                do texto.
+            </p>
+
+            <h4>Quando usar?</h4>
+
+            <p>
+                Use validação no JavaScript para melhorar a experiência
+                do usuário e evitar requisições desnecessárias.
+            </p>
+
+            <h4>⚠️ Importante</h4>
+
+            <p>
+                A validação do JavaScript <strong>não substitui</strong>
+                a validação do PHP.
+            </p>
+
+            <pre><code>JavaScript
+            
+
+            ↓
+            validação rápida para o usuário
+
+            PHP
+            ↓
+            validação obrigatória de segurança</code></pre>
+
+            
+            <!-- ==================== LOADING ==================== -->
+
+            <h3 id="loading">⏳ Loading</h3>
+
+            <p>
+                Quando uma requisição demora, devemos informar ao usuário
+                que o sistema está trabalhando.
+            </p>
+
+            <pre><code>botao.disabled = true;
+            
+
+            botao.textContent = 'Salvando...';</code></pre>
+
+            
+            <p>
+                Depois:
+            </p>
+
+            <pre><code>botao.disabled = false;
+            
+
+            botao.textContent = 'Salvar';</code></pre>
+
+            
+            <p>
+                O botão pode ser controlado dentro de
+                <code>try / finally</code>:
+            </p>
+
+            <pre><code>try {
+
+            // requisição
+            
+
+            } finally {
+
+            
+            botao.disabled = false;
+
+            botao.textContent = 'Salvar';
+            
+
+            }</code></pre>
+
+            
+            <!-- ==================== MENSAGENS ==================== -->
+
+            <h3 id="mensagens">💬 Mensagens</h3>
+
+            <p>
+                É comum ter um elemento específico para mostrar mensagens
+                ao usuário.
+            </p>
+
+            <pre><code>&lt;div id="mensagem"&gt;&lt;/div&gt;</code></pre>
+
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>mensagem.textContent = 'Salvo com sucesso!';</code></pre>
+
+            <p>
+                Podemos controlar a aparência com classes:
+            </p>
+
+            <pre><code>mensagem.classList.add('sucesso');
+            
+
+            mensagem.classList.remove('erro');</code></pre>
+
+            
+            <!-- ==================== FORMULÁRIOS ==================== -->
+
+            <h3 id="formularios">📝 Formulários</h3>
+
+            <p>
+                Para capturar o envio:
+            </p>
+
+            <pre><code>formulario.addEventListener('submit', (event) =&gt; {
+
+            event.preventDefault();
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Para pegar os dados:
+            </p>
+
+            <pre><code>const dados = new FormData(formulario);</code></pre>
+
+            <p>
+                Podemos enviar diretamente para o PHP:
+            </p>
+
+            <pre><code>await fetch('salvar.php', {
+
+            method: 'POST',
+
+            body: dados
+            
+
+            });</code></pre>
+
+            
+            <!-- ==================== MODAIS ==================== -->
+
+            <h3 id="modais">🪟 Modais</h3>
+
+            <p>
+                Um modal é uma janela que aparece sobre a página.
+                É muito útil para editar registros, confirmar exclusões
+                ou mostrar informações.
+            </p>
+
+            <p>
+                HTML:
+            </p>
+
+            <pre><code>&lt;div id="modal" class="modal"&gt;
+
+            &lt;div class="modal-conteudo"&gt;
+
+                &lt;button id="fecharModal"&gt;
+                    Fechar
+                &lt;/button&gt;
+
+                Conteúdo
+
+            &lt;/div&gt;
+            
+
+            </div></code></pre>
+
+            
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>modal.classList.add('aberto');</code></pre>
+
+            <p>
+                Fechar:
+            </p>
+
+            <pre><code>modal.classList.remove('aberto');</code></pre>
+
+            <p>
+                O CSS controla a aparência.
+                O JavaScript controla o comportamento.
+            </p>
+
+
+            <!-- ==================== CONFIRMAÇÃO ==================== -->
+
+            <h3 id="confirmacao">⚠️ Confirmação antes de excluir</h3>
+
+            <p>
+                Antes de realizar uma ação destrutiva, podemos pedir
+                confirmação.
+            </p>
+
+            <pre><code>const confirmou = confirm(
+            'Deseja realmente excluir este registro?'
+            
+
+            );
+
+            if (!confirmou) {
+
+            
+            return;
+            
+
+            }</code></pre>
+
+            
+            <p>
+                <code>confirm()</code> retorna:
+            </p>
+
+            <pre><code>true
+            
+
+            ↓
+            usuário confirmou
+
+            false
+            ↓
+            usuário cancelou</code></pre>
+
+            
+            <!-- ==================== CRUD ==================== -->
+
+            <h3 id="crud">🔄 CRUD</h3>
+
+            <p>
+                CRUD representa as quatro operações básicas de um sistema
+                que trabalha com dados:
+            </p>
+
+            <pre><code>C → Create → Criar
+            
+
+            R → Read   → Ler
+            U → Update → Atualizar
+            D → Delete → Excluir</code></pre>
+
+            
+            <p>
+                No GatMan:
+            </p>
+
+            <pre><code>CREATE
+            
+
+            ↓
+            salvar.php
+
+            READ
+            ↓
+            buscar.php
+
+            UPDATE
+            ↓
+            editar.php
+
+            DELETE
+            ↓
+            excluir.php</code></pre>
+
+            
+            <!-- ==================== TABELAS ==================== -->
+
+            <h3 id="tabelas">📊 Tabelas dinâmicas</h3>
+
+            <p>
+                O JavaScript pode receber registros do PHP e criar
+                as linhas da tabela automaticamente.
+            </p>
+
+            <pre><code>data.dados.forEach((registro) =&gt; {
+
+            console.log(registro.item);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Podemos criar uma linha:
+            </p>
+
+            <pre><code>const tr = document.createElement('tr');</code></pre>
+
+            <p>
+                Criar uma célula:
+            </p>
+
+            <pre><code>const td = document.createElement('td');
+            
+
+            td.textContent = registro.item;</code></pre>
+
+            
+            <p>
+                Adicionar a célula à linha:
+            </p>
+
+            <pre><code>tr.append(td);</code></pre>
+
+            <p>
+                E finalmente adicionar a linha à tabela:
+            </p>
+
+            <pre><code>tbody.append(tr);</code></pre>
+
+
+            <!-- ==================== EDITAR ==================== -->
+
+            <h3 id="editar">✏️ Editar</h3>
+
+            <p>
+                Um fluxo comum de edição é:
+            </p>
+
+            <pre><code>Usuário clica em Editar
+                ↓
+            
+
+            JS identifica o registro
+            ↓
+            JS preenche o formulário
+            ↓
+            Usuário altera
+            ↓
+            JS envia para editar.php
+            ↓
+            PHP atualiza banco
+            ↓
+            PHP retorna JSON
+            ↓
+            JS atualiza a interface</code></pre>
+
+            
+            <p>
+                Podemos guardar o ID do registro em um atributo:
+            </p>
+
+            <pre><code>&lt;button
+            class="btn-editar"
+            data-id="25"
+            
+
+            >
+            Editar
+            </button></code></pre>
+
+            
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>const id = botao.dataset.id;
+            
+
+            console.log(id);</code></pre>
+
+            
+            <!-- ==================== EXCLUIR ==================== -->
+
+            <h3 id="excluir">🗑️ Excluir</h3>
+
+            <p>
+                Um fluxo de exclusão normalmente é:
+            </p>
+
+            <pre><code>Usuário clica em Excluir
+                ↓
+            
+
+            JS identifica ID
+            ↓
+            JS pede confirmação
+            ↓
+            fetch()
+            ↓
+            excluir.php
+            ↓
+            PHP exclui
+            ↓
+            JSON
+            ↓
+            JS remove a linha</code></pre>
+
+            
+            <pre><code>if (!confirm('Deseja excluir?')) {
+
+            return;
+            
+
+            }</code></pre>
+
+            
+            <!-- ==================== FUNÇÕES REUTILIZÁVEIS ==================== -->
+
+            <h3 id="funcoes-reutilizaveis">♻️ Funções reutilizáveis</h3>
+
+            <p>
+                Se o mesmo código aparece várias vezes, provavelmente
+                devemos transformá-lo em uma função.
+            </p>
+
+            <p>
+                Evite:
+            </p>
+
+            <pre><code>mensagem.textContent = 'Salvo!';
+            
+
+            mensagem.classList.add('sucesso');
+
+            mensagem.textContent = 'Atualizado!';
+
+            mensagem.classList.add('sucesso');
+
+            mensagem.textContent = 'Excluído!';
+
+            mensagem.classList.add('sucesso');</code></pre>
+
+            
+            <p>
+                Podemos criar:
+            </p>
+
+            <pre><code>const mostrarSucesso = (texto) =&gt; {
+
+            mensagem.textContent = texto;
+
+            mensagem.classList.add('sucesso');
+            
+
+            };</code></pre>
+
+            
+            <p>
+                Agora:
+            </p>
+
+            <pre><code>mostrarSucesso('Salvo!');
+            
+
+            mostrarSucesso('Atualizado!');
+
+            mostrarSucesso('Excluído!');</code></pre>
+
+            
+            <!-- ==================== EVENT DELEGATION ==================== -->
+
+            <h3 id="delegacao">🎯 Event Delegation</h3>
+
+            <p>
+                Quando temos muitos elementos semelhantes, não precisamos
+                necessariamente adicionar um evento em cada um.
+            </p>
+
+            <p>
+                Podemos colocar um único evento no elemento pai.
+            </p>
+
+            <pre><code>tbody.addEventListener('click', (event) =&gt; {
+
+            if (event.target.classList.contains('btn-excluir')) {
+
+                console.log('Excluir');
+
+            }
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Isso é especialmente útil para tabelas geradas
+                dinamicamente pelo JavaScript.
+            </p>
+
+
+            <!-- ==================== DATASET ==================== -->
+
+            <h3 id="dataset">🏷️ data-* e dataset</h3>
+
+            <p>
+                Atributos <code>data-*</code> permitem guardar pequenas
+                informações no HTML.
+            </p>
+
+            <pre><code>&lt;button
+            data-id="25"
+            data-status="pendente"
+            
+
+            >
+            Editar
+            </button></code></pre>
+
+            
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>botao.dataset.id;
+            
+
+            botao.dataset.status;</code></pre>
+
+            
+            <!-- ==================== DEBOUNCE ==================== -->
+
+            <h3 id="debounce">⏱️ Debounce</h3>
+
+            <p>
+                Debounce é útil quando uma função não deve ser executada
+                a cada alteração imediatamente.
+            </p>
+
+            <p>
+                Por exemplo, em uma caixa de pesquisa:
+            </p>
+
+            <pre><code>let timer;
+            
+
+            campo.addEventListener('input', () => {
+
+            
+            clearTimeout(timer);
+
+            timer = setTimeout(() =&gt; {
+
+                pesquisar();
+
+            }, 500);
+            
+
+            });</code></pre>
+
+            
+            <p>
+                Nesse exemplo, a pesquisa só acontece depois que o usuário
+                para de digitar por aproximadamente 500 milissegundos.
+            </p>
+
+
+            <!-- ==================== LOCAL STORAGE ==================== -->
+
+            <h3 id="localstorage">💾 localStorage</h3>
+
+            <p>
+                O <code>localStorage</code> permite guardar pequenos dados
+                no navegador.
+            </p>
+
+            <h4>Salvar</h4>
+
+            <pre><code>localStorage.setItem(
+            'nome',
+            'Wagner'
+            
+
+            );</code></pre>
+
+            
+            <h4>Ler</h4>
+
+            <pre><code>const nome = localStorage.getItem('nome');</code></pre>
+
+            <h4>Remover</h4>
+
+            <pre><code>localStorage.removeItem('nome');</code></pre>
+
+            <h4>⚠️ Importante</h4>
+
+            <p>
+                Não utilize <code>localStorage</code> para guardar senhas,
+                tokens sensíveis ou informações que precisem ser protegidas.
+            </p>
+
+
+            <!-- ==================== URL ==================== -->
+
+            <h3 id="url">🔗 Parâmetros da URL</h3>
+
+            <p>
+                Podemos obter informações da URL através de
+                <code>URLSearchParams</code>.
+            </p>
+
+            <p>
+                Imagine:
+            </p>
+
+            <pre><code>editar.html?id=25</code></pre>
+
+            <p>
+                JavaScript:
+            </p>
+
+            <pre><code>const parametros = new URLSearchParams(
+            window.location.search
+            
+
+            );
+
+            const id = parametros.get('id');</code></pre>
+
+            
+            <p>
+                Resultado:
+            </p>
+
+            <pre><code>25</code></pre>
+
+
+            <!-- ==================== DEBUG ==================== -->
+
+            <h3 id="debug">🐞 Debug</h3>
+
+            <p>
+                O console do navegador é uma das ferramentas mais
+                importantes para descobrir problemas.
+            </p>
+
+            <pre><code>console.log(valor);</code></pre>
+
+            <p>
+                Para erros:
+            </p>
+
+            <pre><code>console.error(erro);</code></pre>
+
+            <p>
+                Podemos também verificar o tipo:
+            </p>
+
+            <pre><code>console.log(typeof valor);</code></pre>
+
+            <p>
+                E visualizar objetos:
+            </p>
+
+            <pre><code>console.table(dados);</code></pre>
+
+
+            <!-- ==================== ORGANIZAÇÃO ==================== -->
+
+            <h3 id="organizacao">📁 Organização dos arquivos JS</h3>
+
+            <p>
+                Conforme o sistema cresce, evite colocar todo o JavaScript
+                em um único arquivo gigantesco.
+            </p>
+
+            <p>
+                Uma organização possível:
+            </p>
+
+            <pre><code>js/
+            
+
+            │
+            ├── comum.js
+            ├── mensagens.js
+            ├── modal.js
+            ├── formulario.js
+            │
+            ├── seguranca/
+            │   ├── listar.js
+            │   ├── salvar.js
+            │   ├── editar.js
+            │   └── excluir.js
+            │
+            └── maquinas/
+            ├── listar.js
+            ├── salvar.js
+            └── editar.js</code></pre>
+
+            
+            <p>
+                A ideia é separar responsabilidades.
+            </p>
+
+            <pre><code>mensagens.js
+            
+
+            ↓
+            mensagens
+
+            modal.js
+            ↓
+            modais
+
+            salvar.js
+            ↓
+            salvamento
+
+            editar.js
+            ↓
+            edição</code></pre>
+
+            
+            <!-- ==================== GUIA RÁPIDO ==================== -->
+
+            <h3 id="guia-aplicacao">⚡ Guia rápido — JS de aplicação</h3>
+
+            <pre><code>Selecionar:
+            
+
+            document.querySelector()
+
+            Evento:
+
+            element.addEventListener()
+
+            Valor:
+
+            element.value
+
+            Texto:
+
+            element.textContent
+
+            Classe:
+
+            element.classList.add()
+
+            Formulário:
+
+            new FormData(formulario)
+
+            Enviar:
+
+            fetch()
+
+            Resposta:
+
+            await resposta.json()
+
+            Sucesso:
+
+            if (data.sucesso)
+
+            Loading:
+
+            botao.disabled = true
+
+            Limpar:
+
+            formulario.reset()
+
+            Criar:
+
+            document.createElement()
+
+            Adicionar:
+
+            element.append()
+
+            Remover:
+
+            element.remove()
+
+            Confirmar:
+
+            confirm()
+
+            ID:
+
+            element.dataset.id
+
+            Armazenar:
+
+            localStorage.setItem()
+
+            Ler URL:
+
+            URLSearchParams
+
+            Debug:
+
+            console.log()
+
+            Tabela:
+
+            console.table()</code></pre>
+
+            
+            <!-- ==================== FLUXO ==================== -->
+
+            <h3 id="fluxo-aplicacao">🧠 Fluxo de uma aplicação real</h3>
+
+            <pre><code>USUÁRIO
+            
+
+            ↓
+            clica
+            ↓
+            EVENTO
+            ↓
+            JAVASCRIPT
+            ↓
+            validação
+            ↓
+            loading
+            ↓
+            FormData
+            ↓
+            fetch()
+            ↓
+            PHP
+            ↓
+            BANCO DE DADOS
+            ↓
+            JSON
+            ↓
+            JavaScript
+            ↓
+            data.sucesso
+            ↓
+            DOM
+            ↓
+            mensagem
+            ↓
+            tabela
+            ↓
+            interface atualizada</code></pre>
+
+            
+            <h3>🏁 Parabéns!</h3>
+
+            <p>
+                Neste ponto você já possui uma visão geral do caminho
+                utilizado por uma aplicação web moderna com JavaScript,
+                PHP e banco de dados.
+            </p>
+
+            <p>
+                Os fundamentos continuam sendo os mesmos.
+                O que muda é a forma como combinamos esses fundamentos
+                para resolver problemas reais.
+            </p>
+            
+
+            </section>
+
+        </section>
+    </main>
+</body>
+</html>
