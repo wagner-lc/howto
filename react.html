@@ -786,6 +786,7 @@ className="categoria"</code></pre>
 
                 <h2>🏷️ CategoryCard</h2>
 
+
                 <p>
                     A Home possui várias categorias.
                 </p>
@@ -870,6 +871,45 @@ Link</code></pre>
 export default CategoryCard</code></pre>
 
 
+                <p>
+                    Neste primeiro momento, o componente possui
+                    informações fixas.
+                </p>
+
+
+                <h3>🧠 Como usar o componente?</h3>
+
+
+                <p>
+                    O componente pode ser chamado dentro do
+                    <strong>App.jsx</strong>:
+                </p>
+
+
+                <pre><code>import CategoryCard from './components/CategoryCard'
+
+
+function App() {
+
+    return (
+
+        &lt;CategoryCard /&gt;
+
+    )
+
+}
+
+
+export default App</code></pre>
+
+
+                <p>
+                    Podemos pensar no
+                    <strong>&lt;CategoryCard /&gt;</strong>
+                    como uma chamada ao componente.
+                </p>
+
+
                 <h3>O problema</h3>
 
 
@@ -884,7 +924,8 @@ export default CategoryCard</code></pre>
 
 
                 <p>
-                    Precisamos enviar informações diferentes.
+                    Precisamos enviar informações diferentes
+                    para cada card.
                 </p>
 
 
@@ -908,8 +949,25 @@ export default CategoryCard</code></pre>
 
                 <h2>📦 O que são Props?</h2>
 
+
                 <p>
-                    Props são informações enviadas para um componente.
+                    Props são informações enviadas de um componente
+                    para outro.
+                </p>
+
+
+                <p>
+                    Neste caso, o <strong>App.jsx</strong> envia
+                    informações para o <strong>CategoryCard.jsx</strong>.
+                </p>
+
+
+                <h3>📤 Enviando Props</h3>
+
+
+                <p>
+                    As Props são enviadas através dos atributos
+                    do componente:
                 </p>
 
 
@@ -919,11 +977,7 @@ export default CategoryCard</code></pre>
 
     titulo="JavaScript"
 
-    descricao="
-        Interações,
-        eventos,
-        fetch e lógica.
-    "
+    descricao="Interações, eventos, fetch e lógica."
 
     link="js.html"
 
@@ -933,19 +987,107 @@ export default CategoryCard</code></pre>
                 <h3>🧠 Fluxo</h3>
 
 
-                <pre><code>App
-↓
-CategoryCard
+                <pre><code>App.jsx
+   ↓
+envia Props
+   ↓
+CategoryCard.jsx
+   ↓
+recebe Props</code></pre>
 
-envia:
 
-icone
+                <h3>📦 Informações enviadas</h3>
+
+
+                <pre><code>icone
 titulo
 descricao
 link</code></pre>
 
 
+                <p>
+                    Por exemplo:
+                </p>
+
+
+                <pre><code>titulo="JavaScript"</code></pre>
+
+
+                <p>
+                    significa que o valor
+                    <strong>JavaScript</strong>
+                    está sendo enviado para o componente.
+                </p>
+
+
+                <h3>📤 Enviando no App.jsx</h3>
+
+
+                <p>
+                    O componente pai envia as Props.
+                    Neste caso, o componente pai é o
+                    <strong>App.jsx</strong>.
+                </p>
+
+
+                <pre><code>import CategoryCard from './components/CategoryCard'
+
+
+function App() {
+
+    return (
+
+        &lt;&gt;
+
+            &lt;CategoryCard
+
+                icone="⚡"
+
+                titulo="JavaScript"
+
+                descricao="Interações, eventos, fetch e lógica."
+
+                link="js.html"
+
+            /&gt;
+
+        &lt;/&gt;
+
+    )
+
+}
+
+
+export default App</code></pre>
+
+
+                <h3>🧠 Visualizando o que acontece</h3>
+
+
+                <pre><code>App.jsx
+
+&lt;CategoryCard
+    titulo="JavaScript"
+/&gt;
+
+        ↓
+
+CategoryCard.jsx
+
+props.titulo
+
+        ↓
+
+JavaScript</code></pre>
+
+
                 <h3>📥 Recebendo Props</h3>
+
+
+                <p>
+                    O componente filho recebe as informações
+                    através do parâmetro <strong>props</strong>.
+                </p>
 
 
                 <pre><code>function CategoryCard(props) {
@@ -985,13 +1127,59 @@ link</code></pre>
 
     )
 
-}</code></pre>
+}
+
+export default CategoryCard</code></pre>
+
+
+                <h3>🧠 Entendendo o props</h3>
+
+
+                <p>
+                    O <strong>props</strong> funciona como um pacote
+                    contendo as informações enviadas pelo componente pai.
+                </p>
+
+
+                <pre><code>props
+│
+├── props.icone
+├── props.titulo
+├── props.descricao
+└── props.link</code></pre>
+
+
+                <p>
+                    Se o App.jsx enviar:
+                </p>
+
+
+                <pre><code>titulo="JavaScript"</code></pre>
+
+
+                <p>
+                    o CategoryCard poderá acessar:
+                </p>
+
+
+                <pre><code>props.titulo</code></pre>
+
+
+                <p>
+                    E o resultado será:
+                </p>
+
+
+                <pre><code>JavaScript</code></pre>
 
 
                 <h3>⚡ Desestruturação</h3>
 
+
                 <p>
-                    Podemos receber diretamente as propriedades:
+                    Podemos receber diretamente as propriedades,
+                    sem precisar escrever <strong>props.</strong>
+                    todas as vezes.
                 </p>
 
 
@@ -1006,7 +1194,7 @@ link</code></pre>
 
 
                 <p>
-                    Agora usamos:
+                    Agora podemos usar diretamente:
                 </p>
 
 
@@ -1017,6 +1205,12 @@ link</code></pre>
 {descricao}
 
 {link}</code></pre>
+
+
+                <p>
+                    Isso é apenas uma forma mais curta de acessar
+                    as Props.
+                </p>
 
 
                 <h3>🧩 Componente completo</h3>
@@ -1069,6 +1263,36 @@ link</code></pre>
 }
 
 export default CategoryCard</code></pre>
+
+
+                <h3>🧠 Regra para lembrar</h3>
+
+
+                <pre><code>PAI
+ ↓
+envia Props
+ ↓
+FILHO
+ ↓
+recebe Props</code></pre>
+
+
+                <p>
+                    No nosso exemplo:
+                </p>
+
+
+                <pre><code>App.jsx
+   ↓
+&lt;CategoryCard
+    titulo="JavaScript"
+/&gt;
+   ↓
+CategoryCard.jsx
+   ↓
+props.titulo
+   ↓
+JavaScript</code></pre>
 
 
             </section>
