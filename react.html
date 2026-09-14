@@ -1302,207 +1302,429 @@ JavaScript</code></pre>
                 ARRAY E MAP
             ====================================================== -->
 
+            <!-- =====================================================
+                ARRAY E MAP()
+            ====================================================== -->
+
             <section id="array-map">
 
 
                 <h2>🔄 Array e map()</h2>
 
+
                 <p>
-                    Temos vários cards com dados parecidos.
+                    Nossa Home possui várias categorias.
+                    Cada categoria tem um ícone, um título,
+                    uma descrição e um link.
                 </p>
 
 
-                <pre><code>HTML
-CSS
-JavaScript
-PHP
-SQL
-Git
-VS Code
-GatMan
-Segurança</code></pre>
-
-
                 <p>
-                    Podemos guardar esses dados dentro de um array.
+                    Em vez de escrever cada card separadamente
+                    no App.jsx, podemos guardar os dados em um
+                    array e usar o React para criar os cards.
                 </p>
 
 
-                <h3>📁 Criar</h3>
+                <h3>📁 Criar o arquivo de dados</h3>
 
 
-                <pre><code>src/data/categories.js</code></pre>
+                <pre><code>src/data/categorias.js</code></pre>
 
 
-                <h3>📦 Array</h3>
+                <p>
+                    Esse arquivo vai guardar os dados das categorias.
+                    Ele não contém o HTML dos cards.
+                </p>
 
 
-                <pre><code>const categories = [
+                <h3>📦 Array de categorias</h3>
+
+
+                <pre><code>const categorias = [
 
     {
-
-        icon: '&lt;/&gt;',
-
-        title: 'HTML',
-
-        description:
-            'Estrutura e criação das páginas.',
-
+        icone: '&lt;/&gt;',
+        titulo: 'HTML',
+        descricao: 'Estrutura e criação das páginas.',
         link: 'html.html'
-
     },
 
     {
-
-        icon: '🎨',
-
-        title: 'CSS',
-
-        description:
-            'Estilos, layouts, cores e responsividade.',
-
+        icone: '🎨',
+        titulo: 'CSS',
+        descricao: 'Estilos, layouts, cores e responsividade.',
         link: 'css.html'
-
     },
 
     {
-
-        icon: '⚡',
-
-        title: 'JavaScript',
-
-        description:
-            'Interações, eventos, fetch e lógica.',
-
+        icone: '⚡',
+        titulo: 'JavaScript',
+        descricao: 'Interações, eventos, fetch e lógica.',
         link: 'js.html'
-
     },
 
     {
-
-        icon: '🐘',
-
-        title: 'PHP',
-
-        description:
-            'Backend, formulários, sessões e banco.',
-
+        icone: '🐘',
+        titulo: 'PHP',
+        descricao: 'Backend, formulários, sessões e banco.',
         link: 'php.html'
+    },
 
+    {
+        icone: '🗄️',
+        titulo: 'SQL',
+        descricao: 'Banco de dados, consultas e alterações.',
+        link: 'sql.html'
+    },
+
+    {
+        icone: '🐈',
+        titulo: 'GitHub/git',
+        descricao: 'Versionamento.',
+        link: 'git.html'
+    },
+
+    {
+        icone: '⚛️',
+        titulo: 'React',
+        descricao: 'Biblioteca do JavaScript.',
+        link: 'react.html'
+    },
+
+    {
+        icone: '💻',
+        titulo: 'VS Code',
+        descricao: 'Configurações, atalhos e ferramentas.',
+        link: 'vs-code.html'
+    },
+
+    {
+        icone: '🔧',
+        titulo: 'GatMan',
+        descricao: 'Soluções e procedimentos específicos do GatMan.',
+        link: 'gatman.html'
+    },
+
+    {
+        icone: '🛡️',
+        titulo: 'Segurança',
+        descricao: 'Boas práticas e segurança do sistema.',
+        link: 'seguranca.html'
     }
 
 ]
 
-export default categories</code></pre>
+export default categorias</code></pre>
 
 
                 <h3>🧠 O que temos?</h3>
 
 
-                <pre><code>categories
-
-↓
-
-
-category
-
-{
-    icon
-    title
-    description
-    link
-}</code></pre>
+                <p>
+                    Criamos um array chamado
+                    <strong>categorias</strong>.
+                    Dentro dele, cada objeto representa uma categoria.
+                </p>
 
 
-                <h3>🔄 Usando map()</h3>
+                <pre><code>categorias
+    ↓
+Array
+    ↓
+Vários objetos
+    ↓
+Cada objeto contém:
+    icone
+    titulo
+    descricao
+    link</code></pre>
 
 
-                <pre><code>categories.map((category) =&gt; {
+                <p>
+                    Por exemplo, podemos acessar o título da primeira
+                    categoria usando:
+                </p>
 
-    return (
 
-        &lt;CategoryCard /&gt;
+                <pre><code>categorias[0].titulo</code></pre>
 
-    )
+
+                <p>
+                    O resultado será:
+                </p>
+
+
+                <pre><code>HTML</code></pre>
+
+
+                <h3>📥 Importar os dados no App.jsx</h3>
+
+
+                <p>
+                    Agora vamos usar o array no
+                    <strong>App.jsx</strong>.
+                    Primeiro, importamos os dados e o componente
+                    CategoryCard:
+                </p>
+
+
+                <pre><code>import Header from './components/Header'
+
+import CategoryCard from './components/CategoryCard'
+
+import categorias from './data/categorias'</code></pre>
+
+
+                <p>
+                    O caminho
+                    <code>./data/categorias</code>
+                    aponta para o arquivo
+                    <code>src/data/categorias.js</code>.
+                </p>
+
+
+                <h3>🔄 O que é map()?</h3>
+
+
+                <p>
+                    O método <code>map()</code> percorre um array
+                    e executa uma função para cada item.
+                    Ele cria um novo array com os resultados
+                    retornados por essa função.
+                </p>
+
+
+                <p>
+                    Exemplo simples, sem React:
+                </p>
+
+
+                <pre><code>const numeros = [1, 2, 3]
+
+const dobrados = numeros.map((numero) =&gt; {
+
+    return numero * 2
 
 })</code></pre>
+
+
+                <p>
+                    O resultado de <code>dobrados</code> será:
+                </p>
+
+
+                <pre><code>[2, 4, 6]</code></pre>
 
 
                 <h3>🧠 Regra mental</h3>
 
 
                 <pre><code>Array
-↓
+   ↓
 map()
-↓
+   ↓
 para cada item
-↓
-retorna algo novo</code></pre>
+   ↓
+executa uma função
+   ↓
+guarda os resultados em um novo array</code></pre>
+
+
+                <h3>🏷️ Usando map() para criar os cards</h3>
 
 
                 <p>
-                    No nosso caso:
+                    No nosso caso, queremos que o
+                    <code>map()</code> percorra o array
+                    <code>categorias</code> e crie um
+                    <code>CategoryCard</code> para cada categoria.
                 </p>
 
 
-                <pre><code>categories
-↓
-map()
-↓
-para cada category
-↓
-cria um CategoryCard</code></pre>
+                <p>
+                    Coloque este código dentro do
+                    <code>return</code> do <strong>App.jsx</strong>,
+                    no lugar onde os cards devem aparecer:
+                </p>
 
 
-                <h3>🏷️ Passando as props</h3>
-
-
-                <pre><code>{categories.map((category) =&gt; (
+                <pre><code>{categorias.map((categoria) =&gt; (
 
     &lt;CategoryCard
 
-        key={category.title}
+        key={categoria.titulo}
 
-        icone={category.icon}
+        icone={categoria.icone}
 
-        titulo={category.title}
+        titulo={categoria.titulo}
 
-        descricao={category.description}
+        descricao={categoria.descricao}
 
-        link={category.link}
+        link={categoria.link}
 
     /&gt;
 
 ))}</code></pre>
 
 
-                <h3>🔑 key</h3>
+                <h3>📤 Como as Props são enviadas?</h3>
+
 
                 <p>
-                    Ao criar vários elementos com <code>map()</code>,
-                    o React precisa identificar cada item.
+                    Em cada volta do <code>map()</code>,
+                    a variável <code>categoria</code> representa
+                    um objeto diferente do array.
                 </p>
 
 
-                <pre><code>key={category.title}</code></pre>
+                <p>
+                    Por exemplo, na primeira volta:
+                </p>
 
 
-                <h3>🧠 Fluxo</h3>
+                <pre><code>categoria.titulo
+    ↓
+HTML</code></pre>
 
 
-                <pre><code>categories.js
-↓
+                <p>
+                    Na segunda volta:
+                </p>
+
+
+                <pre><code>categoria.titulo
+    ↓
+CSS</code></pre>
+
+
+                <p>
+                    O React envia os valores desse objeto para
+                    o componente <code>CategoryCard</code> através
+                    das Props.
+                </p>
+
+
+                <h3>🔑 Para que serve key?</h3>
+
+
+                <p>
+                    Quando criamos vários elementos com
+                    <code>map()</code>, o React precisa de uma
+                    identificação estável para cada elemento.
+                    Essa identificação é passada pela propriedade
+                    especial <code>key</code>.
+                </p>
+
+
+                <pre><code>key={categoria.titulo}</code></pre>
+
+
+                <p>
+                    Neste exemplo, usamos o título porque cada
+                    categoria tem um título diferente.
+                    A <code>key</code> ajuda o React a acompanhar
+                    os elementos da lista; ela não é uma Prop
+                    comum recebida pelo CategoryCard.
+                </p>
+
+
+                <h3>🧩 App.jsx completo</h3>
+
+
+                <p>
+                    Juntando o Header e a lista de categorias,
+                    o <code>App.jsx</code> fica assim:
+                </p>
+
+
+                <pre><code>import Header from './components/Header'
+
+import CategoryCard from './components/CategoryCard'
+
+import categorias from './data/categorias'
+
+
+function App() {
+
+    return (
+
+        &lt;&gt;
+
+            &lt;Header /&gt;
+
+            &lt;main&gt;
+
+                &lt;section className="categorias"&gt;
+
+                    {categorias.map((categoria) =&gt; (
+
+                        &lt;CategoryCard
+
+                            key={categoria.titulo}
+
+                            icone={categoria.icone}
+
+                            titulo={categoria.titulo}
+
+                            descricao={categoria.descricao}
+
+                            link={categoria.link}
+
+                        /&gt;
+
+                    ))}
+
+                &lt;/section&gt;
+
+            &lt;/main&gt;
+
+        &lt;/&gt;
+
+    )
+
+}
+
+
+export default App</code></pre>
+
+
+                <h3>🧠 Fluxo completo</h3>
+
+
+                <pre><code>categorias.js
+    ↓
 Array de objetos
-↓
+    ↓
 App.jsx
-↓
+    ↓
 map()
-↓
-CategoryCard
-↓
-Props
-↓
+    ↓
+para cada categoria
+    ↓
+envia Props
+    ↓
+CategoryCard.jsx
+    ↓
+monta o card
+    ↓
 Tela</code></pre>
+
+
+                <h3>✅ Resumo</h3>
+
+
+                <pre><code>categorias.js
+Guarda os dados.
+
+App.jsx
+Importa os dados e usa map().
+
+CategoryCard.jsx
+Recebe as Props e monta o HTML.
+
+map()
+Cria um CategoryCard para cada objeto do array.</code></pre>
 
 
             </section>
