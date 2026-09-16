@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<!--
+    <header class="topo">
+
+        <div class="logo">
+            <a href="index.html">
+                <span>HoW</span>
+                <strong>to!</strong>
+            </a>
+        </div>
+
+        <p>
+            Meu manual pessoal de programação
+        </p>
+
+    </header>
+-->
+
+    <main>
+
+        <!-- =====================================================
+            REACT
+        ====================================================== -->
+
+        <section id="react">
+
+            <!-- =====================================================
+                MENU
+            ====================================================== -->
+<!--
+            <section id="menu-react" class="howto-menu">
+
+                <h1>⚛️ React</h1>
+
+                <p class="howto-subtitulo">
+                    Guia prático para transformar o HoW to! de HTML/CSS
+                    em uma aplicação React.
+                </p>
+
+
+                <div class="howto-grid">
+
+
+                    <a href="#visao-geral" class="howto-card">
+                        <span class="menu-icon">🧠</span>
+                        <strong>Visão geral</strong>
+                        <small>Entender o que é React</small>
+                    </a>
+
+
+                    <a href="#criar-projeto" class="howto-card">
+                        <span class="menu-icon">🚀</span>
+                        <strong>Criar projeto</strong>
+                        <small>Iniciar React com Vite</small>
+                    </a>
+
+
+                    <a href="#estrutura" class="howto-card">
+                        <span class="menu-icon">🏗️</span>
+                        <strong>Estrutura</strong>
+                        <small>Entender as pastas e arquivos</small>
+                    </a>
+
+
+                    <a href="#jsx" class="howto-card">
+                        <span class="menu-icon">⚛️</span>
+                        <strong>JSX</strong>
+                        <small>HTML dentro do JavaScript</small>
+                    </a>
+
+
+                    <a href="#componentes" class="howto-card">
+                        <span class="menu-icon">🧩</span>
+                        <strong>Componentes</strong>
+                        <small>Dividir a interface</small>
+                    </a>
+
+
+                    <a href="#props" class="howto-card">
+                        <span class="menu-icon">📦</span>
+                        <strong>Props</strong>
+                        <small>Passar dados para componentes</small>
+                    </a>
+
+
+                    <a href="#array-map" class="howto-card">
+                        <span class="menu-icon">🔄</span>
+                        <strong>Array e map()</strong>
+                        <small>Transformar dados em componentes</small>
+                    </a>
+
+
+                    <a href="#home" class="howto-card">
+                        <span class="menu-icon">🏠</span>
+                        <strong>Aplicando na Home</strong>
+                        <small>Transformar index.html</small>
+                    </a>
+
+
+                </div>
+
+            </section>
+-->
+
+            <!-- =====================================================
+                VISÃO GERAL
+            ====================================================== -->
+
+            <section id="visao-geral">
+
+
+                <h2>🧠 O que é React?</h2>
+
+                <p>
+                    React é uma biblioteca JavaScript utilizada para criar
+                    interfaces.
+                </p>
+
+                <p>
+                    Em vez de criar uma página inteira dentro de um único
+                    arquivo HTML, podemos dividir a interface em pequenas
+                    partes chamadas <strong>componentes</strong>.
+                </p>
+
+
+                <pre><code>Home
+↓
+Header
+↓
+Categorias
+↓
+Footer</code></pre>
+
+
+                <p>
+                    No React, podemos representar essas partes assim:
+                </p>
+
+
+                <pre><code>App
+│
+├── Header
+│
+├── Categorias
+│   │
+│   ├── CategoryCard
+│   ├── CategoryCard
+│   ├── CategoryCard
+│   └── CategoryCard
+│
+└── Footer</code></pre>
+
+
+                <h3>🧠 No HoW to!</h3>
+
+                <p>
+                    Atualmente temos uma página HTML parecida com:
+                </p>
+
+
+                <pre><code>index.html
+↓
+Header
+↓
+HTML
+CSS
+JavaScript
+PHP
+SQL
+Git
+VS Code
+GatMan
+Segurança
+↓
+Footer</code></pre>
+
+
+                <p>
+                    Vamos transformar em:
+                </p>
+
+
+                <pre><code>App
+↓
+Header
+↓
+categories.map()
+↓
+CategoryCard
+↓
+Footer</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                CRIAR PROJETO
+            ====================================================== -->
+
+            <section id="criar-projeto">
+
+
+                <h2>🚀 Criando um projeto React</h2>
+
+                <p>
+                    Vamos utilizar o Vite para criar e executar o projeto.
+                </p>
+
+
+                <h3>1️⃣ Criar o projeto</h3>
+
+                <pre><code>npm create vite@latest</code></pre>
+
+
+                <p>
+                    O terminal fará algumas perguntas.
+                </p>
+
+
+                <h3>2️⃣ Nome do projeto</h3>
+
+                <pre><code>Project name:
+howto</code></pre>
+
+
+                <h3>3️⃣ Escolher framework</h3>
+
+                <pre><code>React</code></pre>
+
+
+                <h3>4️⃣ Escolher linguagem</h3>
+
+                <pre><code>JavaScript</code></pre>
+
+
+                <h3>5️⃣ Entrar na pasta</h3>
+
+                <pre><code>cd howto</code></pre>
+
+
+                <h3>6️⃣ Instalar dependências</h3>
+
+                <pre><code>npm install</code></pre>
+
+
+                <h3>7️⃣ Iniciar o projeto</h3>
+
+                <pre><code>npm run dev</code></pre>
+
+
+                <p>
+                    O terminal mostrará algo parecido com:
+                </p>
+
+
+                <pre><code>Local: http://localhost:5173/</code></pre>
+
+
+                <p>
+                    Abra o endereço no navegador.
+                </p>
+
+
+                <h3>🧠 Receita</h3>
+
+
+                <pre><code>npm create vite@latest
+↓
+React
+↓
+JavaScript
+↓
+cd howto
+↓
+npm install
+↓
+npm run dev</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                ESTRUTURA
+            ====================================================== -->
+
+            <section id="estrutura">
+
+
+                <h2>🏗️ Estrutura do projeto</h2>
+
+
+                <pre><code>howto
+│
+├── public
+│
+├── src
+│   │
+│   ├── assets
+│   │
+│   ├── App.jsx
+│   │
+│   └── main.jsx
+│
+├── index.html
+│
+├── package.json
+│
+└── vite.config.js</code></pre>
+
+
+                <h3>📄 index.html</h3>
+
+                <p>
+                    É a estrutura principal da página.
+                </p>
+
+
+                <pre><code>&lt;div id="root"&gt;&lt;/div&gt;</code></pre>
+
+
+                <p>
+                    O React será renderizado dentro de:
+                </p>
+
+
+                <pre><code>#root</code></pre>
+
+
+                <h3>⚛️ main.jsx</h3>
+
+                <p>
+                    Inicia a aplicação React.
+                </p>
+
+
+                <pre><code>main.jsx
+↓
+importa App
+↓
+renderiza App
+↓
+dentro de #root</code></pre>
+
+
+                <h3>🧩 App.jsx</h3>
+
+                <p>
+                    É o componente principal da aplicação.
+                </p>
+
+
+                <pre><code>App
+↓
+organiza a aplicação</code></pre>
+
+
+                <h3>🧠 Fluxo</h3>
+
+
+                <pre><code>index.html
+↓
+#root
+↓
+main.jsx
+↓
+&lt;App /&gt;
+↓
+Interface</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                MAIN.JSX
+            ====================================================== -->
+
+            <section id="main-jsx">
+
+
+                <h2>⚛️ main.jsx</h2>
+
+                <p>
+                    O arquivo <code>main.jsx</code> inicia o React.
+                </p>
+
+
+                <pre><code>import React from 'react'
+import ReactDOM from 'react-dom/client'
+
+import App from './App.jsx'
+
+
+ReactDOM.createRoot(
+    document.getElementById('root')
+).render(
+    &lt;App /&gt;
+)</code></pre>
+
+
+                <h3>🧠 Fluxo</h3>
+
+
+                <pre><code>import App
+↓
+encontra #root
+↓
+cria aplicação React
+↓
+renderiza
+↓
+&lt;App /&gt;</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                APP
+            ====================================================== -->
+
+            <section id="app">
+
+
+                <h2>🧩 App.jsx</h2>
+
+                <p>
+                    O <code>App</code> é o componente principal da aplicação.
+                </p>
+
+
+                <pre><code>function App() {
+
+    return (
+
+        &lt;h1&gt;
+            Olá HoW to!
+        &lt;/h1&gt;
+
+    )
+
+}
+
+export default App</code></pre>
+
+
+                <h3>🧠 Fluxo</h3>
+
+
+                <pre><code>function App()
+↓
+return
+↓
+JSX
+↓
+export default
+↓
+main.jsx</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                JSX
+            ====================================================== -->
+
+            <section id="jsx">
+
+
+                <h2>⚛️ O que é JSX?</h2>
+
+                <p>
+                    JSX permite escrever uma estrutura parecida com HTML
+                    dentro do JavaScript.
+                </p>
+
+
+                <h3>HTML</h3>
+
+
+                <pre><code>&lt;h1&gt;Olá!&lt;/h1&gt;</code></pre>
+
+
+                <h3>JSX</h3>
+
+
+                <pre><code>&lt;h1&gt;Olá!&lt;/h1&gt;</code></pre>
+
+
+                <p>
+                    Visualmente eles podem ser muito parecidos.
+                </p>
+
+
+                <h3>⚠️ class</h3>
+
+                <p>
+                    No HTML:
+                </p>
+
+
+                <pre><code>&lt;div class="categoria"&gt;</code></pre>
+
+
+                <p>
+                    No React:
+                </p>
+
+
+                <pre><code>&lt;div className="categoria"&gt;</code></pre>
+
+
+                <h3>🧠 Regra</h3>
+
+
+                <pre><code>HTML
+↓
+class
+
+React / JSX
+↓
+className</code></pre>
+
+
+                <h3>⚠️ Elementos</h3>
+
+                <p>
+                    Elementos que não possuem conteúdo devem ser fechados.
+                </p>
+
+
+                <pre><code>&lt;img src="imagem.png" /&gt;</code></pre>
+
+
+                <h3>⚠️ JavaScript no JSX</h3>
+
+                <p>
+                    Para colocar JavaScript dentro do JSX, usamos:
+                </p>
+
+
+                <pre><code>{ }</code></pre>
+
+
+                <p>
+                    Exemplo:
+                </p>
+
+
+                <pre><code>const nome = 'Wagner'
+
+&lt;h1&gt;
+    Olá {nome}
+&lt;/h1&gt;</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                COMPONENTES
+            ====================================================== -->
+
+            <section id="componentes">
+
+
+                <h2>🧩 Componentes</h2>
+
+                <p>
+                    Componentes são partes reutilizáveis da interface.
+                </p>
+
+
+                <h3>Exemplos</h3>
+
+
+                <pre><code>Header
+Footer
+CategoryCard
+SearchBar
+Menu</code></pre>
+
+
+                <h3>📁 Estrutura</h3>
+
+
+                <pre><code>src
+│
+├── components
+│   │
+│   ├── Header.jsx
+│   ├── CategoryCard.jsx
+│   └── Footer.jsx
+│
+├── App.jsx
+└── main.jsx</code></pre>
+
+
+                <h3>🧩 Criando um componente</h3>
+
+
+                <pre><code>function Header() {
+
+    return (
+
+        &lt;header&gt;
+
+            &lt;h1&gt;
+                HoW to!
+            &lt;/h1&gt;
+
+        &lt;/header&gt;
+
+    )
+
+}
+
+export default Header</code></pre>
+
+
+                <h3>📥 Importando</h3>
+
+
+                <pre><code>import Header from './components/Header'</code></pre>
+
+
+                <h3>▶️ Usando</h3>
+
+
+                <pre><code>&lt;Header /&gt;</code></pre>
+
+
+                <h3>🧠 Fluxo</h3>
+
+
+                <pre><code>Header.jsx
+↓
+export default Header
+↓
+App.jsx
+↓
+import Header
+↓
+&lt;Header /&gt;
+↓
+Header aparece</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                FRAGMENT
+            ====================================================== -->
+
+            <section id="fragment">
+
+
+                <h2>📦 Fragment</h2>
+
+                <p>
+                    Um componente precisa retornar uma estrutura agrupada.
+                </p>
+
+
+                <pre><code>function App() {
+
+    return (
+
+        &lt;&gt;
+
+            &lt;Header /&gt;
+
+            &lt;main&gt;
+                Conteúdo
+            &lt;/main&gt;
+
+            &lt;Footer /&gt;
+
+        &lt;/&gt;
+
+    )
+
+}</code></pre>
+
+
+                <p>
+                    O Fragment:
+                </p>
+
+
+                <pre><code>&lt;&gt;
+&lt;/&gt;</code></pre>
+
+
+                <p>
+                    agrupa elementos sem criar uma
+                    <code>&lt;div&gt;</code> adicional.
+                </p>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                CSS
+            ====================================================== -->
+
+            <section id="css-react">
+
+
+                <h2>🎨 Usando o CSS existente</h2>
+
+                <p>
+                    O CSS atual do HoW to! pode ser reaproveitado.
+                </p>
+
+
+                <p>
+                    Mova:
+                </p>
+
+
+                <pre><code>css/style.css</code></pre>
+
+
+                <p>
+                    Para:
+                </p>
+
+
+                <pre><code>src/css/style.css</code></pre>
+
+
+                <p>
+                    Depois importe no:
+                </p>
+
+
+                <pre><code>main.jsx</code></pre>
+
+
+                <pre><code>import './css/style.css'</code></pre>
+
+
+                <h3>🧠 Regra</h3>
+
+
+                <pre><code>CSS antigo
+↓
+continuará funcionando
+↓
+se as classes continuarem iguais
+
+HTML
+class="categoria"
+
+React
+className="categoria"</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                CATEGORY CARD
+            ====================================================== -->
+
+            <section id="category-card">
+
+
+                <h2>🏷️ CategoryCard</h2>
+
+
+                <p>
+                    A Home possui várias categorias.
+                </p>
+
+
+                <pre><code>HTML
+CSS
+JavaScript
+PHP
+SQL
+Git
+VS Code
+GatMan
+Segurança</code></pre>
+
+
+                <p>
+                    Todas possuem praticamente a mesma estrutura:
+                </p>
+
+
+                <pre><code>Ícone
+↓
+Título
+↓
+Descrição
+↓
+Link</code></pre>
+
+
+                <p>
+                    Quando temos estruturas iguais, podemos criar um
+                    componente reutilizável.
+                </p>
+
+
+                <h3>📁 Criar</h3>
+
+
+                <pre><code>src/components/CategoryCard.jsx</code></pre>
+
+
+                <h3>🧩 Primeiro componente</h3>
+
+
+                <pre><code>function CategoryCard() {
+
+    return (
+
+        &lt;a
+            href="#"
+            className="categoria"
+        &gt;
+
+            &lt;div className="icone"&gt;
+
+                ⚡
+
+            &lt;/div&gt;
+
+
+            &lt;div className="categoria-info"&gt;
+
+                &lt;h2&gt;
+                    JavaScript
+                &lt;/h2&gt;
+
+
+                &lt;p&gt;
+                    Interações, eventos,
+                    fetch e lógica.
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/a&gt;
+
+    )
+
+}
+
+export default CategoryCard</code></pre>
+
+
+                <p>
+                    Neste primeiro momento, o componente possui
+                    informações fixas.
+                </p>
+
+
+                <h3>🧠 Como usar o componente?</h3>
+
+
+                <p>
+                    O componente pode ser chamado dentro do
+                    <strong>App.jsx</strong>:
+                </p>
+
+
+                <pre><code>import CategoryCard from './components/CategoryCard'
+
+
+function App() {
+
+    return (
+
+        &lt;CategoryCard /&gt;
+
+    )
+
+}
+
+
+export default App</code></pre>
+
+
+                <p>
+                    Podemos pensar no
+                    <strong>&lt;CategoryCard /&gt;</strong>
+                    como uma chamada ao componente.
+                </p>
+
+
+                <h3>O problema</h3>
+
+
+                <pre><code>&lt;CategoryCard /&gt;
+&lt;CategoryCard /&gt;
+&lt;CategoryCard /&gt;</code></pre>
+
+
+                <p>
+                    Todos os cards seriam iguais.
+                </p>
+
+
+                <p>
+                    Precisamos enviar informações diferentes
+                    para cada card.
+                </p>
+
+
+                <p>
+                    É aqui que entram as:
+                </p>
+
+
+                <h2>📦 Props</h2>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                PROPS
+            ====================================================== -->
+
+            <section id="props">
+
+
+                <h2>📦 O que são Props?</h2>
+
+
+                <p>
+                    Props são informações enviadas de um componente
+                    para outro.
+                </p>
+
+
+                <p>
+                    Neste caso, o <strong>App.jsx</strong> envia
+                    informações para o <strong>CategoryCard.jsx</strong>.
+                </p>
+
+
+                <h3>📤 Enviando Props</h3>
+
+
+                <p>
+                    As Props são enviadas através dos atributos
+                    do componente:
+                </p>
+
+
+                <pre><code>&lt;CategoryCard
+
+    icone="⚡"
+
+    titulo="JavaScript"
+
+    descricao="Interações, eventos, fetch e lógica."
+
+    link="js.html"
+
+/&gt;</code></pre>
+
+
+                <h3>🧠 Fluxo</h3>
+
+
+                <pre><code>App.jsx
+   ↓
+envia Props
+   ↓
+CategoryCard.jsx
+   ↓
+recebe Props</code></pre>
+
+
+                <h3>📦 Informações enviadas</h3>
+
+
+                <pre><code>icone
+titulo
+descricao
+link</code></pre>
+
+
+                <p>
+                    Por exemplo:
+                </p>
+
+
+                <pre><code>titulo="JavaScript"</code></pre>
+
+
+                <p>
+                    significa que o valor
+                    <strong>JavaScript</strong>
+                    está sendo enviado para o componente.
+                </p>
+
+
+                <h3>📤 Enviando no App.jsx</h3>
+
+
+                <p>
+                    O componente pai envia as Props.
+                    Neste caso, o componente pai é o
+                    <strong>App.jsx</strong>.
+                </p>
+
+
+                <pre><code>import CategoryCard from './components/CategoryCard'
+
+
+function App() {
+
+    return (
+
+        &lt;&gt;
+
+            &lt;CategoryCard
+
+                icone="⚡"
+
+                titulo="JavaScript"
+
+                descricao="Interações, eventos, fetch e lógica."
+
+                link="js.html"
+
+            /&gt;
+
+        &lt;/&gt;
+
+    )
+
+}
+
+
+export default App</code></pre>
+
+
+                <h3>🧠 Visualizando o que acontece</h3>
+
+
+                <pre><code>App.jsx
+
+&lt;CategoryCard
+    titulo="JavaScript"
+/&gt;
+
+        ↓
+
+CategoryCard.jsx
+
+props.titulo
+
+        ↓
+
+JavaScript</code></pre>
+
+
+                <h3>📥 Recebendo Props</h3>
+
+
+                <p>
+                    O componente filho recebe as informações
+                    através do parâmetro <strong>props</strong>.
+                </p>
+
+
+                <pre><code>function CategoryCard(props) {
+
+    return (
+
+        &lt;a
+            href={props.link}
+            className="categoria"
+        &gt;
+
+            &lt;div className="icone"&gt;
+
+                {props.icone}
+
+            &lt;/div&gt;
+
+
+            &lt;div className="categoria-info"&gt;
+
+                &lt;h2&gt;
+
+                    {props.titulo}
+
+                &lt;/h2&gt;
+
+
+                &lt;p&gt;
+
+                    {props.descricao}
+
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/a&gt;
+
+    )
+
+}
+
+export default CategoryCard</code></pre>
+
+
+                <h3>🧠 Entendendo o props</h3>
+
+
+                <p>
+                    O <strong>props</strong> funciona como um pacote
+                    contendo as informações enviadas pelo componente pai.
+                </p>
+
+
+                <pre><code>props
+│
+├── props.icone
+├── props.titulo
+├── props.descricao
+└── props.link</code></pre>
+
+
+                <p>
+                    Se o App.jsx enviar:
+                </p>
+
+
+                <pre><code>titulo="JavaScript"</code></pre>
+
+
+                <p>
+                    o CategoryCard poderá acessar:
+                </p>
+
+
+                <pre><code>props.titulo</code></pre>
+
+
+                <p>
+                    E o resultado será:
+                </p>
+
+
+                <pre><code>JavaScript</code></pre>
+
+
+                <h3>⚡ Desestruturação</h3>
+
+
+                <p>
+                    Podemos receber diretamente as propriedades,
+                    sem precisar escrever <strong>props.</strong>
+                    todas as vezes.
+                </p>
+
+
+                <pre><code>function CategoryCard({
+
+    icone,
+    titulo,
+    descricao,
+    link
+
+})</code></pre>
+
+
+                <p>
+                    Agora podemos usar diretamente:
+                </p>
+
+
+                <pre><code>{icone}
+
+{titulo}
+
+{descricao}
+
+{link}</code></pre>
+
+
+                <p>
+                    Isso é apenas uma forma mais curta de acessar
+                    as Props.
+                </p>
+
+
+                <h3>🧩 Componente completo</h3>
+
+
+                <pre><code>function CategoryCard({
+
+    icone,
+    titulo,
+    descricao,
+    link
+
+}) {
+
+    return (
+
+        &lt;a
+            href={link}
+            className="categoria"
+        &gt;
+
+            &lt;div className="icone"&gt;
+
+                {icone}
+
+            &lt;/div&gt;
+
+
+            &lt;div className="categoria-info"&gt;
+
+                &lt;h2&gt;
+
+                    {titulo}
+
+                &lt;/h2&gt;
+
+
+                &lt;p&gt;
+
+                    {descricao}
+
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+
+        &lt;/a&gt;
+
+    )
+
+}
+
+export default CategoryCard</code></pre>
+
+
+                <h3>🧠 Regra para lembrar</h3>
+
+
+                <pre><code>PAI
+ ↓
+envia Props
+ ↓
+FILHO
+ ↓
+recebe Props</code></pre>
+
+
+                <p>
+                    No nosso exemplo:
+                </p>
+
+
+                <pre><code>App.jsx
+   ↓
+&lt;CategoryCard
+    titulo="JavaScript"
+/&gt;
+   ↓
+CategoryCard.jsx
+   ↓
+props.titulo
+   ↓
+JavaScript</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                ARRAY E MAP
+            ====================================================== -->
+
+            <!-- =====================================================
+                ARRAY E MAP()
+            ====================================================== -->
+
+            <section id="array-map">
+
+
+                <h2>🔄 Array e map()</h2>
+
+
+                <p>
+                    Nossa Home possui várias categorias.
+                    Cada categoria tem um ícone, um título,
+                    uma descrição e um link.
+                </p>
+
+
+                <p>
+                    Em vez de escrever cada card separadamente
+                    no App.jsx, podemos guardar os dados em um
+                    array e usar o React para criar os cards.
+                </p>
+
+
+                <h3>📁 Criar o arquivo de dados</h3>
+
+
+                <pre><code>src/data/categorias.js</code></pre>
+
+
+                <p>
+                    Esse arquivo vai guardar os dados das categorias.
+                    Ele não contém o HTML dos cards.
+                </p>
+
+
+                <h3>📦 Array de categorias</h3>
+
+
+                <pre><code>const categorias = [
+
+    {
+        icone: '&lt;/&gt;',
+        titulo: 'HTML',
+        descricao: 'Estrutura e criação das páginas.',
+        link: 'html.html'
+    },
+
+    {
+        icone: '🎨',
+        titulo: 'CSS',
+        descricao: 'Estilos, layouts, cores e responsividade.',
+        link: 'css.html'
+    },
+
+    {
+        icone: '⚡',
+        titulo: 'JavaScript',
+        descricao: 'Interações, eventos, fetch e lógica.',
+        link: 'js.html'
+    },
+
+    {
+        icone: '🐘',
+        titulo: 'PHP',
+        descricao: 'Backend, formulários, sessões e banco.',
+        link: 'php.html'
+    },
+
+    {
+        icone: '🗄️',
+        titulo: 'SQL',
+        descricao: 'Banco de dados, consultas e alterações.',
+        link: 'sql.html'
+    },
+
+    {
+        icone: '🐈',
+        titulo: 'GitHub/git',
+        descricao: 'Versionamento.',
+        link: 'git.html'
+    },
+
+    {
+        icone: '⚛️',
+        titulo: 'React',
+        descricao: 'Biblioteca do JavaScript.',
+        link: 'react.html'
+    },
+
+    {
+        icone: '💻',
+        titulo: 'VS Code',
+        descricao: 'Configurações, atalhos e ferramentas.',
+        link: 'vs-code.html'
+    },
+
+    {
+        icone: '🔧',
+        titulo: 'GatMan',
+        descricao: 'Soluções e procedimentos específicos do GatMan.',
+        link: 'gatman.html'
+    },
+
+    {
+        icone: '🛡️',
+        titulo: 'Segurança',
+        descricao: 'Boas práticas e segurança do sistema.',
+        link: 'seguranca.html'
+    }
+
+]
+
+export default categorias</code></pre>
+
+
+                <h3>🧠 O que temos?</h3>
+
+
+                <p>
+                    Criamos um array chamado
+                    <strong>categorias</strong>.
+                    Dentro dele, cada objeto representa uma categoria.
+                </p>
+
+
+                <pre><code>categorias
+    ↓
+Array
+    ↓
+Vários objetos
+    ↓
+Cada objeto contém:
+    icone
+    titulo
+    descricao
+    link</code></pre>
+
+
+                <p>
+                    Por exemplo, podemos acessar o título da primeira
+                    categoria usando:
+                </p>
+
+
+                <pre><code>categorias[0].titulo</code></pre>
+
+
+                <p>
+                    O resultado será:
+                </p>
+
+
+                <pre><code>HTML</code></pre>
+
+
+                <h3>📥 Importar os dados no App.jsx</h3>
+
+
+                <p>
+                    Agora vamos usar o array no
+                    <strong>App.jsx</strong>.
+                    Primeiro, importamos os dados e o componente
+                    CategoryCard:
+                </p>
+
+
+                <pre><code>import Header from './components/Header'
+
+import CategoryCard from './components/CategoryCard'
+
+import categorias from './data/categorias'</code></pre>
+
+
+                <p>
+                    O caminho
+                    <code>./data/categorias</code>
+                    aponta para o arquivo
+                    <code>src/data/categorias.js</code>.
+                </p>
+
+
+                <h3>🔄 O que é map()?</h3>
+
+
+                <p>
+                    O método <code>map()</code> percorre um array
+                    e executa uma função para cada item.
+                    Ele cria um novo array com os resultados
+                    retornados por essa função.
+                </p>
+
+
+                <p>
+                    Exemplo simples, sem React:
+                </p>
+
+
+                <pre><code>const numeros = [1, 2, 3]
+
+const dobrados = numeros.map((numero) =&gt; {
+
+    return numero * 2
+
+})</code></pre>
+
+
+                <p>
+                    O resultado de <code>dobrados</code> será:
+                </p>
+
+
+                <pre><code>[2, 4, 6]</code></pre>
+
+
+                <h3>🧠 Regra mental</h3>
+
+
+                <pre><code>Array
+   ↓
+map()
+   ↓
+para cada item
+   ↓
+executa uma função
+   ↓
+guarda os resultados em um novo array</code></pre>
+
+
+                <h3>🏷️ Usando map() para criar os cards</h3>
+
+
+                <p>
+                    No nosso caso, queremos que o
+                    <code>map()</code> percorra o array
+                    <code>categorias</code> e crie um
+                    <code>CategoryCard</code> para cada categoria.
+                </p>
+
+
+                <p>
+                    Coloque este código dentro do
+                    <code>return</code> do <strong>App.jsx</strong>,
+                    no lugar onde os cards devem aparecer:
+                </p>
+
+
+                <pre><code>{categorias.map((categoria) =&gt; (
+
+    &lt;CategoryCard
+
+        key={categoria.titulo}
+
+        icone={categoria.icone}
+
+        titulo={categoria.titulo}
+
+        descricao={categoria.descricao}
+
+        link={categoria.link}
+
+    /&gt;
+
+))}</code></pre>
+
+
+                <h3>📤 Como as Props são enviadas?</h3>
+
+
+                <p>
+                    Em cada volta do <code>map()</code>,
+                    a variável <code>categoria</code> representa
+                    um objeto diferente do array.
+                </p>
+
+
+                <p>
+                    Por exemplo, na primeira volta:
+                </p>
+
+
+                <pre><code>categoria.titulo
+    ↓
+HTML</code></pre>
+
+
+                <p>
+                    Na segunda volta:
+                </p>
+
+
+                <pre><code>categoria.titulo
+    ↓
+CSS</code></pre>
+
+
+                <p>
+                    O React envia os valores desse objeto para
+                    o componente <code>CategoryCard</code> através
+                    das Props.
+                </p>
+
+
+                <h3>🔑 Para que serve key?</h3>
+
+
+                <p>
+                    Quando criamos vários elementos com
+                    <code>map()</code>, o React precisa de uma
+                    identificação estável para cada elemento.
+                    Essa identificação é passada pela propriedade
+                    especial <code>key</code>.
+                </p>
+
+
+                <pre><code>key={categoria.titulo}</code></pre>
+
+
+                <p>
+                    Neste exemplo, usamos o título porque cada
+                    categoria tem um título diferente.
+                    A <code>key</code> ajuda o React a acompanhar
+                    os elementos da lista; ela não é uma Prop
+                    comum recebida pelo CategoryCard.
+                </p>
+
+
+                <h3>🧩 App.jsx completo</h3>
+
+
+                <p>
+                    Juntando o Header e a lista de categorias,
+                    o <code>App.jsx</code> fica assim:
+                </p>
+
+
+                <pre><code>import Header from './components/Header'
+
+import CategoryCard from './components/CategoryCard'
+
+import categorias from './data/categorias'
+
+
+function App() {
+
+    return (
+
+        &lt;&gt;
+
+            &lt;Header /&gt;
+
+            &lt;main&gt;
+
+                &lt;section className="categorias"&gt;
+
+                    {categorias.map((categoria) =&gt; (
+
+                        &lt;CategoryCard
+
+                            key={categoria.titulo}
+
+                            icone={categoria.icone}
+
+                            titulo={categoria.titulo}
+
+                            descricao={categoria.descricao}
+
+                            link={categoria.link}
+
+                        /&gt;
+
+                    ))}
+
+                &lt;/section&gt;
+
+            &lt;/main&gt;
+
+        &lt;/&gt;
+
+    )
+
+}
+
+
+export default App</code></pre>
+
+
+                <h3>🧠 Fluxo completo</h3>
+
+
+                <pre><code>categorias.js
+    ↓
+Array de objetos
+    ↓
+App.jsx
+    ↓
+map()
+    ↓
+para cada categoria
+    ↓
+envia Props
+    ↓
+CategoryCard.jsx
+    ↓
+monta o card
+    ↓
+Tela</code></pre>
+
+
+                <h3>✅ Resumo</h3>
+
+
+                <pre><code>categorias.js
+Guarda os dados.
+
+App.jsx
+Importa os dados e usa map().
+
+CategoryCard.jsx
+Recebe as Props e monta o HTML.
+
+map()
+Cria um CategoryCard para cada objeto do array.</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                APLICANDO NA HOME
+            ====================================================== -->
+
+            <section id="home">
+
+
+                <h2>🏠 Aplicando na Home</h2>
+
+
+                <h3>📥 Imports</h3>
+
+
+                <pre><code>import Header
+    from './components/Header'
+
+import CategoryCard
+    from './components/CategoryCard'
+
+import Footer
+    from './components/Footer'
+
+import categories
+    from './data/categories'</code></pre>
+
+
+                <h3>🧩 App.jsx</h3>
+
+
+                <pre><code>function App() {
+
+    return (
+
+        &lt;&gt;
+
+            &lt;Header /&gt;
+
+
+            &lt;main&gt;
+
+                &lt;section className="inicio"&gt;
+
+
+                    &lt;h1&gt;
+
+                        Como eu faço isso mesmo?
+
+                    &lt;/h1&gt;
+
+
+                    &lt;p
+                        className="subtitulo"
+                    &gt;
+
+                        Escolha uma categoria
+                        para encontrar
+                        meus tutoriais.
+
+                    &lt;/p&gt;
+
+
+                    &lt;div
+                        className="categorias"
+                    &gt;
+
+                        {categories.map(
+                            (category) =&gt; (
+
+                                &lt;CategoryCard
+
+                                    key={category.title}
+
+                                    icone={category.icon}
+
+                                    titulo={category.title}
+
+                                    descricao={
+                                        category.description
+                                    }
+
+                                    link={category.link}
+
+                                /&gt;
+
+                            )
+                        )}
+
+                    &lt;/div&gt;
+
+
+                &lt;/section&gt;
+
+            &lt;/main&gt;
+
+
+            &lt;Footer /&gt;
+
+
+        &lt;/&gt;
+
+    )
+
+}
+
+export default App</code></pre>
+
+
+                <h3>🧠 Fluxo completo</h3>
+
+
+                <pre><code>categories.js
+
+Array
+↓
+
+
+App.jsx
+
+map()
+↓
+
+
+CategoryCard
+
+props
+↓
+
+
+Categoria aparece
+na tela</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                ESTRUTURA FINAL
+            ====================================================== -->
+
+            <section id="estrutura-final">
+
+
+                <h2>🏗️ Estrutura final</h2>
+
+
+                <pre><code>howto
+│
+├── src
+│   │
+│   ├── components
+│   │   │
+│   │   ├── Header.jsx
+│   │   ├── CategoryCard.jsx
+│   │   └── Footer.jsx
+│   │
+│   ├── css
+│   │   │
+│   │   └── style.css
+│   │
+│   ├── data
+│   │   │
+│   │   └── categories.js
+│   │
+│   ├── App.jsx
+│   │
+│   └── main.jsx
+│
+├── index.html
+│
+├── package.json
+│
+└── vite.config.js</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                GUIA RÁPIDO
+            ====================================================== -->
+
+            <section id="guia-rapido-react">
+
+
+                <h2>⚡ Guia rápido — Como pensar em React</h2>
+
+
+                <pre><code>Quero dividir a interface
+↓
+Criar componente
+
+
+O componente muda
+conforme os dados
+↓
+Usar Props
+
+
+Tenho muitos dados parecidos
+↓
+Criar Array
+
+
+Preciso mostrar
+todos os dados
+↓
+Usar map()
+
+
+Tenho várias páginas
+↓
+React Router</code></pre>
+
+
+            </section>
+
+
+            <!-- =====================================================
+                RECEITA
+            ====================================================== -->
+
+            <section id="receita-react">
+
+
+                <h2>🧠 A receita</h2>
+
+
+                <pre><code>Site HTML
+↓
+Vite
+↓
+React
+↓
+JSX
+↓
+App
+↓
+Componentes
+↓
+Props
+↓
+Array
+↓
+map()
+↓
+Home React</code></pre>
+
+
+            </section>
+
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            HoW to! —
+            feito para eu não esquecer
+            como fazer as coisas. 😄
+        </p>
+
+    </footer>
+
+
+</body>
+
+
+</html>

@@ -2,6 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import CategoryCard from './components/CategoryCard'
 import categorias from './data/categorias'
+import ReactPage from './pages/React'
 
 function App() {
 
@@ -43,8 +44,8 @@ function App() {
           
         </section>
       </main>
-
-    </>
+      <ReactPage />
+      </>
 
   )
 
