@@ -46,7 +46,7 @@ const categorias = [
         icone: '⚛️',
         titulo: 'React',
         descricao: 'Biblioteca do JavaScript.',
-        link: 'react.html'
+        link: "/react"
     },
 
     {

@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CategoryCard = (props) => {
   return (
 
-    <a href={props.link} className='categoria'>
+    <Link to={props.link} className='categoria'>
+
       <div className='icone'>
         {props.icone}
       </div>
@@ -17,8 +19,10 @@ const CategoryCard = (props) => {
           {props.descricao}
         </p>
       </div>
-    </a>
-    )
+
+    </Link>
+
+  )
 }
 
 export default CategoryCard
