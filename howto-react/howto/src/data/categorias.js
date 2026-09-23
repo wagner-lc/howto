@@ -18,7 +18,7 @@ const categorias = [
         icone: '⚡',
         titulo: 'JavaScript',
         descricao: 'Interações, eventos, fetch e lógica.',
-        link: 'js.html'
+        link: '/javascript'
     },
 
     {

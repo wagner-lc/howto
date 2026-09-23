@@ -1,3 +1,4 @@
+<!-- Conteúdo original da página React -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -2327,6 +2328,330 @@ Home React</code></pre>
 
             </section>
 
+            <!-- =====================================================
+                GUIA RÁPIDO REACT ROUTER
+            ====================================================== -->
+
+            <section id="react-router-guia">
+
+
+                <h2>🛠️ React Router — Guia Prático</h2>
+
+                <p>
+                    Vamos imaginar que temos uma aplicação React e queremos
+                    criar uma nova página chamada <strong>Example</strong>.
+                </p>
+
+                <p>
+                    A ideia será criar esta URL:
+                </p>
+
+                <pre><code>/example</code></pre>
+
+                <p>
+                    E fazer com que ela mostre o componente:
+                </p>
+
+                <pre><code>ExamplePage</code></pre>
+
+
+                <h3>1️⃣ Instalar o React Router</h3>
+
+                <p>
+                    Primeiro, instalamos o React Router no projeto:
+                </p>
+
+                <pre><code>npm install react-router-dom</code></pre>
+
+
+                <h3>2️⃣ Criar a página</h3>
+
+                <p>
+                    Criamos um componente para representar nossa página.
+                </p>
+
+                <p>
+                    Por exemplo, podemos criar:
+                </p>
+
+                <pre><code>src/
+            │
+            ├── pages/
+            │   └── ExamplePage.jsx
+            │
+            └── App.jsx</code></pre>
+
+
+                <p>
+                    Dentro de <strong>ExamplePage.jsx</strong>:
+                </p>
+
+                <pre><code>function ExamplePage() {
+
+                return (
+                    &lt;main&gt;
+                        &lt;h1&gt;Página Example&lt;/h1&gt;
+                        &lt;p&gt;Esta é uma página de exemplo.&lt;/p&gt;
+                    &lt;/main&gt;
+                )
+
+            }
+
+            export default ExamplePage</code></pre>
+
+
+                <p>
+                    Neste momento temos apenas um componente.
+                    Ainda não existe uma URL para acessá-lo.
+                </p>
+
+
+                <h3>3️⃣ Importar a página no App.jsx</h3>
+
+                <p>
+                    Agora precisamos importar o componente que criamos:
+                </p>
+
+                <pre><code>import ExamplePage from './pages/ExamplePage'</code></pre>
+
+
+                <h3>4️⃣ Importar o React Router</h3>
+
+                <p>
+                    No <strong>App.jsx</strong>, importamos as ferramentas
+                    necessárias para trabalhar com rotas:
+                </p>
+
+                <pre><code>import {
+                BrowserRouter,
+                Routes,
+                Route
+            } from 'react-router-dom'</code></pre>
+
+
+                <h3>5️⃣ Criar a rota</h3>
+
+                <p>
+                    Agora podemos dizer ao React Router:
+                </p>
+
+                <pre><code>Quando a URL for /example,
+            mostre o componente ExamplePage.</code></pre>
+
+                <p>
+                    Fazemos isso utilizando <strong>Route</strong>:
+                </p>
+
+                <pre><code>&lt;Route
+                path="/example"
+                element={&lt;ExamplePage /&gt;}
+            /&gt;</code></pre>
+
+
+                <h3>6️⃣ Colocar a rota dentro de Routes</h3>
+
+                <p>
+                    As rotas ficam dentro de <strong>Routes</strong>:
+                </p>
+
+                <pre><code>&lt;Routes&gt;
+
+                &lt;Route
+                    path="/example"
+                    element={&lt;ExamplePage /&gt;}
+                /&gt;
+
+            &lt;/Routes&gt;</code></pre>
+
+
+                <h3>7️⃣ Envolver as rotas com BrowserRouter</h3>
+
+                <p>
+                    Por fim, colocamos o sistema de rotas dentro de
+                    <strong>BrowserRouter</strong>:
+                </p>
+
+                <pre><code>&lt;BrowserRouter&gt;
+
+                &lt;Routes&gt;
+
+                    &lt;Route
+                        path="/example"
+                        element={&lt;ExamplePage /&gt;}
+                    /&gt;
+
+                &lt;/Routes&gt;
+
+            &lt;/BrowserRouter&gt;</code></pre>
+
+
+                <p>
+                    Agora temos a ligação:
+                </p>
+
+                <pre><code>/example
+                ↓
+            Route
+                ↓
+            ExamplePage</code></pre>
+
+
+                <h3>8️⃣ Acessando a página</h3>
+
+                <p>
+                    Se o projeto estiver rodando em:
+                </p>
+
+                <pre><code>http://localhost:5173</code></pre>
+
+                <p>
+                    podemos acessar:
+                </p>
+
+                <pre><code>http://localhost:5173/example</code></pre>
+
+                <p>
+                    E o React Router irá mostrar o componente
+                    <strong>ExamplePage</strong>.
+                </p>
+
+
+                <h3>9️⃣ Criando um link</h3>
+
+                <p>
+                    Podemos criar um link para essa página utilizando
+                    o componente <strong>Link</strong>.
+                </p>
+
+                <p>
+                    Primeiro importamos:
+                </p>
+
+                <pre><code>import { Link } from 'react-router-dom'</code></pre>
+
+                <p>
+                    Depois:
+                </p>
+
+                <pre><code>&lt;Link to="/example"&gt;
+                Ir para Example
+            &lt;/Link&gt;</code></pre>
+
+
+                <p>
+                    Quando o usuário clicar no link, o React Router irá
+                    navegar para:
+                </p>
+
+                <pre><code>/example</code></pre>
+
+
+                <h3>🔟 Resumo do processo</h3>
+
+                <p>
+                    Para criar uma nova página utilizando React Router:
+                </p>
+
+                <pre><code>1. Criar o componente
+
+            ExamplePage.jsx
+
+
+            2. Importar o componente
+
+            import ExamplePage from './pages/ExamplePage'
+
+
+            3. Criar a rota
+
+            &lt;Route
+                path="/example"
+                element={&lt;ExamplePage /&gt;}
+            /&gt;
+
+
+            4. Criar um link
+
+            &lt;Link to="/example"&gt;
+                Ir para Example
+            &lt;/Link&gt;</code></pre>
+
+
+                <h3>🧠 Entendendo os nomes</h3>
+
+                <p>
+                    É importante entender que cada nome representa uma
+                    coisa diferente:
+                </p>
+
+                <pre><code>ExamplePage
+            ↓
+            Nome do nosso componente
+
+
+            /example
+            ↓
+            Endereço (URL) da página
+
+
+            Route
+            ↓
+            Define a relação entre URL e componente
+
+
+            Link
+            ↓
+            Cria um link para uma rota
+
+
+            BrowserRouter
+            ↓
+            Ativa o sistema de navegação
+
+
+            Routes
+            ↓
+            Agrupa as rotas</code></pre>
+
+
+                <h3>🎯 A ideia principal</h3>
+
+                <p>
+                    O conceito mais importante é este:
+                </p>
+
+                <pre><code>URL
+            ↓
+            Route
+            ↓
+            Componente</code></pre>
+
+                <p>
+                    Por exemplo:
+                </p>
+
+                <pre><code>/example
+            ↓
+            Route
+            ↓
+            ExamplePage</code></pre>
+
+                <p>
+                    E quando utilizamos um link:
+                </p>
+
+                <pre><code>Link
+            ↓
+            /example
+            ↓
+            Route
+            ↓
+            ExamplePage</code></pre>
+
+
+            </section>
+
+            
         </section>
 
 

@@ -1,9 +1,12 @@
+/* Página principal que gerencia todo o conteúdo */
+
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import CategoryCard from './components/CategoryCard'
 import categorias from './data/categorias'
 import ReactPage from './pages/React'
+import JavascriptPage from './pages/Javascript'
 
 function Inicio() {
 
@@ -48,6 +51,8 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Inicio />} />
+
+        <Route path="/javascript" element={<JavascriptPage />} />
 
         <Route path="/react" element={<ReactPage />} />
 

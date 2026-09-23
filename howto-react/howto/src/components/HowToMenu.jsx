@@ -1,13 +1,12 @@
-function HowToMenu({ itens }) {
+function HowToMenu({ titulo, subtitulo, itens }) {
 
     return (
         <section className="howto-menu">
 
-            <h1>⚛️ React</h1>
+            <h1>{titulo}</h1>
 
             <p className="howto-subtitulo">
-                Guia prático para transformar o HoW to! de HTML/CSS
-                em uma aplicação React.
+                {subtitulo}
             </p>
 
             <div className="howto-grid">
@@ -19,7 +18,9 @@ function HowToMenu({ itens }) {
                         className="howto-card"
                     >
                         <span className="menu-icon">{item.icone}</span>
+
                         <strong>{item.titulo}</strong>
+
                         <small>{item.descricao}</small>
                     </a>
                 ))}

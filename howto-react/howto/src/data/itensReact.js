@@ -52,6 +52,12 @@ const itensReact = [
         titulo: "Aplicando React router",
         descricao: "Conectar páginas com react router",
         link: "#react-router"
+    },
+    {
+        icone: "⚡",
+        titulo: "Guia rápido React router",
+        descricao: "Como aplicar o react router passo a passo",
+        link: "#react-router-guia"
     }
 ]
 
