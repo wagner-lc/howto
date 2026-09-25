@@ -4,14 +4,14 @@ const categorias = [
         icone: '</>',
         titulo: 'HTML',
         descricao: 'Estrutura e criação das páginas.',
-        link: 'html.html'
+        link: '/html'
     },
 
     {
         icone: '🎨',
         titulo: 'CSS',
         descricao: 'Estilos, layouts, cores e responsividade.',
-        link: 'css.html'
+        link: '/css'
     },
 
     {
@@ -25,21 +25,21 @@ const categorias = [
         icone: '🐘',
         titulo: 'PHP',
         descricao: 'Backend, formulários, sessões e banco.',
-        link: 'php.html'
+        link: '/php'
     },
 
     {
         icone: '🗄️',
         titulo: 'SQL',
         descricao: 'Banco de dados, consultas e alterações.',
-        link: 'sql.html'
+        link: '/sql'
     },
 
     {
         icone: '🐈',
         titulo: 'GitHub/git',
         descricao: 'Versionamento.',
-        link: 'git.html'
+        link: '/git'
     },
 
     {

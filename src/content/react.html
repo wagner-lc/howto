@@ -12,22 +12,6 @@
 </head>
 
 <body>
-<!--
-    <header class="topo">
-
-        <div class="logo">
-            <a href="index.html">
-                <span>HoW</span>
-                <strong>to!</strong>
-            </a>
-        </div>
-
-        <p>
-            Meu manual pessoal de programação
-        </p>
-
-    </header>
--->
 
     <main>
 
@@ -36,84 +20,6 @@
         ====================================================== -->
 
         <section id="react">
-
-            <!-- =====================================================
-                MENU
-            ====================================================== -->
-<!--
-            <section id="menu-react" class="howto-menu">
-
-                <h1>⚛️ React</h1>
-
-                <p class="howto-subtitulo">
-                    Guia prático para transformar o HoW to! de HTML/CSS
-                    em uma aplicação React.
-                </p>
-
-
-                <div class="howto-grid">
-
-
-                    <a href="#visao-geral" class="howto-card">
-                        <span class="menu-icon">🧠</span>
-                        <strong>Visão geral</strong>
-                        <small>Entender o que é React</small>
-                    </a>
-
-
-                    <a href="#criar-projeto" class="howto-card">
-                        <span class="menu-icon">🚀</span>
-                        <strong>Criar projeto</strong>
-                        <small>Iniciar React com Vite</small>
-                    </a>
-
-
-                    <a href="#estrutura" class="howto-card">
-                        <span class="menu-icon">🏗️</span>
-                        <strong>Estrutura</strong>
-                        <small>Entender as pastas e arquivos</small>
-                    </a>
-
-
-                    <a href="#jsx" class="howto-card">
-                        <span class="menu-icon">⚛️</span>
-                        <strong>JSX</strong>
-                        <small>HTML dentro do JavaScript</small>
-                    </a>
-
-
-                    <a href="#componentes" class="howto-card">
-                        <span class="menu-icon">🧩</span>
-                        <strong>Componentes</strong>
-                        <small>Dividir a interface</small>
-                    </a>
-
-
-                    <a href="#props" class="howto-card">
-                        <span class="menu-icon">📦</span>
-                        <strong>Props</strong>
-                        <small>Passar dados para componentes</small>
-                    </a>
-
-
-                    <a href="#array-map" class="howto-card">
-                        <span class="menu-icon">🔄</span>
-                        <strong>Array e map()</strong>
-                        <small>Transformar dados em componentes</small>
-                    </a>
-
-
-                    <a href="#home" class="howto-card">
-                        <span class="menu-icon">🏠</span>
-                        <strong>Aplicando na Home</strong>
-                        <small>Transformar index.html</small>
-                    </a>
-
-
-                </div>
-
-            </section>
--->
 
             <!-- =====================================================
                 VISÃO GERAL
@@ -1902,6 +1808,359 @@ na tela</code></pre>
 
             </section>
 
+            <!-- =====================================================
+                BOTÕES
+            ====================================================== -->
+
+            <section id="scroll-top">
+
+                <h2>⬆️ Botões</h2>
+
+                <p>
+                    Podemos criar um botão que aparece quando o usuário
+                    desce a página e permite voltar suavemente para o topo.
+                </p>
+
+                <p>
+                    Esse é um bom exemplo de um componente React reutilizável,
+                    pois podemos colocá-lo em diferentes páginas da aplicação.
+                </p>
+
+
+                <h3>1️⃣ Criando o componente</h3>
+
+                <p>
+                    Primeiro, criamos um novo componente:
+                </p>
+
+                <pre><code>src/
+            │
+            └── components/
+                └── ScrollToTop.jsx</code></pre>
+
+
+                <h3>2️⃣ Criando o componente</h3>
+
+                <p>
+                    Dentro de <strong>ScrollToTop.jsx</strong>, importamos
+                    <strong>useState</strong> e <strong>useEffect</strong>:
+                </p>
+
+                <pre><code>import { useState, useEffect } from 'react'</code></pre>
+
+
+                <h3>3️⃣ Controlando a visibilidade</h3>
+
+                <p>
+                    Vamos utilizar <strong>useState</strong> para descobrir
+                    se o botão deve aparecer ou não.
+                </p>
+
+                <pre><code>const [visivel, setVisivel] = useState(false)</code></pre>
+
+                <p>
+                    Inicialmente, o botão não está visível:
+                </p>
+
+                <pre><code>false</code></pre>
+
+                <p>
+                    Quando o usuário rolar a página, poderemos alterar esse
+                    valor para <strong>true</strong>.
+                </p>
+
+
+                <h3>4️⃣ Detectando o scroll</h3>
+
+                <p>
+                    Precisamos descobrir quando o usuário está rolando a página.
+                    Para isso, utilizamos o evento <strong>scroll</strong>.
+                </p>
+
+                <p>
+                    O <strong>useEffect</strong> permite executar esse código
+                    quando o componente é carregado.
+                </p>
+
+                <pre><code>useEffect(() =&gt; {
+
+                function verificarScroll() {
+
+                    if (window.scrollY &gt; 300) {
+                        setVisivel(true)
+                    } else {
+                        setVisivel(false)
+                    }
+
+                }
+
+                window.addEventListener('scroll', verificarScroll)
+
+            }, [])</code></pre>
+
+                <p>
+                    Nesse exemplo, quando o usuário passar de
+                    <strong>300 pixels</strong> do topo, o botão será exibido.
+                </p>
+
+
+                <h3>5️⃣ Removendo o evento</h3>
+
+                <p>
+                    Quando o componente deixar de existir, devemos remover
+                    o evento que adicionamos anteriormente.
+                </p>
+
+                <pre><code>return () =&gt; {
+                window.removeEventListener('scroll', verificarScroll)
+            }</code></pre>
+
+                <p>
+                    O código completo do <strong>useEffect</strong> fica:
+                </p>
+
+                <pre><code>useEffect(() =&gt; {
+
+                function verificarScroll() {
+
+                    if (window.scrollY &gt; 300) {
+                        setVisivel(true)
+                    } else {
+                        setVisivel(false)
+                    }
+
+                }
+
+                window.addEventListener('scroll', verificarScroll)
+
+                return () =&gt; {
+                    window.removeEventListener('scroll', verificarScroll)
+                }
+
+            }, [])</code></pre>
+
+
+                <h3>6️⃣ Criando a função para voltar ao topo</h3>
+
+                <p>
+                    Agora precisamos criar a função que será executada
+                    quando o usuário clicar no botão.
+                </p>
+
+                <pre><code>function voltarAoTopo() {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                })
+
+            }</code></pre>
+
+                <p>
+                    <strong>top: 0</strong> significa voltar para o início
+                    da página.
+                </p>
+
+                <p>
+                    <strong>behavior: 'smooth'</strong> faz com que a página
+                    suba suavemente em vez de pular diretamente para o topo.
+                </p>
+
+
+                <h3>7️⃣ Mostrando o botão</h3>
+
+                <p>
+                    Se o botão não estiver visível, podemos simplesmente
+                    não renderizar nada:
+                </p>
+
+                <pre><code>if (!visivel) {
+                return null
+            }</code></pre>
+
+                <p>
+                    Quando <strong>visivel</strong> for <strong>true</strong>,
+                    o botão será criado:
+                </p>
+
+                <pre><code>&lt;button
+                className="scroll-up"
+                onClick={voltarAoTopo}
+            &gt;
+                ↑
+            &lt;/button&gt;</code></pre>
+
+
+                <h3>8️⃣ Componente completo</h3>
+
+                <p>
+                    Juntando tudo:
+                </p>
+
+                <pre><code>import { useState, useEffect } from 'react'
+
+            function ScrollToTop() {
+
+                const [visivel, setVisivel] = useState(false)
+
+                useEffect(() =&gt; {
+
+                    function verificarScroll() {
+
+                        if (window.scrollY &gt; 300) {
+                            setVisivel(true)
+                        } else {
+                            setVisivel(false)
+                        }
+
+                    }
+
+                    window.addEventListener('scroll', verificarScroll)
+
+                    return () =&gt; {
+                        window.removeEventListener('scroll', verificarScroll)
+                    }
+
+                }, [])
+
+                function voltarAoTopo() {
+
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    })
+
+                }
+
+                if (!visivel) {
+                    return null
+                }
+
+                return (
+                    &lt;button
+                        className="scroll-up"
+                        onClick={voltarAoTopo}
+                    &gt;
+                        ↑
+                    &lt;/button&gt;
+                )
+
+            }
+
+            export default ScrollToTop</code></pre>
+
+
+                <h3>9️⃣ Adicionando ao App.jsx</h3>
+
+                <p>
+                    Agora importamos o componente no
+                    <strong>App.jsx</strong>:
+                </p>
+
+                <pre><code>import ScrollToTop from './components/ScrollToTop'</code></pre>
+
+                <p>
+                    Depois podemos colocá-lo dentro do
+                    <strong>BrowserRouter</strong>:
+                </p>
+
+                <pre><code>&lt;BrowserRouter&gt;
+
+                &lt;Header /&gt;
+
+                &lt;ScrollToTop /&gt;
+
+                &lt;Routes&gt;
+
+                    ...
+
+                &lt;/Routes&gt;
+
+            &lt;/BrowserRouter&gt;</code></pre>
+
+
+                <h3>🔟 Adicionando o CSS</h3>
+
+                <p>
+                    Agora precisamos apenas definir a aparência do botão.
+                    Por exemplo:
+                </p>
+
+                <pre><code>.scroll-up {
+
+                position: fixed;
+
+                right: 20px;
+                bottom: 20px;
+
+                width: 45px;
+                height: 45px;
+
+                border: none;
+                border-radius: 50%;
+
+                cursor: pointer;
+
+                font-size: 20px;
+
+            }</code></pre>
+
+
+                <h3>🧠 O que aprendemos?</h3>
+
+                <p>
+                    Esse pequeno componente utiliza vários conceitos
+                    importantes do React:
+                </p>
+
+                <pre><code>useState
+            ↓
+            guarda o estado do botão
+
+            useEffect
+            ↓
+            observa o evento de scroll
+
+            addEventListener
+            ↓
+            detecta a rolagem
+
+            setVisivel()
+            ↓
+            altera o estado
+
+            onClick
+            ↓
+            detecta o clique
+
+            window.scrollTo()
+            ↓
+            volta para o topo</code></pre>
+
+
+                <h3>🎯 Resultado</h3>
+
+                <p>
+                    O funcionamento final será:
+                </p>
+
+                <pre><code>Usuário está no topo
+                    ↓
+            Botão escondido
+
+            Usuário rola a página
+                    ↓
+            passou de 300px
+                    ↓
+            Botão aparece ↑
+
+            Usuário clica
+                    ↓
+            scrollTo()
+                    ↓
+            página volta suavemente ao topo</code></pre>
+
+            </section>
 
             <!-- =====================================================
                 GUIA RÁPIDO
@@ -2656,18 +2915,6 @@ Home React</code></pre>
 
 
     </main>
-
-
-    <footer>
-
-        <p>
-            HoW to! —
-            feito para eu não esquecer
-            como fazer as coisas. 😄
-        </p>
-
-    </footer>
-
 
 </body>
 

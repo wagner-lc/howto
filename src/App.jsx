@@ -5,8 +5,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import CategoryCard from './components/CategoryCard'
 import categorias from './data/categorias'
-import ReactPage from './pages/React'
+/*import CssPage from './pages/Css'*/
+import GitPage from './pages/Git' 
 import JavascriptPage from './pages/Javascript'
+import PhpPage from './pages/Php'
+import ReactPage from './pages/React'
+import SqlPage from './pages/Sql'
+import ScrollToTop from './components/ScrollToTop'
+import Footer from './components/Footer'
 
 function Inicio() {
 
@@ -37,6 +43,7 @@ function Inicio() {
         </div>
 
       </section>
+
     </main>
   )
 }
@@ -48,15 +55,25 @@ function App() {
 
       <Header />
 
+      <ScrollToTop />
       <Routes>
 
         <Route path="/" element={<Inicio />} />
+        
+
+        <Route path="/git" element={<GitPage />} />        
 
         <Route path="/javascript" element={<JavascriptPage />} />
 
+        <Route path="/php" element={<PhpPage />} />
+        
         <Route path="/react" element={<ReactPage />} />
 
+        <Route path="/sql" element={<SqlPage />} />
+
       </Routes>
+
+      <Footer />
 
     </BrowserRouter>
   )

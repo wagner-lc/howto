@@ -180,7 +180,27 @@ TEXTO DO CARD
     line-height: 1.4;
 }
 
+/* =====================================================
+SCROLL UP
+===================================================== */
+.scroll-up {
 
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+}
 /* =====================================================
 RODAPÉ
 ===================================================== */

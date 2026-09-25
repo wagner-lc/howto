@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <!-- =====================================================
+            PHP
+        ====================================================== -->
+
+        <section id="php">
+
+            <!-- =====================================================
+                PHP - VISÃO GERAL
+            ====================================================== -->
+
+            <section id="visao-geral">
+                <section id="mapa-php">
+
+                    <h2>🧠 Mapa rápido do PHP no GatMan</h2>
+
+                    <pre><code>RECEBER
+                $_POST
+                    ↓
+                VALIDAR
+                if / empty
+                    ↓
+                PREPARAR
+                $pdo-&gt;prepare()
+                    ↓
+                EXECUTAR
+                $stmt-&gt;execute()
+                    ↓
+                RESPONDER
+                json_encode()
+                    ↓
+                JAVASCRIPT</code></pre>
+
+                </section>
+                <section id="crud">
+
+                    <h2>🧠 CRUD — As 4 operações principais</h2>
+
+                    <p>
+                        A maior parte dos cadastros do GatMan gira em torno
+                        destas quatro operações:
+                    </p>
+
+                    <pre><code>CREATE
+                ↓
+                INSERT
+                ↓
+                Salvar
+
+                READ
+                ↓
+                SELECT
+                ↓
+                Buscar
+
+                UPDATE
+                ↓
+                UPDATE
+                ↓
+                Editar
+
+                DELETE
+                ↓
+                DELETE
+                ↓
+                Excluir</code></pre>
+
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Ação</th>
+                                <th>SQL</th>
+                                <th>PHP</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>💾 Salvar</td>
+                                <td><code>INSERT</code></td>
+                                <td>Recebe → INSERT → execute</td>
+                            </tr>
+
+                            <tr>
+                                <td>🔍 Buscar</td>
+                                <td><code>SELECT</code></td>
+                                <td>SELECT → fetch</td>
+                            </tr>
+
+                            <tr>
+                                <td>✏️ Editar</td>
+                                <td><code>UPDATE</code></td>
+                                <td>Recebe ID → UPDATE → execute</td>
+                            </tr>
+
+                            <tr>
+                                <td>🗑️ Excluir</td>
+                                <td><code>DELETE</code></td>
+                                <td>Recebe ID → DELETE → execute</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>                
+            </section>
+
+            <!-- =====================================================
+                PHP - GUIA RÁPIDO
+            ====================================================== -->            
+            
+            <section id="guia-rapido">
+                <section id="php-guia">
+
+                    <h2>🐘 PHP</h2>
+
+                    <p>
+                        O PHP é responsável pela parte do sistema que roda no servidor.
+                        No GatMan, ele recebe informações do navegador, conversa com o
+                        banco de dados e devolve uma resposta para o JavaScript.
+                    </p>
+
+
+                    <h3>🧠 Fluxo básico</h3>
+
+                    <pre><code>Navegador
+                    ↓
+                JavaScript
+                    ↓
+                PHP
+                    ↓
+                Banco de dados
+                    ↓
+                PHP
+                    ↓
+                JavaScript
+                    ↓
+                Navegador</code></pre>
+
+                </section>
+                <section id="guia-salvar">
+
+                    <h2>💾 Guia rápido — Como fazer um "Salvar"</h2>
+
+                    <p>
+                        Para criar um PHP que recebe dados do formulário e salva
+                        no banco, podemos seguir esta sequência:
+                    </p>
+
+
+                    <h3>1️⃣ Iniciar o PHP</h3>
+
+                    <pre><code>&lt;?php</code></pre>
+
+
+                    <h3>2️⃣ Informar que a resposta será JSON</h3>
+
+                    <pre><code>header('Content-Type: application/json; charset=utf-8');</code></pre>
+
+
+                    <h3>3️⃣ Carregar a conexão</h3>
+
+                    <pre><code>require_once 'conexao.php';</code></pre>
+
+
+                    <h3>4️⃣ Receber os dados</h3>
+
+                    <pre><code>$nome = $_POST['nome'] ?? '';
+                $idade = $_POST['idade'] ?? '';</code></pre>
+
+
+                    <h3>5️⃣ Validar os campos</h3>
+
+                    <pre><code>if (empty($nome) || empty($idade)) {
+
+                    echo json_encode([
+                        'sucesso' =&gt; false,
+                        'mensagem' =&gt; 'Preencha os campos obrigatórios.'
+                    ]);
+
+                    exit;
+                }</code></pre>
+
+
+                    <h3>6️⃣ Criar o SQL</h3>
+
+                    <pre><code>$sql = "INSERT INTO usuarios
+                        (nome, idade)
+                        VALUES (?, ?)";</code></pre>
+
+
+                    <h3>7️⃣ Preparar</h3>
+
+                    <pre><code>$stmt = $pdo-&gt;prepare($sql);</code></pre>
+
+
+                    <h3>8️⃣ Executar</h3>
+
+                    <pre><code>$stmt-&gt;execute([
+                    $nome,
+                    $idade
+                ]);</code></pre>
+
+
+                    <h3>9️⃣ Retornar sucesso</h3>
+
+                    <pre><code>echo json_encode([
+                    'sucesso' =&gt; true,
+                    'mensagem' =&gt; 'Salvo com sucesso!'
+                ]);</code></pre>
+
+
+                    <h3>🧠 A receita</h3>
+
+                    <pre><code>PHP
+                ↓
+                header JSON
+                ↓
+                conexão
+                ↓
+                $_POST
+                ↓
+                validação
+                ↓
+                SQL
+                ↓
+                prepare()
+                ↓
+                execute()
+                ↓
+                json_encode()
+                ↓
+                JavaScript</code></pre>
+
+                </section>
+                <section id="guia-editar">
+
+                    <h2>⚡ Guia rápido — Como fazer um "Editar"</h2>
+
+                    <pre><code>1. Receber o ID
+                        ↓
+                2. Receber os novos dados
+                        ↓
+                3. Criar o UPDATE
+                        ↓
+                4. prepare()
+                        ↓
+                5. execute()
+                        ↓
+                6. Retornar JSON</code></pre>
+
+
+                    <h3>Modelo</h3>
+
+                    <pre><code>&lt;?php
+
+                header('Content-Type: application/json; charset=utf-8');
+
+                require_once 'conexao.php';
+
+                $id = $_POST['id'] ?? '';
+                $nome = $_POST['nome'] ?? '';
+
+                $sql = "UPDATE tabela
+                        SET nome = ?
+                        WHERE id = ?";
+
+                $stmt = $pdo-&gt;prepare($sql);
+
+                $stmt-&gt;execute([
+                    $nome,
+                    $id
+                ]);
+
+                echo json_encode([
+                    'sucesso' =&gt; true,
+                    'mensagem' =&gt; 'Registro alterado com sucesso!'
+                ]);</code></pre>
+
+                </section>
+                <section id="guia-excluir">
+
+                    <h2>⚡ Guia rápido — Como fazer um "Excluir"</h2>
+
+                    <pre><code>1. Receber o ID
+                        ↓
+                2. Criar DELETE
+                        ↓
+                3. prepare()
+                        ↓
+                4. execute()
+                        ↓
+                5. Retornar JSON</code></pre>
+
+
+                    <h3>Modelo</h3>
+
+                    <pre><code>&lt;?php
+
+                header('Content-Type: application/json; charset=utf-8');
+
+                require_once 'conexao.php';
+
+                $id = $_POST['id'] ?? '';
+
+                $sql = "DELETE FROM tabela
+                        WHERE id = ?";
+
+                $stmt = $pdo-&gt;prepare($sql);
+
+                $stmt-&gt;execute([
+                    $id
+                ]);
+
+                echo json_encode([
+                    'sucesso' =&gt; true,
+                    'mensagem' =&gt; 'Registro excluído com sucesso!'
+                ]);</code></pre>
+
+                </section>                
+            </section>
+
+            <!-- =====================================================
+                PHP - ESTRUTURA
+            ====================================================== -->
+
+            <section id="estrutura">
+                <section id="iniciar-php">
+
+                    <h2>Como iniciar um arquivo PHP</h2>
+
+                    <pre><code>&lt;?php
+
+                // código PHP aqui
+
+                ?&gt;</code></pre>
+
+                    <h3>O que é?</h3>
+
+                    <p>
+                        <code>&lt;?php</code> informa ao servidor que a partir daquele
+                        ponto começa um bloco de código PHP.
+                    </p>
+
+                    <p>
+                        Em um arquivo que contém somente PHP, normalmente não é
+                        necessário fechar com <code>?&gt;</code>.
+                    </p>
+
+                    <h3>Exemplo</h3>
+
+                    <pre><code>&lt;?php
+
+                echo "Olá!";
+
+                </code></pre>
+
+                </section>
+                <section id="json">
+
+                    <h2>📦 Retornando JSON</h2>
+
+                    <pre><code>header('Content-Type: application/json; charset=utf-8');</code></pre>
+
+                    <h3>O que faz?</h3>
+
+                    <p>
+                        Informa ao navegador que a resposta enviada pelo PHP
+                        será um JSON codificado em UTF-8.
+                    </p>
+
+                    <h3>Por que usar?</h3>
+
+                    <p>
+                        Porque o JavaScript consegue receber essa resposta e
+                        transformá-la em um objeto para trabalhar com os dados.
+                    </p>
+
+                    <h3>Exemplo</h3>
+
+                    <pre><code>echo json_encode([
+                    'sucesso' =&gt; true,
+                    'mensagem' =&gt; 'Salvo com sucesso!'
+                ]);</code></pre>
+
+                    <p>
+                        O PHP envia algo parecido com:
+                    </p>
+
+                    <pre><code>{
+                    "sucesso": true,
+                    "mensagem": "Salvo com sucesso!"
+                }</code></pre>
+
+                </section>
+                <section id="conexao">
+
+                    <h2>🔌 Conectando ao banco</h2>
+
+                    <pre><code>require_once 'conexao.php';</code></pre>
+
+                    <h3>O que faz?</h3>
+
+                    <p>
+                        Carrega o arquivo responsável pela conexão com o banco
+                        de dados.
+                    </p>
+
+                    <h3>Por que usar <code>require_once</code>?</h3>
+
+                    <p>
+                        Ele inclui o arquivo necessário e evita que o mesmo arquivo
+                        seja incluído novamente caso já tenha sido carregado.
+                    </p>
+
+                    <h3>No GatMan</h3>
+
+                    <p>
+                        Depois de carregar <code>conexao.php</code>, temos acesso
+                        à variável de conexão, que no nosso caso é:
+                    </p>
+
+                    <pre><code>$pdo</code></pre>
+
+                </section>
+                <section id="sessao">
+
+                    <h2>👤 Sessão</h2>
+
+                    <pre><code>session_start();</code></pre>
+
+                    <h3>O que faz?</h3>
+
+                    <p>
+                        Inicia ou recupera uma sessão existente.
+                    </p>
+
+                    <p>
+                        A sessão permite guardar informações do usuário entre
+                        diferentes requisições.
+                    </p>
+
+                    <h3>Exemplo do GatMan</h3>
+
+                    <pre><code>$_SESSION['usuario']</code></pre>
+
+                    <p>
+                        Podemos recuperar o usuário atualmente logado.
+                    </p>
+
+                </section>
+                <section id="log">
+
+                    <h2>📝 Carregando o log</h2>
+
+                    <pre><code>require_once 'log.php';</code></pre>
+
+                    <p>
+                        Inclui o arquivo responsável pelo sistema de registro
+                        de ações do GatMan.
+                    </p>
+
+                    <p>
+                        O funcionamento específico dependerá do que existe
+                        dentro do arquivo <code>log.php</code>.
+                    </p>
+
+                </section>                
+            </section>
+
+            <!-- =====================================================
+                PHP - RECEBER/VALIDAR
+            ====================================================== -->
+
+            <section id="receber-validar">
+                <section id="try-catch">
+
+                    <h2>🛡️ TRY / CATCH</h2>
+
+                    <pre><code>try {
+
+                    // código que pode gerar erro
+
+                } catch (PDOException $e) {
+
+                    // tratamento do erro
+
+                }</code></pre>
+
+                    <h3>O que é?</h3>
+
+                    <p>
+                        O <code>try</code> tenta executar um determinado bloco
+                        de código.
+                    </p>
+
+                    <p>
+                        Se ocorrer um erro relacionado ao PDO, o
+                        <code>catch</code> pode capturá-lo.
+                    </p>
+
+                    <h3>Por que usar?</h3>
+
+                    <p>
+                        Para evitar que um erro no banco simplesmente interrompa
+                        o processamento sem uma resposta adequada.
+                    </p>
+
+                </section>
+                <section id="post">
+
+                    <h2>📥 Recebendo dados com POST</h2>
+
+                    <pre><code>$andar = $_POST['andar'] ?? '';</code></pre>
+
+                    <h3>O que está acontecendo?</h3>
+
+                    <p>
+                        O PHP está procurando um valor enviado pelo navegador
+                        chamado <code>andar</code>.
+                    </p>
+
+                    <pre><code>$_POST
+                ↓
+                dados enviados pelo método POST
+
+                ['andar']
+                ↓
+                campo chamado "andar"</code></pre>
+
+                    <h3>E o <code>??</code>?</h3>
+
+                    <pre><code>$_POST['andar'] ?? ''</code></pre>
+
+                    <p>
+                        Significa:
+                    </p>
+
+                    <blockquote>
+                        Se <code>andar</code> existir, use seu valor.
+                        Caso contrário, use uma string vazia.
+                    </blockquote>
+
+                    <h3>Exemplo</h3>
+
+                    <pre><code>$setor = $_POST['setor'] ?? '';
+                $item = $_POST['item'] ?? '';
+                $status = $_POST['status'] ?? '';</code></pre>
+
+                </section>
+                <section id="valores-opcionais">
+
+                    <h2>❓ Valores opcionais</h2>
+
+                    <pre><code>$modelo = $_POST['modelo'] ?? null;</code></pre>
+
+                    <p>
+                        Aqui estamos fazendo praticamente a mesma coisa,
+                        mas usando <code>null</code> como valor padrão.
+                    </p>
+
+                    <p>
+                        Isso é útil quando o campo pode ficar vazio.
+                    </p>
+
+                    <pre><code>$modelo = $_POST['modelo'] ?? null;
+                $observacoes = $_POST['observacoes'] ?? null;
+                $data_manutencao = $_POST['data_manutencao'] ?? null;</code></pre>
+
+                    <h3>🧠 Regra mental</h3>
+
+                    <pre><code>?? '' 
+                ↓
+                se não existir → texto vazio
+
+                ?? null
+                ↓
+                se não existir → NULL</code></pre>
+
+                </section>
+                <section id="usuario">
+
+                    <h2>👤 Recuperando o usuário</h2>
+
+                    <pre><code>$usuario = $_SESSION['usuario'] ?? 'Desconhecido';</code></pre>
+
+                    <p>
+                        O PHP tenta encontrar o nome do usuário dentro da sessão.
+                    </p>
+
+                    <p>
+                        Caso não encontre, utiliza:
+                    </p>
+
+                    <pre><code>Desconhecido</code></pre>
+
+                </section>
+                <section id="validacao">
+
+                    <h2>✅ Validando os campos</h2>
+
+                    <pre><code>if (
+                    empty($andar) ||
+                    empty($setor) ||
+                    empty($item) ||
+                    empty($status)
+                ) {
+
+                    echo json_encode([
+                        'sucesso' =&gt; false,
+                        'mensagem' =&gt; 'Preencha todos os campos obrigatórios.'
+                    ]);
+
+                    exit;
+                }</code></pre>
+
+                    <h3>O que faz?</h3>
+
+                    <p>
+                        Verifica se algum dos campos obrigatórios está vazio.
+                    </p>
+
+                    <h3>O que significa <code>||</code>?</h3>
+
+                    <p>
+                        Significa <strong>OU</strong>.
+                    </p>
+
+                    <pre><code>andar vazio
+                OU
+                setor vazio
+                OU
+                item vazio
+                OU
+                status vazio</code></pre>
+
+                    <p>
+                        Se qualquer uma dessas condições for verdadeira,
+                        o PHP retorna uma mensagem de erro.
+                    </p>
+
+                    <h3>Por que existe o <code>exit</code>?</h3>
+
+                    <pre><code>exit;</code></pre>
+
+                    <p>
+                        Ele encerra imediatamente a execução do PHP.
+                    </p>
+
+                </section>                
+            </section>
+
+            <!-- =====================================================
+                PHP - SALVAR
+            ====================================================== -->
+
+            <section id="salvar">
+                <section id="insert">
+
+                    <h2>💾 INSERT — salvando no banco</h2>
+
+                    <pre><code>$sql = "INSERT INTO inspecao_seguranca
+                        (andar, setor, item, status, modelo, observacoes, data_manutencao, usuario)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";</code></pre>
+
+                    <h3>O que é?</h3>
+
+                    <p>
+                        <code>INSERT INTO</code> é utilizado para inserir
+                        um novo registro em uma tabela.
+                    </p>
+
+                    <h3>Estrutura</h3>
+
+                    <pre><code>INSERT INTO tabela
+                    (coluna1, coluna2, coluna3)
+
+                VALUES
+                    (?, ?, ?);</code></pre>
+
+                    <p>
+                        Primeiro informamos a tabela e as colunas.
+                        Depois informamos os valores que serão inseridos.
+                    </p>
+
+                </section>
+                <section id="placeholders">
+
+                    <h2>❓ Os <code>?</code> do SQL</h2>
+
+                    <pre><code>VALUES (?, ?, ?, ?, ?, ?, ?, ?)</code></pre>
+
+                    <p>
+                        Os <code>?</code> são placeholders.
+                    </p>
+
+                    <p>
+                        Eles representam os valores que serão enviados
+                        posteriormente.
+                    </p>
+
+                    <p>
+                        Isso permite utilizar consultas preparadas com PDO,
+                        evitando colocar diretamente os valores enviados
+                        pelo usuário dentro do SQL.
+                    </p>
+
+                    <h3>Exemplo</h3>
+
+                    <pre><code>$sql = "INSERT INTO tabela
+                        (nome, idade)
+                        VALUES (?, ?)";</code></pre>
+
+                    <p>
+                        Depois:
+                    </p>
+
+                    <pre><code>$stmt-&gt;execute([
+                    $nome,
+                    $idade
+                ]);</code></pre>
+
+                    <p>
+                        O primeiro valor vai para o primeiro <code>?</code>,
+                        o segundo para o segundo, e assim por diante.
+                    </p>
+
+                </section>
+                <section id="prepare">
+
+                    <h2>🛠️ prepare()</h2>
+
+                    <pre><code>$stmt = $pdo-&gt;prepare($sql);</code></pre>
+
+                    <h3>O que faz?</h3>
+
+                    <p>
+                        Prepara a consulta SQL para ser executada.
+                    </p>
+
+                    <pre><code>$pdo
+                ↓
+                conexão com o banco
+
+                prepare()
+                ↓
+                prepara o SQL
+
+                $stmt
+                ↓
+                consulta preparada</code></pre>
+
+                </section>
+                <section id="execute">
+
+                    <h2>▶️ execute()</h2>
+
+                    <pre><code>$stmt-&gt;execute([
+                    $andar,
+                    $setor,
+                    $item,
+                    $status,
+                    $modelo,
+                    $observacoes,
+                    $data_manutencao,
+                    $usuario
+                ]);</code></pre>
+
+                    <h3>O que faz?</h3>
+
+                    <p>
+                        Executa a consulta preparada e envia os valores
+                        correspondentes aos <code>?</code>.
+                    </p>
+
+                    <h3>🧠 A sequência</h3>
+
+                    <pre><code>$sql
+                ↓
+                define o SQL
+
+                $pdo-&gt;prepare($sql)
+                ↓
+                prepara
+
+                $stmt-&gt;execute([...])
+                ↓
+                executa</code></pre>
+
+                </section>
+                <section id="resposta-sucesso">
+
+                    <h2>✅ Retornando sucesso</h2>
+
+                    <pre><code>echo json_encode([
+                    'sucesso' =&gt; true,
+                    'mensagem' =&gt; 'Inspeção de segurança salva com sucesso!'
+                ]);</code></pre>
+
+                    <p>
+                        Depois de salvar o registro, o PHP envia uma resposta
+                        para o JavaScript.
+                    </p>
+
+                    <p>
+                        O JavaScript poderá verificar:
+                    </p>
+
+                    <pre><code>sucesso = true</code></pre>
+
+                    <p>
+                        e então mostrar uma mensagem para o usuário.
+                    </p>
+
+                </section>
+                <section id="erro-pdo">
+
+                    <h2>🚨 Tratando erros do banco</h2>
+
+                    <pre><code>catch (PDOException $e) {
+
+                    echo json_encode([
+                        'sucesso' =&gt; false,
+                        'mensagem' =&gt; 'Erro ao salvar a inspeção.',
+                        'erro' =&gt; $e-&gt;getMessage()
+                    ]);
+
+                }</code></pre>
+
+                    <h3>O que é <code>PDOException</code>?</h3>
+
+                    <p>
+                        É uma exceção relacionada ao PDO, utilizada para
+                        capturar erros relacionados à operação com o banco.
+                    </p>
+
+                    <h3>E o <code>$e</code>?</h3>
+
+                    <p>
+                        É o objeto que contém informações sobre o erro.
+                    </p>
+
+                    <pre><code>$e-&gt;getMessage()</code></pre>
+
+                    <p>
+                        retorna a mensagem do erro.
+                    </p>
+
+                    <h4>⚠️ Atenção</h4>
+
+                    <p>
+                        Durante desenvolvimento, visualizar a mensagem do erro
+                        pode ser útil. Em produção, normalmente não devemos
+                        expor detalhes internos do banco diretamente para o usuário.
+                    </p>
+
+                </section>                
+            </section>
+
+            <!-- =====================================================
+                PHP - EDITAR
+            ====================================================== -->
+
+            <section id="editar">
+
+                <h2>✏️ Editar dados — UPDATE</h2>
+
+                <p>
+                    Para editar um registro existente no banco de dados,
+                    usamos o comando <code>UPDATE</code>.
+                </p>
+
+                <p>
+                    No PHP, a lógica é muito parecida com o
+                    <code>INSERT</code>. A principal diferença é que agora
+                    precisamos informar <strong>qual registro</strong> será alterado.
+                </p>
+
+
+                <h3>🧠 Estrutura básica</h3>
+
+                <pre><code>UPDATE tabela
+            SET coluna = ?
+            WHERE id = ?;</code></pre>
+
+
+                <h3>1️⃣ Receber os dados</h3>
+
+                <pre><code>$id = $_POST['id'] ?? '';
+            $status = $_POST['status'] ?? '';
+            $observacoes = $_POST['observacoes'] ?? '';</code></pre>
+
+                <p>
+                    O PHP recebe o <code>id</code> do registro que queremos
+                    alterar e os novos valores.
+                </p>
+
+
+                <h3>2️⃣ Criar o SQL</h3>
+
+                <pre><code>$sql = "UPDATE inspecao_seguranca
+                    SET status = ?, observacoes = ?
+                    WHERE id = ?";</code></pre>
+
+
+                <h3>3️⃣ Preparar</h3>
+
+                <pre><code>$stmt = $pdo-&gt;prepare($sql);</code></pre>
+
+
+                <h3>4️⃣ Executar</h3>
+
+                <pre><code>$stmt-&gt;execute([
+                $status,
+                $observacoes,
+                $id
+            ]);</code></pre>
+
+
+                <h3>⚠️ O WHERE é obrigatório na prática</h3>
+
+                <pre><code>UPDATE inspecao_seguranca
+            SET status = 'Concluído';</code></pre>
+
+                <p>
+                    Sem <code>WHERE</code>, o comando altera
+                    <strong>todos os registros</strong>.
+                </p>
+
+                <p>
+                    Para editar somente um registro:
+                </p>
+
+                <pre><code>UPDATE inspecao_seguranca
+            SET status = 'Concluído'
+            WHERE id = 15;</code></pre>
+
+
+                <h3>🔗 Relacionando com SQL</h3>
+
+                <a href="sql.html#update" class="howto-link">
+                    🗄️ Ver UPDATE no SQL
+                </a>
+
+            </section>
+
+            <!-- =====================================================
+                PHP - EXCLUIR
+            ====================================================== -->
+
+            <section id="excluir">
+
+                <h2>🗑️ Excluir dados — DELETE</h2>
+
+                <p>
+                    Para excluir um registro do banco de dados,
+                    usamos o comando <code>DELETE</code>.
+                </p>
+
+
+                <h3>🧠 Estrutura básica</h3>
+
+                <pre><code>DELETE FROM tabela
+            WHERE id = ?;</code></pre>
+
+
+                <h3>1️⃣ Receber o ID</h3>
+
+                <pre><code>$id = $_POST['id'] ?? '';</code></pre>
+
+                <p>
+                    Normalmente, para excluir um registro específico,
+                    precisamos apenas do seu <code>id</code>.
+                </p>
+
+
+                <h3>2️⃣ Criar o SQL</h3>
+
+                <pre><code>$sql = "DELETE FROM inspecao_seguranca
+                    WHERE id = ?";</code></pre>
+
+
+                <h3>3️⃣ Preparar</h3>
+
+                <pre><code>$stmt = $pdo-&gt;prepare($sql);</code></pre>
+
+
+                <h3>4️⃣ Executar</h3>
+
+                <pre><code>$stmt-&gt;execute([
+                $id
+            ]);</code></pre>
+
+
+                <h3>5️⃣ Retornar sucesso</h3>
+
+                <pre><code>echo json_encode([
+                'sucesso' =&gt; true,
+                'mensagem' =&gt; 'Registro excluído com sucesso!'
+            ]);</code></pre>
+
+
+                <h3>⚠️ MUITO cuidado com o WHERE</h3>
+
+                <p>
+                    Nunca faça isso sem ter certeza do que está fazendo:
+                </p>
+
+                <pre><code>DELETE FROM inspecao_seguranca;</code></pre>
+
+                <p>
+                    Sem <code>WHERE</code>, o comando pode excluir
+                    <strong>todos os registros da tabela</strong>.
+                </p>
+
+
+                <h3>🔗 Relacionando com SQL</h3>
+
+                <a href="/sql#alterar-dados" class="howto-link">
+                    🗄️ Ver DELETE no SQL
+                </a>
+
+            </section> 
+               
+        </section>
+    </main>
+</body>
+</html>

@@ -48,6 +48,12 @@ const itensReact = [
         link: "#home"
     },
     {
+        icone: "⬆️",
+        titulo: "Botões",
+        descricao: "Incluindo um botão scroll top",
+        link: "#scroll-top"
+    },
+    {
         icone: "🌐",
         titulo: "Aplicando React router",
         descricao: "Conectar páginas com react router",
