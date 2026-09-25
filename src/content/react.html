@@ -3238,109 +3238,296 @@ Home React</code></pre>
             <section id="github-pages-main">
 
 
-                <h2>🔀 Enviar o projeto para a branch main</h2>
+            <h2>🔀 Enviar o projeto para a branch main</h2>
 
-                <p>
-                    O GitHub Actions foi configurado para executar quando houver
-                    um <strong>push na branch main</strong>.
-                </p>
+            <p>
+                O GitHub Actions foi configurado para executar quando houver
+                um <strong>push na branch main</strong>.
+            </p>
 
-                <p>
-                    Como estamos trabalhando na branch <strong>dev</strong>,
-                    precisamos enviar as alterações da dev para a main.
-                </p>
+            <p>
+                Como estamos trabalhando na branch <strong>dev</strong>,
+                precisamos primeiro salvar as alterações, depois enviar
+                essas alterações da dev para a main.
+            </p>
 
-                <h3>1️⃣ Conferir a branch atual</h3>
+            <h3>1️⃣ Conferir a branch atual</h3>
 
-                <p>
-                    Primeiro verificamos em qual branch estamos:
-                </p>
+            <p>
+                Primeiro verificamos em qual branch estamos:
+            </p>
 
-                <pre><code>git branch</code></pre>
+            <pre><code>git branch</code></pre>
 
-                <p>
-                    A branch atual aparecerá marcada com um <strong>*</strong>.
-                </p>
+            <p>
+                A branch atual aparecerá marcada com um <strong>*</strong>.
+            </p>
 
-                <pre><code>* dev
+            <pre><code>* dev
+
+
             main</code></pre>
 
 
-                <h3>2️⃣ Trocar para a main</h3>
+            <h3>2️⃣ Verificar se existem alterações</h3>
 
-                <p>
-                    Mudamos para a branch principal:
-                </p>
+            <p>
+                Antes de trocar de branch, verificamos se existem arquivos
+                modificados:
+            </p>
 
-                <pre><code>git switch main</code></pre>
+            <pre><code>git status</code></pre>
 
-
-                <h3>3️⃣ Atualizar a main</h3>
-
-                <p>
-                    Antes de fazer o merge, é recomendado garantir que a
-                    versão local da main está atualizada:
-                </p>
-
-                <pre><code>git pull origin main</code></pre>
+            <p>
+                Se houver alterações que ainda não foram salvas em um commit,
+                devemos fazer o commit antes de trocar para a main.
+            </p>
 
 
-                <h3>4️⃣ Fazer o merge da dev</h3>
+            <h3>3️⃣ Salvar as alterações na dev</h3>
 
-                <p>
-                    Agora incorporamos as alterações da dev na main:
-                </p>
+            <p>
+                Adicionamos os arquivos modificados:
+            </p>
 
-                <pre><code>git merge dev</code></pre>
+            <pre><code>git add .</code></pre>
 
-                <p>
-                    Se não houver conflitos, o Git fará o merge normalmente.
-                </p>
+            <p>
+                Depois criamos o commit:
+            </p>
+
+            <pre><code>git commit -m "Descrição das alterações"</code></pre>
+
+            <p>
+                E enviamos a branch dev para o GitHub:
+            </p>
+
+            <pre><code>git push origin dev</code></pre>
+
+            <p>
+                Agora a branch <strong>dev</strong> está atualizada e podemos
+                trocar para a main com segurança.
+            </p>
 
 
-                <h3>5️⃣ Enviar a main para o GitHub</h3>
+            <h3>4️⃣ Trocar para a main</h3>
 
-                <p>
-                    Depois do merge, enviamos a main para o GitHub:
-                </p>
-
-                <pre><code>git push origin main</code></pre>
+            <pre><code>git switch main</code></pre>
 
 
-                <h3>🧠 O que acontece depois?</h3>
+            <h3>5️⃣ Atualizar a main</h3>
 
-                <p>
-                    Como o workflow foi configurado para observar a branch
-                    <strong>main</strong>, o push irá iniciar o GitHub Actions.
-                </p>
+            <p>
+                Antes de fazer o merge, garantimos que a versão local da main
+                está atualizada com o GitHub:
+            </p>
 
-                <pre><code>dev
+            <pre><code>git pull origin main</code></pre>
+
+
+            <h3>6️⃣ Fazer o merge da dev</h3>
+
+            <p>
+                Agora incorporamos as alterações da dev na main:
+            </p>
+
+            <pre><code>git merge dev</code></pre>
+
+            <p>
+                Se não houver conflitos, o Git fará o merge normalmente.
+            </p>
+
+
+            <h3>7️⃣ Enviar a main para o GitHub</h3>
+
+            <p>
+                Depois do merge, enviamos a main para o GitHub:
+            </p>
+
+            <pre><code>git push origin main</code></pre>
+
+
+            <h3>🧠 O que acontece depois?</h3>
+
+            <p>
+                Como o workflow foi configurado para observar a branch
+                <strong>main</strong>, o push inicia automaticamente o
+                GitHub Actions.
+            </p>
+
+            <pre><code>dev
+
+
             ↓
-            merge
+            commit
+            ↓
+            push dev
             ↓
             main
             ↓
+            merge
+            ↓
             git push
             ↓
-            GitHub Actions
+            GitHub Actions</code></pre>
+
+
+            <h3>🎯 Resumo</h3>
+
+            <pre><code>git add .
+
+
+            git commit -m "Descrição das alterações"
+            git push origin dev
+
+            git switch main
+            git pull origin main
+            git merge dev
+            git push origin main</code></pre>
+
+            </section>
+
+            <section id="github-pages-config">
+
+
+            <h2>🚀 Configurar o GitHub Pages</h2>
+
+            <p>
+                Depois que o projeto estiver na branch <strong>main</strong>,
+                precisamos configurar o GitHub Pages para receber o resultado
+                do GitHub Actions.
+            </p>
+
+            <h3>1️⃣ Abrir as configurações do Pages</h3>
+
+            <p>
+                No repositório do projeto, acesse:
+            </p>
+
+            <pre><code>Settings
+
+
+            → Pages</code></pre>
+
+
+            <h3>2️⃣ Escolher o GitHub Actions</h3>
+
+            <p>
+                Na seção <strong>Build and deployment</strong>, procure
+                <strong>Source</strong>.
+            </p>
+
+            <p>
+                Altere a opção para:
+            </p>
+
+            <pre><code>GitHub Actions</code></pre>
+
+            <p>
+                <strong>Não é necessário escolher os workflows sugeridos pelo
+                GitHub</strong>, como Jekyll ou Static HTML, pois o projeto
+                já possui seu próprio workflow em:
+            </p>
+
+            <pre><code>.github/workflows/deploy.yml</code></pre>
+
+
+            <h3>3️⃣ Fazer o push da main</h3>
+
+            <p>
+                Depois que o Pages estiver configurado, qualquer novo push
+                na branch <strong>main</strong> executará automaticamente
+                o workflow.
+            </p>
+
+            <pre><code>git push origin main</code></pre>
+
+
+            <h3>4️⃣ Acompanhar o GitHub Actions</h3>
+
+            <p>
+                No GitHub, acesse:
+            </p>
+
+            <pre><code>Actions
+
+
+            → Deploy to GitHub Pages</code></pre>
+
+
+            <p>
+                O workflow executará as etapas configuradas:
+            </p>
+
+            <pre><code>Checkout
+            ↓
+
+
+            Setup Node
+            ↓
+            npm ci
             ↓
             npm run build
+            ↓
+            Upload artifact
+            ↓
+            Deploy
             ↓
             GitHub Pages</code></pre>
 
 
-                <h3>🎯 Resumo</h3>
+            <h3>5️⃣ Verificar o resultado</h3>
 
-                <pre><code>git switch main
+            <p>
+                Quando o workflow terminar com sucesso, o projeto estará
+                publicado no GitHub Pages.
+            </p>
 
-            git pull origin main
+            <p>
+                Para este projeto, o endereço será:
+            </p>
 
-            git merge dev
+            <pre><code>https://wagner-lc.github.io/howto/</code></pre>
 
-            git push origin main</code></pre>
+            <p>
+                Como o projeto utiliza React Router e está publicado dentro
+                de <strong>/howto/</strong>, o <code>BrowserRouter</code> deve
+                utilizar:
+            </p>
 
+            <pre><code>&lt;BrowserRouter basename="/howto"&gt;</code></pre>
+
+            <p>
+                Dessa forma, por exemplo:
+            </p>
+
+            <pre><code>/howto/
+            → página inicial
+
+
+            /howto/react
+            → página React</code></pre>
+
+
+            <h3>🎯 Resumo</h3>
+
+            <pre><code>Settings
+
+
+            → Pages
+            → Source: GitHub Actions
+
+            git push origin main
+
+            GitHub Actions
+            → npm run build
+            → Deploy
+            → GitHub Pages
+
+            https://wagner-lc.github.io/howto/</code></pre>
 
             </section>
+
             
         </section>
 

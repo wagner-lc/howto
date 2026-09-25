@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header class="topo">
 
         <div class="logo">
-            <a href="index.html">
+            <Link to="/">
                 <span>HoW</span>
-                <strong>to!</strong>
-            </a>
+                <strong>2!</strong>
+            </Link>
         </div>
 
         <p>

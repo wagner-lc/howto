@@ -64,6 +64,12 @@ const itensReact = [
         titulo: "Guia rápido React router",
         descricao: "Como aplicar o react router passo a passo",
         link: "#react-router-guia"
+    },
+    {
+        icone: "🚀",
+        titulo: "Publicar React/Vite no GitHub Pages",
+        descricao: "Como publicar o site no GitHub Pages",
+        link: "#github-pages-vite"
     }
 ]
 

@@ -51,7 +51,7 @@ function Inicio() {
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/howto">
 
       <Header />
 
