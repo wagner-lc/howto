@@ -2910,6 +2910,438 @@ Home React</code></pre>
 
             </section>
 
+            <!-- =====================================================
+                PUBLICAR REACT/VITE NO GITHUB PAGES
+            ====================================================== -->
+            
+            <section id="github-pages-vite">
+
+
+                <h2>🚀 Publicar React/Vite no GitHub Pages</h2>
+
+                <p>
+                    Quando um projeto React criado com Vite será publicado dentro
+                    de um repositório do GitHub, precisamos informar ao Vite qual
+                    será o caminho base do projeto.
+                </p>
+
+
+                <h3>1️⃣ Abrir o vite.config.js</h3>
+
+                <p>
+                    O arquivo <strong>vite.config.js</strong> fica na raiz do projeto:
+                </p>
+
+                <pre><code>howto/
+                │
+                ├── package.json
+                ├── vite.config.js
+                └── src/</code></pre>
+
+
+                <h3>2️⃣ Configurar o caminho base</h3>
+
+                <p>
+                    No arquivo <strong>vite.config.js</strong>, adicionamos
+                    a propriedade <strong>base</strong>:
+                </p>
+
+                <pre><code>import react from '@vitejs/plugin-react'
+            import { defineConfig } from 'vite'
+
+            export default defineConfig({
+                plugins: [react()],
+                base: '/howto/',
+            })</code></pre>
+
+
+                <h3>3️⃣ O que significa base?</h3>
+
+                <p>
+                    Se o repositório do GitHub se chama:
+                </p>
+
+                <pre><code>howto</code></pre>
+
+                <p>
+                    o GitHub Pages normalmente publicará o projeto dentro deste
+                    caminho:
+                </p>
+
+                <pre><code>https://SEU-USUARIO.github.io/howto/</code></pre>
+
+                <p>
+                    Por isso utilizamos:
+                </p>
+
+                <pre><code>base: '/howto/'</code></pre>
+
+                <p>
+                    O valor de <strong>base</strong> deve corresponder ao nome
+                    do repositório.
+                </p>
+
+
+                <h3>🎯 Resultado</h3>
+
+                <p>
+                    O Vite agora sabe que os arquivos do projeto estarão dentro
+                    de <strong>/howto/</strong> quando forem publicados no
+                    GitHub Pages.
+                </p>
+
+
+            </section>
+            
+            <section id="github-pages-build">
+
+
+                <h2>🏗️ Criar o build do projeto</h2>
+
+                <p>
+                    Antes de publicar o projeto no GitHub Pages, precisamos
+                    gerar a versão de produção da aplicação.
+                </p>
+
+                <p>
+                    O Vite faz isso através do comando:
+                </p>
+
+                <pre><code>npm run build</code></pre>
+
+
+                <h3>1️⃣ Abrir o terminal na pasta do projeto</h3>
+
+                <p>
+                    Primeiro, precisamos estar dentro da pasta que contém
+                    o arquivo <strong>package.json</strong>.
+                </p>
+
+                <pre><code>cd C:\Users\W\projects\howto\howto</code></pre>
+
+
+                <h3>2️⃣ Executar o build</h3>
+
+                <p>
+                    Depois executamos:
+                </p>
+
+                <pre><code>npm run build</code></pre>
+
+
+                <h3>3️⃣ O que o comando faz?</h3>
+
+                <p>
+                    O Vite pega o código do projeto e cria uma versão
+                    otimizada para produção.
+                </p>
+
+                <p>
+                    Essa versão será criada dentro da pasta:
+                </p>
+
+                <pre><code>dist/</code></pre>
+
+
+                <h3>4️⃣ Estrutura criada</h3>
+
+                <p>
+                    Depois do build, teremos algo parecido com:
+                </p>
+
+                <pre><code>howto/
+                │
+                ├── src/
+                ├── public/
+                ├── package.json
+                ├── vite.config.js
+                │
+                └── dist/
+                    ├── index.html
+                    └── assets/</code></pre>
+
+
+                <h3>🧠 Importante</h3>
+
+                <p>
+                    A pasta <strong>dist</strong> contém a versão final que
+                    será utilizada para publicar o projeto.
+                </p>
+
+                <p>
+                    Durante o desenvolvimento normalmente trabalhamos com:
+                </p>
+
+                <pre><code>npm run dev</code></pre>
+
+                <p>
+                    Para gerar a versão de produção utilizamos:
+                </p>
+
+                <pre><code>npm run build</code></pre>
+
+
+                <h3>🎯 Resumo</h3>
+
+                <pre><code>Desenvolvimento
+                    ↓
+                npm run dev
+                    ↓
+                Projeto React
+
+
+                Publicação
+                    ↓
+                npm run build
+                    ↓
+                pasta dist/</code></pre>
+
+
+            </section>
+
+            <section id="github-pages-actions">
+
+
+                <h2>⚙️ Configurar o GitHub Actions</h2>
+
+                <p>
+                    Podemos configurar o GitHub para gerar e publicar
+                    automaticamente o projeto React sempre que fizermos
+                    um <strong>push</strong> para o repositório.
+                </p>
+
+
+                <h3>1️⃣ Criar a pasta .github</h3>
+
+                <p>
+                    Na raiz do projeto, criamos a pasta:
+                </p>
+
+                <pre><code>.github/</code></pre>
+
+
+                <h3>2️⃣ Criar a pasta workflows</h3>
+
+                <p>
+                    Dentro de <strong>.github</strong>, criamos:
+                </p>
+
+                <pre><code>.github/
+                └── workflows/</code></pre>
+
+
+                <h3>3️⃣ Criar o arquivo deploy.yml</h3>
+
+                <p>
+                    Dentro da pasta <strong>workflows</strong>, criamos o arquivo:
+                </p>
+
+                <pre><code>.github/
+                └── workflows/
+                    └── deploy.yml</code></pre>
+
+
+                <h3>4️⃣ Adicionar o workflow</h3>
+
+                <p>
+                    Dentro de <strong>deploy.yml</strong>, colocamos:
+                </p>
+
+                <pre><code>name: Deploy to GitHub Pages
+
+            on:
+            push:
+                branches:
+                - main
+
+            permissions:
+            contents: read
+            pages: write
+            id-token: write
+
+            jobs:
+            build:
+                runs-on: ubuntu-latest
+
+                steps:
+
+                - name: Checkout
+                    uses: actions/checkout@v4
+
+                - name: Setup Node
+                    uses: actions/setup-node@v4
+                    with:
+                    node-version: 22
+                    cache: npm
+
+                - name: Install dependencies
+                    run: npm ci
+
+                - name: Build
+                    run: npm run build
+
+                - name: Setup Pages
+                    uses: actions/configure-pages@v5
+
+                - name: Upload artifact
+                    uses: actions/upload-pages-artifact@v3
+                    with:
+                    path: ./dist
+
+                - name: Deploy
+                    uses: actions/deploy-pages@v4</code></pre>
+
+
+                <h3>🧠 O que esse arquivo faz?</h3>
+
+                <p>
+                    Esse arquivo diz ao GitHub o que fazer quando houver
+                    um <strong>push</strong> na branch <strong>main</strong>.
+                </p>
+
+                <pre><code>git push
+                ↓
+            GitHub Actions
+                ↓
+            Instalar dependências
+                ↓
+            npm run build
+                ↓
+            Criar dist/
+                ↓
+            Enviar para GitHub Pages
+                ↓
+            Site publicado</code></pre>
+
+
+                <h3>🎯 Importante</h3>
+
+                <p>
+                    Não precisamos enviar a pasta <strong>dist</strong>
+                    manualmente para o GitHub.
+                </p>
+
+                <p>
+                    O próprio GitHub Actions irá executar:
+                </p>
+
+                <pre><code>npm run build</code></pre>
+
+                <p>
+                    e utilizará a pasta <strong>dist</strong> criada pelo Vite
+                    para realizar a publicação.
+                </p>
+
+
+            </section>
+
+            <section id="github-pages-main">
+
+
+                <h2>🔀 Enviar o projeto para a branch main</h2>
+
+                <p>
+                    O GitHub Actions foi configurado para executar quando houver
+                    um <strong>push na branch main</strong>.
+                </p>
+
+                <p>
+                    Como estamos trabalhando na branch <strong>dev</strong>,
+                    precisamos enviar as alterações da dev para a main.
+                </p>
+
+
+                <h3>1️⃣ Conferir a branch atual</h3>
+
+                <p>
+                    Primeiro verificamos em qual branch estamos:
+                </p>
+
+                <pre><code>git branch</code></pre>
+
+                <p>
+                    A branch atual aparecerá marcada com um <strong>*</strong>.
+                </p>
+
+                <pre><code>* dev
+            main</code></pre>
+
+
+                <h3>2️⃣ Trocar para a main</h3>
+
+                <p>
+                    Mudamos para a branch principal:
+                </p>
+
+                <pre><code>git switch main</code></pre>
+
+
+                <h3>3️⃣ Atualizar a main</h3>
+
+                <p>
+                    Antes de fazer o merge, é recomendado garantir que a
+                    versão local da main está atualizada:
+                </p>
+
+                <pre><code>git pull origin main</code></pre>
+
+
+                <h3>4️⃣ Fazer o merge da dev</h3>
+
+                <p>
+                    Agora incorporamos as alterações da dev na main:
+                </p>
+
+                <pre><code>git merge dev</code></pre>
+
+                <p>
+                    Se não houver conflitos, o Git fará o merge normalmente.
+                </p>
+
+
+                <h3>5️⃣ Enviar a main para o GitHub</h3>
+
+                <p>
+                    Depois do merge, enviamos a main para o GitHub:
+                </p>
+
+                <pre><code>git push origin main</code></pre>
+
+
+                <h3>🧠 O que acontece depois?</h3>
+
+                <p>
+                    Como o workflow foi configurado para observar a branch
+                    <strong>main</strong>, o push irá iniciar o GitHub Actions.
+                </p>
+
+                <pre><code>dev
+            ↓
+            merge
+            ↓
+            main
+            ↓
+            git push
+            ↓
+            GitHub Actions
+            ↓
+            npm run build
+            ↓
+            GitHub Pages</code></pre>
+
+
+                <h3>🎯 Resumo</h3>
+
+                <pre><code>git switch main
+
+            git pull origin main
+
+            git merge dev
+
+            git push origin main</code></pre>
+
+
+            </section>
             
         </section>
 
