@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import CategoryCard from './components/CategoryCard'
 import categorias from './data/categorias'
-/*import CssPage from './pages/Css'*/
+import HtmlPage from './pages/Html'
+import CssPage from './pages/Css'
 import GitPage from './pages/Git' 
 import JavascriptPage from './pages/Javascript'
 import PhpPage from './pages/Php'
@@ -59,7 +60,10 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Inicio />} />
-        
+
+        <Route path="/html" element={<HtmlPage />} />  
+
+        <Route path="/css" element={<CssPage />} />        
 
         <Route path="/git" element={<GitPage />} />        
 

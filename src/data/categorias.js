@@ -48,7 +48,7 @@ const categorias = [
         descricao: 'Biblioteca do JavaScript.',
         link: "/react"
     },
-
+/*
     {
         icone: '💻',
         titulo: 'VS Code',
@@ -57,19 +57,12 @@ const categorias = [
     },
 
     {
-        icone: '🔧',
-        titulo: 'GatMan',
-        descricao: 'Soluções e procedimentos específicos do GatMan.',
-        link: 'gatman.html'
-    },
-
-    {
         icone: '🛡️',
         titulo: 'Segurança',
         descricao: 'Boas práticas e segurança do sistema.',
         link: 'seguranca.html'
     }
-
+*/
 ]
 
 export default categorias

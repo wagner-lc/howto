@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <main>
+        <section id="html">
+            <section id="introducao">
+
+            
+            <h2>🌐 HTML — Introdução</h2>
+
+            <p>
+                <strong>HTML</strong> (HyperText Markup Language) é a linguagem
+                utilizada para estruturar o conteúdo de uma página web.
+            </p>
+
+            <p>
+                HTML define <strong>o que existe na página</strong>.
+                O CSS define <strong>como esse conteúdo aparece</strong>.
+                O JavaScript adiciona <strong>comportamento e interatividade</strong>.
+            </p>
+
+            <pre><code>HTML → estrutura
+            
+
+            CSS → aparência
+            JavaScript → comportamento</code></pre>
+
+            </section>
+
+            <section id="estrutura-basica">
+
+            
+            <h2>📄 Estrutura básica</h2>
+
+            <p>
+                Uma página HTML normalmente começa com esta estrutura:
+            </p>
+
+            <pre><code>&lt;!DOCTYPE html&gt;
+            
+
+            <html lang="pt">
+
+            <head>
+            <meta charset="UTF-8">
+            <title>Minha página</title>
+            </head>
+
+            <body>
+
+            
+            &lt;h1&gt;Olá!&lt;/h1&gt;
+            
+
+            </body>
+
+            </html></code></pre>
+
+            
+            <p>
+                O <code>&lt;head&gt;</code> contém informações sobre a página.
+                O <code>&lt;body&gt;</code> contém o conteúdo exibido na página.
+            </p>
+            
+
+            </section>
+
+            <section id="textos-titulos">
+
+            
+            <h2>📝 Títulos e parágrafos</h2>
+
+            <p>
+                Os títulos vão de <code>h1</code> até <code>h6</code>:
+            </p>
+
+            <pre><code>
+                &lt;h1&gt;Título principal&lt;/h1&gt;
+                    &lt;h2&gt;Subtítulo&lt;/h2&gt;
+                        &lt;h3&gt;Título menor&lt;/h3&gt;
+            </code></pre>         
+
+            
+            <p>
+                Para textos normais usamos <code>p</code>:
+            </p>
+
+            <pre><code>&lt;p&gt;Este é um parágrafo.&lt;/p&gt;</code></pre>
+            
+
+            </section>
+
+            <section id="links">
+
+            
+            <h2>🔗 Links</h2>
+
+            <p>
+                O elemento <code>&lt;a&gt;</code> cria links:
+            </p>
+
+            <pre><code>&lt;a href="https://google.com"&gt;
+            Google
+            </a></code></pre>
+
+            
+            <p>
+                Para abrir o link em uma nova aba:
+            </p>
+
+            <pre><code>&lt;a href="https://google.com" target="_blank"&gt;
+            Google
+            
+
+            </a></code></pre>
+
+            </section>
+
+            <section id="imagens">
+
+            
+            <h2>🖼️ Imagens</h2>
+
+            <p>
+                O elemento <code>&lt;img&gt;</code> exibe uma imagem:
+            </p>
+
+            <pre><code>&lt;img src="imagem.jpg" alt="Descrição da imagem"&gt;</code></pre>
+
+            <p>
+                <code>src</code> indica o caminho da imagem e
+                <code>alt</code> fornece uma descrição.
+            </p>
+            
+
+            </section>
+
+            <section id="listas">
+
+            
+            <h2>📋 Listas</h2>
+
+            <h3>Lista não ordenada</h3>
+
+            <pre><code>&lt;ul&gt;
+            &lt;li&gt;React&lt;/li&gt;
+            &lt;li&gt;PHP&lt;/li&gt;
+            &lt;li&gt;CSS&lt;/li&gt;
+            
+
+            </ul></code></pre>
+
+            
+            <h3>Lista ordenada</h3>
+
+            <pre><code>&lt;ol&gt;
+            &lt;li&gt;Primeiro&lt;/li&gt;
+            &lt;li&gt;Segundo&lt;/li&gt;
+            &lt;li&gt;Terceiro&lt;/li&gt;
+            
+
+            </ol></code></pre>
+
+            </section>
+
+            <section id="div-span-class-id">
+
+            
+            <h2>📦 Div, Span, Class e ID</h2>
+
+            <h3>div</h3>
+
+            <p>
+                O <code>div</code> é um elemento genérico utilizado para agrupar
+                outros elementos.
+            </p>
+
+            <pre><code>&lt;div&gt;
+            &lt;h2&gt;React&lt;/h2&gt;
+            &lt;p&gt;Tutorial de React.&lt;/p&gt;
+            
+
+            </div></code></pre>
+
+            
+            <h3>span</h3>
+
+            <p>
+                O <code>span</code> é utilizado normalmente para envolver uma
+                pequena parte de um texto ou conteúdo.
+            </p>
+
+            <pre><code>&lt;p&gt;
+            Aprendendo &lt;span&gt;HTML&lt;/span&gt;.
+            
+
+            </p></code></pre>
+
+            
+            <h3>class</h3>
+
+            <p>
+                O atributo <code>class</code> identifica elementos que podem
+                compartilhar o mesmo estilo ou comportamento.
+            </p>
+
+            <pre><code>&lt;div class="card"&gt;
+            Conteúdo
+            
+
+            </div></code></pre>
+
+            
+            <h3>id</h3>
+
+            <p>
+                O <code>id</code> identifica um elemento específico.
+            </p>
+
+            <pre><code>&lt;section id="react"&gt;
+            Conteúdo
+            
+
+            </section></code></pre>
+
+            </section>
+
+            <section id="elementos-semanticos">
+
+            
+            <h2>🧱 Elementos semânticos</h2>
+
+            <p>
+                Elementos semânticos ajudam a representar a função de cada
+                parte da página.
+            </p>
+
+            <pre><code>&lt;header&gt;
+            Cabeçalho
+            
+
+            </header>
+
+            <nav>
+            Menu
+            </nav>
+
+            <main>
+            Conteúdo principal
+            </main>
+
+            <section>
+            Seção
+            </section>
+
+            <article>
+            Artigo
+            </article>
+
+            <footer>
+            Rodapé
+            </footer></code></pre>
+
+            </section>
+
+            <section id="tabelas">
+
+            
+            <h2>📊 Tabelas</h2>
+
+            <p>
+                Uma tabela básica utiliza <code>table</code>, <code>tr</code>,
+                <code>th</code> e <code>td</code>.
+            </p>
+
+            <pre><code>&lt;table&gt;
+
+            &lt;tr&gt;
+                &lt;th&gt;Nome&lt;/th&gt;
+                &lt;th&gt;Idade&lt;/th&gt;
+            &lt;/tr&gt;
+
+            &lt;tr&gt;
+                &lt;td&gt;João&lt;/td&gt;
+                &lt;td&gt;30&lt;/td&gt;
+            &lt;/tr&gt;
+            
+
+            </table></code></pre>
+
+            </section>
+
+            <section id="formularios">
+
+            
+            <h2>📝 Formulários</h2>
+
+            <p>
+                Formulários são utilizados para receber informações do usuário.
+            </p>
+
+            <pre><code>&lt;form&gt;
+
+            &lt;label&gt;Nome:&lt;/label&gt;
+            &lt;input type="text"&gt;
+
+            &lt;label&gt;Email:&lt;/label&gt;
+            &lt;input type="email"&gt;
+
+            &lt;button type="submit"&gt;
+                Enviar
+            &lt;/button&gt;
+            
+
+            </form></code></pre>
+
+            </section>
+
+            <section id="inputs">
+
+            
+            <h2>⌨️ Inputs</h2>
+
+            <p>
+                O elemento <code>input</code> possui diversos tipos:
+            </p>
+
+            <pre><code>&lt;input type="text"&gt;
+            
+
+            <input type="email">
+            <input type="password">
+            <input type="number">
+            <input type="date">
+            <input type="checkbox">
+            <input type="radio">
+            <input type="file"></code></pre>
+
+            
+            <h3>Placeholder</h3>
+
+            <pre><code>&lt;input
+            type="text"
+            placeholder="Digite seu nome"
+            
+
+            ></code></pre>
+
+            </section>
+
+            <section id="botoes">
+
+            
+            <h2>🔘 Botões</h2>
+
+            <p>
+                Um botão simples:
+            </p>
+
+            <pre><code>&lt;button&gt;
+            Clique aqui
+            
+
+            </button></code></pre>
+
+            
+            <p>
+                Dentro de um formulário, podemos especificar sua função:
+            </p>
+
+            <pre><code>&lt;button type="submit"&gt;
+            Enviar
+            
+
+            </button>
+
+            <button type="button">
+            Cancelar
+            </button></code></pre>
+
+            </section>
+
+            <section id="formatacao-texto">
+
+            
+            <h2>✍️ Formatação de texto</h2>
+
+            <pre><code>&lt;strong&gt;Texto importante&lt;/strong&gt;
+            
+
+            <em>Texto enfatizado</em>
+
+            <mark>Texto destacado</mark>
+
+            <br>
+
+            <hr></code></pre>
+
+            
+            <p>
+                <code>&lt;br&gt;</code> cria uma quebra de linha e
+                <code>&lt;hr&gt;</code> cria uma separação temática.
+            </p>
+            
+
+            </section>
+
+            <section id="atributos">
+
+            
+            <h2>🏷️ Atributos</h2>
+
+            <p>
+                Atributos fornecem informações adicionais aos elementos HTML.
+            </p>
+
+            <pre><code>&lt;a href="pagina.html"&gt;
+            Link
+            
+
+            </a>
+
+            <img src="foto.jpg" alt="Foto">
+
+            <input
+            type="text"
+            placeholder="Digite seu nome"
+            ></code></pre>
+
+            
+            <h3>Principais atributos</h3>
+
+            <pre><code>id
+            
+
+            class
+            href
+            src
+            alt
+            title
+            name
+            value
+            placeholder
+            type
+            target</code></pre>
+
+            </section>
+
+            <section id="react">
+
+            
+            <h2>⚛️ HTML no React</h2>
+
+            <p>
+                No React utilizamos uma sintaxe muito parecida com HTML,
+                chamada <strong>JSX</strong>.
+            </p>
+
+            <pre><code>function App() {
+            return (
+                &lt;div className="card"&gt;
+                    &lt;h1&gt;Olá!&lt;/h1&gt;
+                    &lt;p&gt;Minha aplicação React.&lt;/p&gt;
+                &lt;/div&gt;
+            )
+            
+
+            }</code></pre>
+
+            
+            <p>
+                Uma diferença importante é que utilizamos
+                <code>className</code> em vez de <code>class</code>.
+            </p>
+            
+
+            </section>
+
+            <section id="guia-rapido">
+
+                <h2>🎯 Guia rápido</h2>
+
+                <pre><code>
+            &lt;h1&gt;Título&lt;/h1&gt;
+                &lt;h2&gt;Subtítulo&lt;/h2&gt;
+                    &lt;h3&gt;Título menor&lt;/h3&gt;
+
+            &lt;p&gt;Parágrafo&lt;/p&gt;
+
+            &lt;a href="..."&gt;Link&lt;/a&gt;
+            
+            &lt;img src="..." alt="..."&gt;
+
+            &lt;ul&gt;
+                &lt;li&gt;Item&lt;/li&gt;
+            &lt;/ul&gt;
+
+            &lt;div class="..."&gt;
+                Conteúdo
+            &lt;/div&gt;
+
+            &lt;section id="..."&gt;
+                Conteúdo
+            &lt;/section&gt;
+
+            &lt;input type="text"&gt;
+            
+            &lt;button&gt;Enviar&lt;/button&gt;</code></pre>
+
+            </section>
+
+
+        </section>        
+    </main>
+</body>
+</html>
