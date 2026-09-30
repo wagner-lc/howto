@@ -3528,6 +3528,99 @@ Home React</code></pre>
 
             </section>
 
+            <section id="react-spa-fallback">
+
+                <h2>🚀 SPA Fallback no GitHub Pages</h2>
+
+                <p>
+                    Quando usamos <strong>React Router</strong> com
+                    <strong>BrowserRouter</strong>, as rotas funcionam normalmente
+                    dentro da aplicação, mas o GitHub Pages pode retornar
+                    <strong>404</strong> quando acessamos uma rota diretamente.
+                </p>
+
+                <p>Por exemplo:</p>
+
+                <pre><code>https://meusite.github.io/projeto/css</code></pre>
+
+                <p>
+                    Isso acontece porque o GitHub Pages tenta encontrar um arquivo
+                    ou pasta chamado <code>css</code>, em vez de deixar o React
+                    resolver a rota.
+                </p>
+
+                <h3>1. Criar um fallback</h3>
+
+                <p>
+                    No workflow do GitHub Actions, depois do
+                    <code>npm run build</code>, copie o <code>index.html</code>
+                    para <code>404.html</code>:
+                </p>
+
+                <pre><code>- name: Build
+            run: npm run build
+
+            - name: Create SPA fallback
+            run: cp dist/index.html dist/404.html</code></pre>
+
+                <p>
+                    O resultado será:
+                </p>
+
+                <pre><code>dist/
+            ├── 404.html
+            ├── index.html
+            └── assets/</code></pre>
+
+                <p>
+                    Quando o GitHub Pages não encontrar uma rota, ele poderá
+                    entregar o <code>404.html</code>, que contém a mesma aplicação
+                    do <code>index.html</code>.
+                </p>
+
+                <h3>2. React Router</h3>
+
+                <p>
+                    No caso de um projeto publicado em um subdiretório, como
+                    GitHub Pages, configure o <code>basename</code>:
+                </p>
+
+                <pre><code>&lt;BrowserRouter basename="/howto"&gt;
+
+                ...
+
+            &lt;/BrowserRouter&gt;</code></pre>
+
+                <p>
+                    Assim, uma rota como:
+                </p>
+
+                <pre><code>/css</code></pre>
+
+                <p>
+                    corresponde à URL:
+                </p>
+
+                <pre><code>https://usuario.github.io/howto/css</code></pre>
+
+                <h3>3. Resultado</h3>
+
+                <p>
+                    Depois do deploy, as rotas podem ser acessadas diretamente:
+                </p>
+
+                <pre><code>https://usuario.github.io/howto/
+            https://usuario.github.io/howto/react
+            https://usuario.github.io/howto/css
+            https://usuario.github.io/howto/git</code></pre>
+
+                <p>
+                    <strong>Resumo:</strong> o <code>404.html</code> funciona como
+                    fallback para que o React Router consiga assumir o controle
+                    quando uma rota é acessada diretamente.
+                </p>
+
+            </section>            
             
         </section>
 
