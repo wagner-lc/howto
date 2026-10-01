@@ -27,7 +27,7 @@ const itensSQL = [
         icone: "🗄️",
         titulo: "InnoDB",
         descricao: "Motor da tabela",
-        link: "#innodb"
+        link: "#engine"
     },
     {
         icone: "🔍",

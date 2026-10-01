@@ -14,38 +14,31 @@
 
     <main>
         <section id="css">
-            <section id="css-introducao">
-
-            
+        <section id="css-introducao">
             <h2>🎨 CSS — Introdução</h2>
 
             <p>
-                <strong>CSS</strong> (Cascading Style Sheets) é utilizado para
-                definir a aparência e o layout de uma página HTML.
+            <strong>CSS</strong> (Cascading Style Sheets) é utilizado para
+            definir a aparência e o layout de uma página HTML.
             </p>
 
             <p>
-                Enquanto o HTML define a estrutura, o CSS define como essa
-                estrutura será apresentada.
+            Enquanto o HTML define a estrutura, o CSS define como essa
+            estrutura será apresentada.
             </p>
 
             <pre><code>HTML → estrutura
-            
+        CSS → aparência
+        JavaScript → comportamento</code></pre>
+        </section>
 
-            CSS → aparência
-            JavaScript → comportamento</code></pre>
-
-            </section>
-
-            <section id="css-inserir">
-
-            
+        <section id="css-inserir">
             <h2>🔗 Como inserir CSS</h2>
 
             <h3>CSS externo</h3>
 
             <p>
-                A forma mais comum é utilizar um arquivo separado:
+            A forma mais comum é utilizar um arquivo separado:
             </p>
 
             <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
@@ -53,113 +46,83 @@
             <h3>CSS interno</h3>
 
             <p>
-                Também podemos colocar CSS dentro do próprio HTML:
+            Também podemos colocar CSS dentro do próprio HTML:
             </p>
 
             <pre><code>&lt;style&gt;
+        h1 {
+            color: blue;
+        }
+        &lt;/style&gt;</code></pre>
 
-            h1 {
-                color: blue;
-            }
-            
-
-            </style></code></pre>
-
-            
             <h3>CSS inline</h3>
 
             <p>
-                Também é possível aplicar diretamente no elemento:
+            Também é possível aplicar diretamente no elemento:
             </p>
 
             <pre><code>&lt;h1 style="color: blue;"&gt;
-            Título
-            
+        Título
+        &lt;/h1&gt;</code></pre>
 
-            </h1></code></pre>
-
-            
             <p>
-                Em projetos maiores, normalmente é preferível utilizar
-                arquivos CSS separados.
+            Em projetos maiores, normalmente é preferível utilizar
+            arquivos CSS separados.
             </p>
-            
+        </section>
 
-            </section>
-
-            <section id="css-seletores">
-
-            
+        <section id="css-seletores">
             <h2>🎯 Seletores</h2>
 
             <h3>Elemento</h3>
 
             <p>
-                Seleciona todos os elementos daquele tipo:
+            Seleciona todos os elementos daquele tipo:
             </p>
 
             <pre><code>p {
-            color: blue;
-            
+        color: blue;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Classe</h3>
 
             <p>
-                Classes começam com <code>.</code>:
+            Classes começam com <code>.</code>:
             </p>
 
             <pre><code>.card {
-            padding: 20px;
-            
+        padding: 20px;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>ID</h3>
 
             <p>
-                IDs começam com <code>#</code>:
+            IDs começam com <code>#</code>:
             </p>
 
             <pre><code>#menu {
-            background: black;
-            
+        background: black;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Vários seletores</h3>
 
             <pre><code>h1, h2, h3 {
-            font-family: Arial;
-            
+        font-family: Arial;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Elemento dentro de outro</h3>
 
             <pre><code>.card p {
-            color: gray;
-            
+        color: gray;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
-                Nesse exemplo, qualquer <code>p</code> dentro de
-                <code>.card</code> será selecionado.
+            Nesse exemplo, qualquer <code>p</code> dentro de
+            <code>.card</code> será selecionado.
             </p>
-            
+        </section>
 
-            </section>
-
-            <section id="css-cores">
-
-            
+        <section id="css-cores">
             <h2>🌈 Cores</h2>
 
             <h3>Nome</h3>
@@ -181,220 +144,163 @@
             <h3>Variáveis CSS</h3>
 
             <pre><code>:root {
-            --cor-principal: #3498db;
-            
+        --cor-principal: #3498db;
+        }
 
-            }
+        .titulo {
+        color: var(--cor-principal);
+        }</code></pre>
+        </section>
 
-            .titulo {
-            color: var(--cor-principal);
-            }</code></pre>
-
-            </section>
-
-            <section id="css-textos">
-
-            
+        <section id="css-textos">
             <h2>✍️ Textos e fontes</h2>
 
             <pre><code>body {
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            color: #333;
-            
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Propriedades comuns</h3>
 
             <pre><code>font-family
-            
+        font-size
+        font-weight
+        font-style
+        color
+        text-align
+        text-decoration
+        text-transform
+        line-height</code></pre>
 
-            font-size
-            font-weight
-            font-style
-            color
-            text-align
-            text-decoration
-            text-transform
-            line-height</code></pre>
-
-            
             <h3>Alinhamento</h3>
 
             <pre><code>text-align: left;
-            
+        text-align: center;
+        text-align: right;</code></pre>
+        </section>
 
-            text-align: center;
-            text-align: right;</code></pre>
-
-            </section>
-
-            <section id="css-box-model">
-
-            
+        <section id="css-box-model">
             <h2>📦 Box Model</h2>
 
             <p>
-                Todo elemento HTML pode ser entendido como uma caixa formada por:
+            Todo elemento HTML pode ser entendido como uma caixa formada por:
             </p>
 
             <pre><code>┌─────────────────────────┐
-            
+        │         margin          │
+        │  ┌───────────────────┐  │
+        │  │      border       │  │
+        │  │  ┌─────────────┐  │  │
+        │  │  │   padding   │  │  │
+        │  │  │  ┌───────┐  │  │  │
+        │  │  │  │content│  │  │  │
+        │  │  │  └───────┘  │  │  │
+        │  │  └─────────────┘  │  │
+        │  └───────────────────┘  │
+        └─────────────────────────┘</code></pre>
 
-            │         margin          │
-            │  ┌───────────────────┐  │
-            │  │      border       │  │
-            │  │  ┌─────────────┐  │  │
-            │  │  │   padding   │  │  │
-            │  │  │  ┌───────┐  │  │  │
-            │  │  │  │content│  │  │  │
-            │  │  │  └───────┘  │  │  │
-            │  │  └─────────────┘  │  │
-            │  └───────────────────┘  │
-            └─────────────────────────┘</code></pre>
-
-            
             <p>
-                A ordem é:
+            A ordem é:
             </p>
 
             <pre><code>content
-            
+        padding
+        border
+        margin</code></pre>
+        </section>
 
-            padding
-            border
-            margin</code></pre>
-
-            </section>
-
-            <section id="css-width-height">
-
-            
+        <section id="css-width-height">
             <h2>📐 Width e Height</h2>
 
             <pre><code>.caixa {
-            width: 300px;
-            height: 200px;
-            
+        width: 300px;
+        height: 200px;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
-                Também podemos utilizar porcentagens:
+            Também podemos utilizar porcentagens:
             </p>
 
             <pre><code>.caixa {
-            width: 50%;
-            
+        width: 50%;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
-                Algumas propriedades úteis:
+            Algumas propriedades úteis:
             </p>
 
             <pre><code>width
-            
+        height
+        min-width
+        max-width
+        min-height
+        max-height</code></pre>
+        </section>
 
-            height
-            min-width
-            max-width
-            min-height
-            max-height</code></pre>
-
-            </section>
-
-            <section id="css-margin-padding">
-
-            
+        <section id="css-margin-padding">
             <h2>↔️ Margin e Padding</h2>
 
             <h3>Margin</h3>
 
             <p>
-                Controla o espaço <strong>externo</strong> do elemento.
+            Controla o espaço <strong>externo</strong> do elemento.
             </p>
 
             <pre><code>.caixa {
-            margin: 20px;
-            
+        margin: 20px;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Padding</h3>
 
             <p>
-                Controla o espaço <strong>interno</strong> do elemento.
+            Controla o espaço <strong>interno</strong> do elemento.
             </p>
 
             <pre><code>.caixa {
-            padding: 20px;
-            
+        padding: 20px;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Valores individuais</h3>
 
             <pre><code>margin-top: 10px;
-            
+        margin-right: 20px;
+        margin-bottom: 10px;
+        margin-left: 20px;</code></pre>
 
-            margin-right: 20px;
-            margin-bottom: 10px;
-            margin-left: 20px;</code></pre>
-
-            
             <p>
-                Também podemos usar a forma abreviada:
+            Também podemos usar a forma abreviada:
             </p>
 
             <pre><code>margin: 10px 20px;</code></pre>
 
             <p>
-                Isso significa:
+            Isso significa:
             </p>
 
             <pre><code>10px → cima e baixo
-            
+        20px → esquerda e direita</code></pre>
+        </section>
 
-            20px → esquerda e direita</code></pre>
-
-            </section>
-
-            <section id="css-border">
-
-            
+        <section id="css-border">
             <h2>🔲 Border</h2>
 
             <pre><code>.caixa {
-            border: 1px solid black;
-            
+        border: 1px solid black;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
-                Podemos controlar cada propriedade separadamente:
+            Podemos controlar cada propriedade separadamente:
             </p>
 
             <pre><code>border-width: 1px;
-            
+        border-style: solid;
+        border-color: black;
+        border-radius: 10px;</code></pre>
+        </section>
 
-            border-style: solid;
-            border-color: black;
-            border-radius: 10px;</code></pre>
-
-            </section>
-
-            <section id="css-background">
-
-            
+        <section id="css-background">
             <h2>🖼️ Background</h2>
 
             <h3>Cor</h3>
@@ -416,80 +322,60 @@
             <h3>Repetição</h3>
 
             <pre><code>background-repeat: no-repeat;</code></pre>
-            
+        </section>
 
-            </section>
-
-            <section id="css-display">
-
-            
+        <section id="css-display">
             <h2>📐 Display</h2>
 
             <p>
-                A propriedade <code>display</code> define como um elemento
-                participa do layout.
+            A propriedade <code>display</code> define como um elemento
+            participa do layout.
             </p>
 
             <pre><code>display: block;
-            
+        display: inline;
+        display: inline-block;
+        display: flex;
+        display: grid;
+        display: none;</code></pre>
 
-            display: inline;
-            display: inline-block;
-            display: flex;
-            display: grid;
-            display: none;</code></pre>
-
-            
             <p>
-                <code>display: none</code> remove o elemento da área visual.
+            <code>display: none</code> remove o elemento da área visual.
             </p>
-            
+        </section>
 
-            </section>
-
-            <section id="css-flexbox">
-
-            
+        <section id="css-flexbox">
             <h2>📦 Flexbox</h2>
 
             <p>
-                Flexbox é utilizado principalmente para organizar elementos
-                em uma linha ou coluna.
+            Flexbox é utilizado principalmente para organizar elementos
+            em uma linha ou coluna.
             </p>
 
             <pre><code>.container {
-            display: flex;
-            
+        display: flex;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Direção</h3>
 
             <pre><code>flex-direction: row;
-            
+        flex-direction: column;</code></pre>
 
-            flex-direction: column;</code></pre>
-
-            
             <h3>Alinhamento horizontal</h3>
 
             <pre><code>justify-content: center;</code></pre>
 
             <p>
-                Outros valores comuns:
+            Outros valores comuns:
             </p>
 
             <pre><code>flex-start
-            
+        flex-end
+        center
+        space-between
+        space-around
+        space-evenly</code></pre>
 
-            flex-end
-            center
-            space-between
-            space-around
-            space-evenly</code></pre>
-
-            
             <h3>Alinhamento vertical</h3>
 
             <pre><code>align-items: center;</code></pre>
@@ -501,275 +387,202 @@
             <h3>Exemplo completo</h3>
 
             <pre><code>.container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        }</code></pre>
+        </section>
 
-            }</code></pre>
-
-            </section>
-
-            <section id="css-grid">
-
-            
+        <section id="css-grid">
             <h2>🔳 CSS Grid</h2>
 
             <p>
-                Grid é utilizado para criar layouts baseados em linhas e colunas.
+            Grid é utilizado para criar layouts baseados em linhas e colunas.
             </p>
 
             <pre><code>.container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
-                Nesse exemplo, o container possui três colunas de tamanho
-                proporcional.
+            Nesse exemplo, o container possui três colunas de tamanho
+            proporcional.
             </p>
 
             <h3>Exemplo</h3>
 
             <pre><code>.container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-            
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        }</code></pre>
+        </section>
 
-            }</code></pre>
-
-            </section>
-
-            <section id="css-position">
-
-            
+        <section id="css-position">
             <h2>📍 Position</h2>
 
             <p>
-                A propriedade <code>position</code> controla como um elemento
-                é posicionado.
+            A propriedade <code>position</code> controla como um elemento
+            é posicionado.
             </p>
 
             <pre><code>position: static;
-            
+        position: relative;
+        position: absolute;
+        position: fixed;
+        position: sticky;</code></pre>
 
-            position: relative;
-            position: absolute;
-            position: fixed;
-            position: sticky;</code></pre>
-
-            
             <h3>Relative</h3>
 
             <pre><code>.caixa {
-            position: relative;
-            
+        position: relative;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Absolute</h3>
 
             <pre><code>.item {
-            position: absolute;
-            top: 0;
-            right: 0;
-            
+        position: absolute;
+        top: 0;
+        right: 0;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Fixed</h3>
 
             <pre><code>.menu {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Sticky</h3>
 
             <pre><code>.menu {
-            position: sticky;
-            top: 0;
-            
+        position: sticky;
+        top: 0;
+        }</code></pre>
+        </section>
 
-            }</code></pre>
-
-            </section>
-
-            <section id="css-pseudo-classes">
-
-            
+        <section id="css-pseudo-classes">
             <h2>🎭 Pseudo-classes</h2>
 
             <p>
-                Pseudo-classes permitem aplicar estilos dependendo do estado
-                de um elemento.
+            Pseudo-classes permitem aplicar estilos dependendo do estado
+            de um elemento.
             </p>
 
             <h3>Hover</h3>
 
             <pre><code>button:hover {
-            background-color: black;
-            
+        background-color: black;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Focus</h3>
 
             <pre><code>input:focus {
-            border-color: blue;
-            
+        border-color: blue;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <h3>Outros exemplos</h3>
 
             <pre><code>:hover
-            
+        :focus
+        :active
+        :checked
+        :disabled
+        :first-child
+        :last-child
+        :nth-child()</code></pre>
+        </section>
 
-            :focus
-            :active
-            :checked
-            :disabled
-            :first-child
-            :last-child
-            :nth-child()</code></pre>
-
-            </section>
-
-            <section id="css-pseudo-elementos">
-
-            
+        <section id="css-pseudo-elementos">
             <h2>✨ Pseudo-elementos</h2>
 
             <p>
-                Pseudo-elementos permitem estilizar partes específicas de um
-                elemento.
+            Pseudo-elementos permitem estilizar partes específicas de um
+            elemento.
             </p>
 
             <pre><code>::before
-            
+        ::first-line</code></pre>
 
-            ::first-line</code></pre>
-
-            
             <h3>Exemplo</h3>
 
             <pre><code>.titulo::before {
-            content: "★ ";
-            
+        content: "★ ";
+        }</code></pre>
+        </section>
 
-            }</code></pre>
-
-            </section>
-
-            <section id="css-overflow">
-
-            
+        <section id="css-overflow">
             <h2>📦 Overflow</h2>
 
             <p>
-                Controla o que acontece quando o conteúdo ultrapassa o tamanho
-                definido para o elemento.
+            Controla o que acontece quando o conteúdo ultrapassa o tamanho
+            definido para o elemento.
             </p>
 
             <pre><code>overflow: visible;
-            
+        overflow: hidden;
+        overflow: scroll;
+        overflow: auto;</code></pre>
 
-            overflow: hidden;
-            overflow: scroll;
-            overflow: auto;</code></pre>
-
-            
             <p>
-                Um uso comum é permitir rolagem apenas quando necessário:
+            Um uso comum é permitir rolagem apenas quando necessário:
             </p>
 
             <pre><code>.container {
-            overflow: auto;
-            
+        overflow: auto;
+        }</code></pre>
+        </section>
 
-            }</code></pre>
-
-            </section>
-
-            <section id="css-transitions">
-
-            
+        <section id="css-transitions">
             <h2>🎞️ Transições</h2>
 
             <p>
-                <code>transition</code> permite criar mudanças suaves entre
-                estados.
+            <code>transition</code> permite criar mudanças suaves entre
+            estados.
             </p>
 
             <pre><code>button {
-            background-color: blue;
-            transition: 0.3s;
-            
+        background-color: blue;
+        transition: 0.3s;
+        }
 
-            }
+        button:hover {
+        background-color: black;
+        }</code></pre>
+        </section>
 
-            button:hover {
-            background-color: black;
-            }</code></pre>
-
-            </section>
-
-            <section id="css-responsive">
-
-            
+        <section id="css-responsive">
             <h2>📱 Responsividade</h2>
 
             <p>
-                Media Queries permitem alterar o CSS dependendo do tamanho
-                da tela.
+            Media Queries permitem alterar o CSS dependendo do tamanho
+            da tela.
             </p>
 
             <pre><code>@media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+        }</code></pre>
 
-            .container {
-                flex-direction: column;
-            }
-            
-
-            }</code></pre>
-
-            
             <p>
-                Exemplo de tamanhos frequentemente utilizados:
+            Exemplo de tamanhos frequentemente utilizados:
             </p>
 
             <pre><code>768px  → tablets
-            
+        480px  → celulares</code></pre>
 
-            480px  → celulares</code></pre>
-
-            
             <p>
-                Esses valores são apenas referências. O breakpoint ideal
-                depende do layout do projeto.
+            Esses valores são apenas referências. O breakpoint ideal
+            depende do layout do projeto.
             </p>
-            
+        </section>
 
-            </section>
-
-            <section id="css-unidades">
-
-            
+        <section id="css-unidades">
             <h2>📏 Unidades</h2>
 
             <h3>Pixels</h3>
@@ -791,152 +604,124 @@
             <h3>Viewport</h3>
 
             <pre><code>width: 100vw;
-            
+        height: 100vh;</code></pre>
+        </section>
 
-            height: 100vh;</code></pre>
-
-            </section>
-
-            <section id="css-variaveis">
-
-            
+        <section id="css-variaveis">
             <h2>🎨 Variáveis CSS</h2>
 
             <p>
-                Variáveis permitem armazenar valores que podem ser reutilizados
-                no CSS.
+            Variáveis permitem armazenar valores que podem ser reutilizados
+            no CSS.
             </p>
 
             <pre><code>:root {
-            --cor-principal: #3498db;
-            --cor-texto: #333;
-            --espacamento: 20px;
-            
+        --cor-principal: #3498db;
+        --cor-texto: #333;
+        --espacamento: 20px;
+        }
 
-            }
+        .card {
+        color: var(--cor-texto);
+        padding: var(--espacamento);
+        background-color: var(--cor-principal);
+        }</code></pre>
+        </section>
 
-            .card {
-            color: var(--cor-texto);
-            padding: var(--espacamento);
-            background-color: var(--cor-principal);
-            }</code></pre>
-
-            </section>
-
-            <section id="css-box-sizing">
-
-            
+        <section id="css-box-sizing">
             <h2>📦 Box-sizing</h2>
 
             <p>
-                <code>box-sizing</code> controla como o tamanho total de um
-                elemento é calculado.
+            <code>box-sizing</code> controla como o tamanho total de um
+            elemento é calculado.
             </p>
 
             <p>
-                Uma configuração muito comum é:
+            Uma configuração muito comum é:
             </p>
 
             <pre><code>* {
-            box-sizing: border-box;
-            
+        box-sizing: border-box;
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
-                Com <code>border-box</code>, o <code>padding</code> e a
-                <code>border</code> ficam incluídos no <code>width</code> e
-                <code>height</code> definidos.
+            Com <code>border-box</code>, o <code>padding</code> e a
+            <code>border</code> ficam incluídos no <code>width</code> e
+            <code>height</code> definidos.
             </p>
-            
+        </section>
 
-            </section>
-
-            <section id="css-combinando">
-
-            
+        <section id="css-combinando">
             <h2>🧩 Exemplo completo</h2>
 
             <p>
-                Um exemplo utilizando várias propriedades juntas:
+            Um exemplo utilizando várias propriedades juntas:
             </p>
 
             <pre><code>&lt;div class="card"&gt;
-            &lt;h2&gt;React&lt;/h2&gt;
-            &lt;p&gt;Aprendendo React.&lt;/p&gt;
-            &lt;button&gt;Ver tutorial&lt;/button&gt;
-            
+        &lt;h2&gt;React&lt;/h2&gt;
+        &lt;p&gt;Aprendendo React.&lt;/p&gt;
+        &lt;button&gt;Ver tutorial&lt;/button&gt;
+        &lt;/div&gt;</code></pre>
 
-            </div></code></pre>
-
-            
             <pre><code>.card {
-            width: 300px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: white;
-            text-align: center;
-            
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: white;
+        text-align: center;
+        }
 
-            }
+        .card button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        }
 
-            .card button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            }
+        .card button:hover {
+        opacity: 0.8;
+        }</code></pre>
+        </section>
 
-            .card button:hover {
-            opacity: 0.8;
-            }</code></pre>
-
-            </section>
-
-            <section id="css-resumo">
-
-            
+        <section id="css-resumo">
             <h2>🎯 Resumo</h2>
 
             <pre><code>color: ...
-            
+        background: ...
+        font-size: ...
+        width: ...
+        height: ...
 
-            background: ...
-            font-size: ...
-            width: ...
-            height: ...
+        margin: ...
+        padding: ...
+        border: ...
 
-            margin: ...
-            padding: ...
-            border: ...
+        display: flex;
+        display: grid;
 
-            display: flex;
-            display: grid;
+        justify-content: ...
+        align-items: ...
+        gap: ...
 
-            justify-content: ...
-            align-items: ...
-            gap: ...
+        position: ...
+        top: ...
+        right: ...
+        bottom: ...
+        left: ...
 
-            position: ...
-            top: ...
-            right: ...
-            bottom: ...
-            left: ...
+        :hover
+        :focus
 
-            :hover
-            :focus
+        @media (...)
 
-            @media (...)
+        transition: ...
 
-            transition: ...
-
-            box-sizing: border-box;</code></pre>
-
-            </section>
-
+        box-sizing: border-box;</code></pre>
+        </section>
         </section>
     </main>
+    
 </body>
 </html>

@@ -15,8 +15,6 @@
     <main>
         <section id="html">
             <section id="introducao">
-
-            
             <h2>🌐 HTML — Introdução</h2>
 
             <p>
@@ -31,16 +29,11 @@
             </p>
 
             <pre><code>HTML → estrutura
-            
-
-            CSS → aparência
-            JavaScript → comportamento</code></pre>
-
+        CSS → aparência
+        JavaScript → comportamento</code></pre>
             </section>
 
             <section id="estrutura-basica">
-
-            
             <h2>📄 Estrutura básica</h2>
 
             <p>
@@ -48,62 +41,41 @@
             </p>
 
             <pre><code>&lt;!DOCTYPE html&gt;
-            
+        &lt;html lang="pt"&gt;
+        &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;title&gt;Minha página&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;h1&gt;Olá!&lt;/h1&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;</code></pre>
 
-            <html lang="pt">
-
-            <head>
-            <meta charset="UTF-8">
-            <title>Minha página</title>
-            </head>
-
-            <body>
-
-            
-            &lt;h1&gt;Olá!&lt;/h1&gt;
-            
-
-            </body>
-
-            </html></code></pre>
-
-            
             <p>
                 O <code>&lt;head&gt;</code> contém informações sobre a página.
                 O <code>&lt;body&gt;</code> contém o conteúdo exibido na página.
             </p>
-            
-
             </section>
 
             <section id="textos-titulos">
-
-            
             <h2>📝 Títulos e parágrafos</h2>
 
             <p>
                 Os títulos vão de <code>h1</code> até <code>h6</code>:
             </p>
 
-            <pre><code>
-                &lt;h1&gt;Título principal&lt;/h1&gt;
-                    &lt;h2&gt;Subtítulo&lt;/h2&gt;
-                        &lt;h3&gt;Título menor&lt;/h3&gt;
-            </code></pre>         
+            <pre><code>&lt;h1&gt;Título principal&lt;/h1&gt;
+        &lt;h2&gt;Subtítulo&lt;/h2&gt;
+        &lt;h3&gt;Título menor&lt;/h3&gt;</code></pre>
 
-            
             <p>
                 Para textos normais usamos <code>p</code>:
             </p>
 
             <pre><code>&lt;p&gt;Este é um parágrafo.&lt;/p&gt;</code></pre>
-            
-
             </section>
 
             <section id="links">
-
-            
             <h2>🔗 Links</h2>
 
             <p>
@@ -111,25 +83,19 @@
             </p>
 
             <pre><code>&lt;a href="https://google.com"&gt;
-            Google
-            </a></code></pre>
+        Google
+        &lt;/a&gt;</code></pre>
 
-            
             <p>
                 Para abrir o link em uma nova aba:
             </p>
 
             <pre><code>&lt;a href="https://google.com" target="_blank"&gt;
-            Google
-            
-
-            </a></code></pre>
-
+        Google
+        &lt;/a&gt;</code></pre>
             </section>
 
             <section id="imagens">
-
-            
             <h2>🖼️ Imagens</h2>
 
             <p>
@@ -142,41 +108,29 @@
                 <code>src</code> indica o caminho da imagem e
                 <code>alt</code> fornece uma descrição.
             </p>
-            
-
             </section>
 
             <section id="listas">
-
-            
             <h2>📋 Listas</h2>
 
             <h3>Lista não ordenada</h3>
 
             <pre><code>&lt;ul&gt;
-            &lt;li&gt;React&lt;/li&gt;
-            &lt;li&gt;PHP&lt;/li&gt;
-            &lt;li&gt;CSS&lt;/li&gt;
-            
+        &lt;li&gt;React&lt;/li&gt;
+        &lt;li&gt;PHP&lt;/li&gt;
+        &lt;li&gt;CSS&lt;/li&gt;
+        &lt;/ul&gt;</code></pre>
 
-            </ul></code></pre>
-
-            
             <h3>Lista ordenada</h3>
 
             <pre><code>&lt;ol&gt;
-            &lt;li&gt;Primeiro&lt;/li&gt;
-            &lt;li&gt;Segundo&lt;/li&gt;
-            &lt;li&gt;Terceiro&lt;/li&gt;
-            
-
-            </ol></code></pre>
-
+        &lt;li&gt;Primeiro&lt;/li&gt;
+        &lt;li&gt;Segundo&lt;/li&gt;
+        &lt;li&gt;Terceiro&lt;/li&gt;
+        &lt;/ol&gt;</code></pre>
             </section>
 
             <section id="div-span-class-id">
-
-            
             <h2>📦 Div, Span, Class e ID</h2>
 
             <h3>div</h3>
@@ -187,13 +141,10 @@
             </p>
 
             <pre><code>&lt;div&gt;
-            &lt;h2&gt;React&lt;/h2&gt;
-            &lt;p&gt;Tutorial de React.&lt;/p&gt;
-            
+        &lt;h2&gt;React&lt;/h2&gt;
+        &lt;p&gt;Tutorial de React.&lt;/p&gt;
+        &lt;/div&gt;</code></pre>
 
-            </div></code></pre>
-
-            
             <h3>span</h3>
 
             <p>
@@ -202,12 +153,9 @@
             </p>
 
             <pre><code>&lt;p&gt;
-            Aprendendo &lt;span&gt;HTML&lt;/span&gt;.
-            
+        Aprendendo &lt;span&gt;HTML&lt;/span&gt;.
+        &lt;/p&gt;</code></pre>
 
-            </p></code></pre>
-
-            
             <h3>class</h3>
 
             <p>
@@ -216,12 +164,9 @@
             </p>
 
             <pre><code>&lt;div class="card"&gt;
-            Conteúdo
-            
+        Conteúdo
+        &lt;/div&gt;</code></pre>
 
-            </div></code></pre>
-
-            
             <h3>id</h3>
 
             <p>
@@ -229,16 +174,11 @@
             </p>
 
             <pre><code>&lt;section id="react"&gt;
-            Conteúdo
-            
-
-            </section></code></pre>
-
+        Conteúdo
+        &lt;/section&gt;</code></pre>
             </section>
 
             <section id="elementos-semanticos">
-
-            
             <h2>🧱 Elementos semânticos</h2>
 
             <p>
@@ -247,36 +187,31 @@
             </p>
 
             <pre><code>&lt;header&gt;
-            Cabeçalho
-            
+        Cabeçalho
+        &lt;/header&gt;
 
-            </header>
+        &lt;nav&gt;
+        Menu
+        &lt;/nav&gt;
 
-            <nav>
-            Menu
-            </nav>
+        &lt;main&gt;
+        Conteúdo principal
+        &lt;/main&gt;
 
-            <main>
-            Conteúdo principal
-            </main>
+        &lt;section&gt;
+        Seção
+        &lt;/section&gt;
 
-            <section>
-            Seção
-            </section>
+        &lt;article&gt;
+        Artigo
+        &lt;/article&gt;
 
-            <article>
-            Artigo
-            </article>
-
-            <footer>
-            Rodapé
-            </footer></code></pre>
-
+        &lt;footer&gt;
+        Rodapé
+        &lt;/footer&gt;</code></pre>
             </section>
 
             <section id="tabelas">
-
-            
             <h2>📊 Tabelas</h2>
 
             <p>
@@ -285,25 +220,18 @@
             </p>
 
             <pre><code>&lt;table&gt;
-
-            &lt;tr&gt;
-                &lt;th&gt;Nome&lt;/th&gt;
-                &lt;th&gt;Idade&lt;/th&gt;
-            &lt;/tr&gt;
-
-            &lt;tr&gt;
-                &lt;td&gt;João&lt;/td&gt;
-                &lt;td&gt;30&lt;/td&gt;
-            &lt;/tr&gt;
-            
-
-            </table></code></pre>
-
+        &lt;tr&gt;
+            &lt;th&gt;Nome&lt;/th&gt;
+            &lt;th&gt;Idade&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;João&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;</code></pre>
             </section>
 
             <section id="formularios">
-
-            
             <h2>📝 Formulários</h2>
 
             <p>
@@ -311,25 +239,19 @@
             </p>
 
             <pre><code>&lt;form&gt;
+        &lt;label&gt;Nome:&lt;/label&gt;
+        &lt;input type="text"&gt;
 
-            &lt;label&gt;Nome:&lt;/label&gt;
-            &lt;input type="text"&gt;
+        &lt;label&gt;Email:&lt;/label&gt;
+        &lt;input type="email"&gt;
 
-            &lt;label&gt;Email:&lt;/label&gt;
-            &lt;input type="email"&gt;
-
-            &lt;button type="submit"&gt;
-                Enviar
-            &lt;/button&gt;
-            
-
-            </form></code></pre>
-
+        &lt;button type="submit"&gt;
+            Enviar
+        &lt;/button&gt;
+        &lt;/form&gt;</code></pre>
             </section>
 
             <section id="inputs">
-
-            
             <h2>⌨️ Inputs</h2>
 
             <p>
@@ -337,31 +259,23 @@
             </p>
 
             <pre><code>&lt;input type="text"&gt;
-            
+        &lt;input type="email"&gt;
+        &lt;input type="password"&gt;
+        &lt;input type="number"&gt;
+        &lt;input type="date"&gt;
+        &lt;input type="checkbox"&gt;
+        &lt;input type="radio"&gt;
+        &lt;input type="file"&gt;</code></pre>
 
-            <input type="email">
-            <input type="password">
-            <input type="number">
-            <input type="date">
-            <input type="checkbox">
-            <input type="radio">
-            <input type="file"></code></pre>
-
-            
             <h3>Placeholder</h3>
 
             <pre><code>&lt;input
-            type="text"
-            placeholder="Digite seu nome"
-            
-
-            ></code></pre>
-
+        type="text"
+        placeholder="Digite seu nome"
+        &gt;</code></pre>
             </section>
 
             <section id="botoes">
-
-            
             <h2>🔘 Botões</h2>
 
             <p>
@@ -369,56 +283,38 @@
             </p>
 
             <pre><code>&lt;button&gt;
-            Clique aqui
-            
+        Clique aqui
+        &lt;/button&gt;</code></pre>
 
-            </button></code></pre>
-
-            
             <p>
                 Dentro de um formulário, podemos especificar sua função:
             </p>
 
             <pre><code>&lt;button type="submit"&gt;
-            Enviar
-            
+        Enviar
+        &lt;/button&gt;
 
-            </button>
-
-            <button type="button">
-            Cancelar
-            </button></code></pre>
-
+        &lt;button type="button"&gt;
+        Cancelar
+        &lt;/button&gt;</code></pre>
             </section>
 
             <section id="formatacao-texto">
-
-            
             <h2>✍️ Formatação de texto</h2>
 
             <pre><code>&lt;strong&gt;Texto importante&lt;/strong&gt;
-            
+        &lt;em&gt;Texto enfatizado&lt;/em&gt;
+        &lt;mark&gt;Texto destacado&lt;/mark&gt;
+        &lt;br&gt;
+        &lt;hr&gt;</code></pre>
 
-            <em>Texto enfatizado</em>
-
-            <mark>Texto destacado</mark>
-
-            <br>
-
-            <hr></code></pre>
-
-            
             <p>
                 <code>&lt;br&gt;</code> cria uma quebra de linha e
                 <code>&lt;hr&gt;</code> cria uma separação temática.
             </p>
-            
-
             </section>
 
             <section id="atributos">
-
-            
             <h2>🏷️ Atributos</h2>
 
             <p>
@@ -426,40 +322,32 @@
             </p>
 
             <pre><code>&lt;a href="pagina.html"&gt;
-            Link
-            
+        Link
+        &lt;/a&gt;
 
-            </a>
+        &lt;img src="foto.jpg" alt="Foto"&gt;
 
-            <img src="foto.jpg" alt="Foto">
+        &lt;input
+        type="text"
+        placeholder="Digite seu nome"
+        &gt;</code></pre>
 
-            <input
-            type="text"
-            placeholder="Digite seu nome"
-            ></code></pre>
-
-            
             <h3>Principais atributos</h3>
 
             <pre><code>id
-            
-
-            class
-            href
-            src
-            alt
-            title
-            name
-            value
-            placeholder
-            type
-            target</code></pre>
-
+        class
+        href
+        src
+        alt
+        title
+        name
+        value
+        placeholder
+        type
+        target</code></pre>
             </section>
 
             <section id="react">
-
-            
             <h2>⚛️ HTML no React</h2>
 
             <p>
@@ -468,60 +356,51 @@
             </p>
 
             <pre><code>function App() {
-            return (
-                &lt;div className="card"&gt;
-                    &lt;h1&gt;Olá!&lt;/h1&gt;
-                    &lt;p&gt;Minha aplicação React.&lt;/p&gt;
-                &lt;/div&gt;
-            )
-            
+        return (
+            &lt;div className="card"&gt;
+            &lt;h1&gt;Olá!&lt;/h1&gt;
+            &lt;p&gt;Minha aplicação React.&lt;/p&gt;
+            &lt;/div&gt;
+        )
+        }</code></pre>
 
-            }</code></pre>
-
-            
             <p>
                 Uma diferença importante é que utilizamos
                 <code>className</code> em vez de <code>class</code>.
             </p>
-            
-
             </section>
 
             <section id="guia-rapido">
+            <h2>🎯 Guia rápido</h2>
 
-                <h2>🎯 Guia rápido</h2>
+            <pre><code>&lt;h1&gt;Título&lt;/h1&gt;
+        &lt;h2&gt;Subtítulo&lt;/h2&gt;
+        &lt;h3&gt;Título menor&lt;/h3&gt;
 
-                <pre><code>
-            &lt;h1&gt;Título&lt;/h1&gt;
-                &lt;h2&gt;Subtítulo&lt;/h2&gt;
-                    &lt;h3&gt;Título menor&lt;/h3&gt;
+        &lt;p&gt;Parágrafo&lt;/p&gt;
 
-            &lt;p&gt;Parágrafo&lt;/p&gt;
+        &lt;a href="..."&gt;Link&lt;/a&gt;
 
-            &lt;a href="..."&gt;Link&lt;/a&gt;
-            
-            &lt;img src="..." alt="..."&gt;
+        &lt;img src="..." alt="..."&gt;
 
-            &lt;ul&gt;
-                &lt;li&gt;Item&lt;/li&gt;
-            &lt;/ul&gt;
+        &lt;ul&gt;
+        &lt;li&gt;Item&lt;/li&gt;
+        &lt;/ul&gt;
 
-            &lt;div class="..."&gt;
-                Conteúdo
-            &lt;/div&gt;
+        &lt;div class="..."&gt;
+        Conteúdo
+        &lt;/div&gt;
 
-            &lt;section id="..."&gt;
-                Conteúdo
-            &lt;/section&gt;
+        &lt;section id="..."&gt;
+        Conteúdo
+        &lt;/section&gt;
 
-            &lt;input type="text"&gt;
-            
-            &lt;button&gt;Enviar&lt;/button&gt;</code></pre>
+        &lt;input type="text"&gt;
 
+        &lt;button&gt;Enviar&lt;/button&gt;</code></pre>
             </section>
-
-
-        </section>        
+        </section>
     </main>
+
 </body>
 </html>
