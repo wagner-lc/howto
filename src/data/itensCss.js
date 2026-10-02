@@ -1,12 +1,12 @@
 const itensCss = [
     {
-        icone: "🧠",
+        icone: "🎨",
         titulo: "Introdução ao CSS",
         descricao: "Entender o que é CSS e para que serve",
         link: "#css-introducao"
     },
     {
-        icone: "🔌",
+        icone: "🔗",
         titulo: "Como inserir CSS",
         descricao: "Inline, interno e externo",
         link: "#css-inserir"
@@ -18,13 +18,13 @@ const itensCss = [
         link: "#css-seletores"
     },
     {
-        icone: "🎨",
+        icone: "🌈",
         titulo: "Cores",
         descricao: "HEX, RGB, HSL e nomes",
         link: "#css-cores"
     },
     {
-        icone: "🔤",
+        icone: "✍️",
         titulo: "Textos",
         descricao: "Fontes, tamanhos e alinhamento",
         link: "#css-textos"
@@ -36,7 +36,7 @@ const itensCss = [
         link: "#css-box-model"
     },
     {
-        icone: "📏",
+        icone: "📐",
         titulo: "Width e Height",
         descricao: "Largura e altura dos elementos",
         link: "#css-width-height"
@@ -48,25 +48,25 @@ const itensCss = [
         link: "#css-margin-padding"
     },
     {
-        icone: "🖼️",
+        icone: "🔲",
         titulo: "Bordas",
         descricao: "Estilo, espessura e cor das bordas",
         link: "#css-border"
     },
     {
-        icone: "🌈",
+        icone: "🖼️",
         titulo: "Background",
         descricao: "Cores, imagens e gradientes",
         link: "#css-background"
     },
     {
-        icone: "🧱",
+        icone: "📐",
         titulo: "Display",
         descricao: "block, inline, inline-block e none",
         link: "#css-display"
     },
     {
-        icone: "📐",
+        icone: "📦",
         titulo: "Flexbox",
         descricao: "Layout em uma dimensão",
         link: "#css-flexbox"
@@ -84,7 +84,7 @@ const itensCss = [
         link: "#css-position"
     },
     {
-        icone: "🖱️",
+        icone: "🎭",
         titulo: "Pseudo-classes",
         descricao: ":hover, :focus, :nth-child",
         link: "#css-pseudo-classes"
@@ -96,14 +96,14 @@ const itensCss = [
         link: "#css-pseudo-elementos"
     },
     {
-        icone: "🌊",
+        icone: "📦",
         titulo: "Overflow",
         descricao: "Controlar o que passa do elemento",
         link: "#css-overflow"
     },
     {
         icone: "🎞️",
-        titulo: "Transitions",
+        titulo: "Transições",
         descricao: "Animações suaves entre estados",
         link: "#css-transitions"
     },
@@ -120,7 +120,7 @@ const itensCss = [
         link: "#css-unidades"
     },
     {
-        icone: "🔧",
+        icone: "🎨",
         titulo: "Variáveis CSS",
         descricao: "Custom properties com --var",
         link: "#css-variaveis"
@@ -132,13 +132,13 @@ const itensCss = [
         link: "#css-box-sizing"
     },
     {
-        icone: "🔗",
+        icone: "🧩",
         titulo: "Combinando Seletores",
         descricao: "Descendente, filho, irmão e outros",
         link: "#css-combinando"
     },
     {
-        icone: "🧠",
+        icone: "🎯",
         titulo: "Resumo",
         descricao: "Tudo em um só lugar",
         link: "#css-resumo"
