@@ -15,9 +15,6 @@ const Header = () => {
         <p>
             Meu manual pessoal de programação
         </p>
-        <div className='react-version'>
-            <p>React version*</p>
-        </div>
 
     </header>
   )

@@ -12,6 +12,7 @@ import JavascriptPage from './pages/Javascript'
 import PhpPage from './pages/Php'
 import ReactPage from './pages/React'
 import SqlPage from './pages/Sql'
+import PlaywrightPage from './pages/Playwright'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
 
@@ -74,6 +75,8 @@ function App() {
         <Route path="/react" element={<ReactPage />} />
 
         <Route path="/sql" element={<SqlPage />} />
+
+        <Route path="/playwright" element={<PlaywrightPage />} />
 
       </Routes>
 

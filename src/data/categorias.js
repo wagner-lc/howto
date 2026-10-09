@@ -48,6 +48,12 @@ const categorias = [
         descricao: 'Biblioteca do JavaScript.',
         link: "/react"
     },
+        {
+        icone: '🎭',
+        titulo: 'Playwright',
+        descricao: 'Testes automatizados.',
+        link: "/playwright"
+    },
 /*
     {
         icone: '💻',

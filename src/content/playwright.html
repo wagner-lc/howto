@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HoW to!</title>
+
+</head>
+
+<body>
+
+    <main>
+        <section id="playwright">
+
+            <section id="playwright-introducao">
+                <h2>🎭 O que é Playwright?</h2>
+
+                <p>Playwright é uma ferramenta de automação de testes que controla um navegador e verifica se uma aplicação funciona como esperado.</p>
+
+                <p>Com ele, podemos simular ações de um usuário:</p>
+
+                <ul>
+                    <li>Abrir páginas;</li>
+                    <li>Clicar em links e botões;</li>
+                    <li>Preencher formulários;</li>
+                    <li>Verificar títulos, URLs e elementos visíveis;</li>
+                    <li>Encontrar problemas de navegação;</li>
+                    <li>Executar os mesmos testes automaticamente sempre que necessário.</li>
+                </ul>
+
+                <p><strong>Teste E2E (End-to-End):</strong> testa um fluxo da aplicação do ponto de vista do usuário, desde uma ação inicial até o resultado esperado.</p>
+
+                <p>Exemplo no How2: abrir a Home, clicar em CSS e verificar se a página CSS foi aberta.</p>
+            </section>
+
+            <section id="playwright-instalacao">
+                <h2>📦 Instalar o Playwright</h2>
+
+                <p>Execute os comandos no terminal, dentro da pasta do projeto.</p>
+
+                <pre><code>npm init playwright@latest</code></pre>
+
+                <p>Durante a configuração, escolha:</p>
+
+                <ul>
+                    <li>JavaScript;</li>
+                    <li><code>tests</code> como pasta dos testes;</li>
+                    <li>Não adicionar workflow do GitHub Actions por enquanto;</li>
+                    <li>Instalar os navegadores.</li>
+                </ul>
+
+                <p>A instalação cria arquivos como:</p>
+
+                <pre><code>howto/
+            ├── tests/
+            │   └── example.spec.js
+            ├── playwright.config.js
+            ├── package.json
+            └── ...</code></pre>
+
+                <p><strong>Atenção:</strong> se o projeto já tem Playwright instalado, não é necessário repetir a instalação.</p>
+            </section>
+
+            <section id="playwright-primeiro-teste">
+                <h2>🚀 Executar os primeiros testes</h2>
+
+                <p>Para executar os testes existentes, entre na pasta do projeto e rode:</p>
+
+                <pre><code>npx playwright test</code></pre>
+
+                <p>Exemplo de resultado:</p>
+
+                <pre><code>6 passed (4.2s)</code></pre>
+
+                <p>Isso significa que seis testes passaram. Se algum falhar, o Playwright mostra qual teste falhou e apresenta detalhes para investigar.</p>
+
+                <p>Para abrir o relatório HTML da última execução:</p>
+
+                <pre><code>npx playwright show-report</code></pre>
+
+                <p>O relatório ajuda a identificar os testes executados, seus resultados e detalhes das falhas.</p>
+            </section>
+
+            <section id="playwright-estrutura">
+                <h2>🧩 Estrutura de um teste</h2>
+
+                <pre><code>import { test, expect } from '@playwright/test';
+
+            test('has title', async ({ page }) => {
+                await page.goto('https://playwright.dev/');
+
+                await expect(page).toHaveTitle(/Playwright/);
+            });</code></pre>
+
+                <ul>
+                    <li><code>test</code>: define um teste;</li>
+                    <li><code>expect</code>: verifica se o resultado corresponde ao esperado;</li>
+                    <li><code>page</code>: representa uma página do navegador controlada pelo Playwright;</li>
+                    <li><code>page.goto()</code>: abre uma URL;</li>
+                    <li><code>await</code>: espera uma operação assíncrona terminar antes de continuar;</li>
+                    <li><code>toHaveTitle()</code>: verifica o título da página.</li>
+                </ul>
+
+                <p>O nome do teste, como <code>has title</code>, é uma descrição para facilitar a leitura dos resultados.</p>
+            </section>
+
+            <section id="playwright-criar-teste">
+                <h2>📝 Criar um teste próprio</h2>
+
+                <p>Crie um arquivo com a extensão <code>.spec.js</code> dentro da pasta <code>tests</code>.</p>
+
+                <p>Exemplo de organização:</p>
+
+                <pre><code>tests/
+            ├── example.spec.js
+            └── how2.spec.js</code></pre>
+
+                <p>O arquivo <code>how2.spec.js</code> será usado para os testes automatizados do How2.</p>
+
+                <p>Exemplo: abrir a Home localmente, clicar na categoria CSS e verificar se a URL mudou para a página esperada.</p>
+
+                <pre><code>import { test, expect } from '@playwright/test';
+
+            test('abrir CSS pela Home', async ({ page }) => {
+                await page.goto('http://localhost:5173/howto/');
+
+                await page.getByRole('link', { name: 'CSS' }).click();
+
+                await expect(page).toHaveURL(/css/);
+            });</code></pre>
+
+                <p><strong>Importante:</strong> este exemplo pressupõe que o servidor local esteja acessível nesse endereço e que exista um link cujo nome acessível seja <code>CSS</code>. Se o teste falhar, confira o endereço e o nome real do link antes de alterar a aplicação.</p>
+            </section>
+
+            <section id="playwright-localizadores">
+                <h2>🔎 Encontrar elementos — Locators</h2>
+
+                <p>Um locator é uma forma de localizar um elemento na página para interagir com ele ou verificar seu estado.</p>
+
+                <h3>1. getByRole() — pelo papel e nome acessível</h3>
+
+                <p>É uma das opções preferidas para links, botões, campos e outros elementos interativos.</p>
+
+                <pre><code>// Link chamado CSS
+            page.getByRole('link', { name: 'CSS' });
+
+            // Botão chamado Salvar
+            page.getByRole('button', { name: 'Salvar' });
+
+            // Título chamado Introdução
+            page.getByRole('heading', { name: 'Introdução' });
+
+            // Campo de texto
+            page.getByRole('textbox', { name: 'E-mail' });
+
+            // Checkbox
+            page.getByRole('checkbox', { name: 'Aceito os termos' });
+
+            // Radio button
+            page.getByRole('radio', { name: 'Sim' });
+
+            // Lista
+            page.getByRole('list');
+
+            // Item de lista
+            page.getByRole('listitem');</code></pre>
+
+                <p>Também é possível procurar um título de nível específico:</p>
+
+                <pre><code>page.getByRole('heading', {
+                name: 'Introdução',
+                level: 2
+            });</code></pre>
+
+                <h3>2. getByText() — pelo texto visível</h3>
+
+                <pre><code>// Texto que contém a expressão
+            page.getByText('Tutorial');
+
+            // Texto exato
+            page.getByText('Tutorial', { exact: true });
+
+            // Texto que corresponde a uma expressão regular
+            page.getByText(/tutorial/i);</code></pre>
+
+                <p>Use principalmente para parágrafos, mensagens e textos que não sejam elementos interativos.</p>
+
+                <h3>3. getByLabel() — pelo rótulo de um campo</h3>
+
+                <pre><code>page.getByLabel('Nome');
+            page.getByLabel('E-mail');
+            page.getByLabel('Palavra-passe');</code></pre>
+
+                <p>É útil quando o campo possui um label associado corretamente.</p>
+
+                <h3>4. getByPlaceholder() — pelo texto de exemplo</h3>
+
+                <pre><code>page.getByPlaceholder('Digite seu nome');
+            page.getByPlaceholder('nome@exemplo.com');</code></pre>
+
+                <h3>5. getByAltText() — pelo texto alternativo de uma imagem</h3>
+
+                <pre><code>page.getByAltText('Logotipo do How2');</code></pre>
+
+                <h3>6. getByTitle() — pelo atributo title</h3>
+
+                <pre><code>page.getByTitle('Voltar para a Home');</code></pre>
+
+                <h3>7. getByTestId() — por um identificador de teste</h3>
+
+                <p>Útil quando o elemento não possui um nome acessível estável ou quando existe um identificador definido especificamente para os testes.</p>
+
+                <pre><code>// HTML:
+            &lt;button data-testid="salvar"&gt;Guardar&lt;/button&gt;
+
+            // Playwright:
+            page.getByTestId('salvar');</code></pre>
+
+                <h3>8. locator() — por seletor CSS</h3>
+
+                <pre><code>// Pelo ID
+            page.locator('#menu');
+
+            // Pela classe
+            page.locator('.categoria');
+
+            // Pelo elemento HTML
+            page.locator('button');
+
+            // Pelo atributo
+            page.locator('[href="/howto/css"]');
+
+            // Por um campo de tipo email
+            page.locator('input[type="email"]');</code></pre>
+
+                <p>Prefira locators orientados ao usuário, como getByRole e getByLabel, quando forem adequados. Use seletores CSS quando precisar identificar algo que os outros métodos não localizam bem.</p>
+
+                <h3>9. Combinar e filtrar locators</h3>
+
+                <pre><code>// Procurar um link dentro do menu
+            page.locator('nav').getByRole('link', { name: 'CSS' });
+
+            // Procurar um elemento que contém determinado texto
+            page.getByRole('listitem').filter({
+                hasText: 'CSS'
+            });
+
+            // Procurar um botão dentro de um cartão
+            page.locator('.categoria').getByRole('link');</code></pre>
+
+                <p>Se existirem vários elementos semelhantes, use first(), last() ou nth() para escolher um específico. Lembre-se de que nth() começa em zero.</p>
+
+                <pre><code>page.getByRole('link').first();
+            page.getByRole('link').last();
+            page.getByRole('link').nth(1);</code></pre>
+            </section>
+
+            <section id="playwright-acoes">
+                <h2>🖱️ Executar ações nos elementos</h2>
+
+                <h3>1. Clicar</h3>
+
+                <pre><code>await page.getByRole('button', { name: 'Salvar' }).click();
+
+            await page.getByRole('link', { name: 'CSS' }).click();</code></pre>
+
+                <h3>2. Duplo clique</h3>
+
+                <pre><code>await page.getByText('Editar', { exact: true }).dblclick();</code></pre>
+
+                <h3>3. Preencher um campo</h3>
+
+                <p>fill() preenche o campo com o valor indicado, substituindo o conteúdo anterior.</p>
+
+                <pre><code>await page.getByLabel('Nome').fill('Wagner');
+
+            await page.getByLabel('E-mail').fill('teste@exemplo.com');</code></pre>
+
+                <h3>4. Limpar um campo</h3>
+
+                <pre><code>await page.getByLabel('Nome').clear();</code></pre>
+
+                <h3>5. Digitar caractere a caractere</h3>
+
+                <pre><code>await page.getByLabel('Nome').pressSequentially('Wagner');</code></pre>
+
+                <p>Use pressSequentially() quando precisar simular a digitação de caracteres individualmente, por exemplo, para testar comportamentos que reagem a cada tecla.</p>
+
+                <h3>6. Pressionar teclas</h3>
+
+                <pre><code>// Enter num campo
+            await page.getByLabel('Pesquisar').press('Enter');
+
+            // Escape
+            await page.keyboard.press('Escape');
+
+            // Ctrl+A dentro de um campo
+            await page.getByLabel('Nome').press('Control+A');
+
+            // Tecla Tab
+            await page.keyboard.press('Tab');</code></pre>
+
+                <h3>7. Marcar e desmarcar checkbox</h3>
+
+                <pre><code>await page.getByRole('checkbox', {
+                name: 'Aceito os termos'
+            }).check();
+
+            await page.getByRole('checkbox', {
+                name: 'Aceito os termos'
+            }).uncheck();</code></pre>
+
+                <h3>8. Selecionar uma opção de radio</h3>
+
+                <pre><code>await page.getByRole('radio', {
+                name: 'Sim'
+            }).check();</code></pre>
+
+                <h3>9. Escolher uma opção de select</h3>
+
+                <pre><code>// Pelo valor da opção
+            await page.getByLabel('Categoria').selectOption('css');
+
+            // Pelo texto visível da opção
+            await page.getByLabel('Categoria').selectOption({
+                label: 'CSS'
+            });</code></pre>
+
+                <h3>10. Passar o rato sobre um elemento</h3>
+
+                <pre><code>await page.getByRole('button', {
+                name: 'Mais opções'
+            }).hover();</code></pre>
+
+                <h3>11. Focar e retirar o foco</h3>
+
+                <pre><code>await page.getByLabel('Nome').focus();
+
+            await page.getByLabel('Nome').blur();</code></pre>
+
+                <h3>12. Enviar um formulário</h3>
+
+                <pre><code>await page.getByRole('button', {
+                name: 'Enviar'
+            }).click();</code></pre>
+
+                <p>Também pode pressionar Enter num campo, se esse for o comportamento esperado do formulário.</p>
+
+                <h3>13. Fazer scroll até um elemento</h3>
+
+                <pre><code>await page.getByRole('heading', {
+                name: 'Resumo'
+            }).scrollIntoViewIfNeeded();</code></pre>
+
+                <h3>14. Arrastar e soltar</h3>
+
+                <pre><code>await page.locator('#origem').dragTo(
+                page.locator('#destino')
+            );</code></pre>
+
+                <h3>15. Navegar pelo histórico</h3>
+
+                <pre><code>await page.goBack();
+
+            await page.goForward();
+
+            await page.reload();</code></pre>
+
+                <p>O Playwright espera automaticamente por várias condições de interação, como o elemento estar visível e habilitado antes de clicar. Evite adicionar esperas fixas sem necessidade.</p>
+            </section>
+
+            <section id="playwright-verificacoes">
+                <h2>✅ Verificar resultados — expect()</h2>
+
+                <p>As verificações confirmam se a aplicação apresentou o resultado esperado. Se uma verificação falhar, o teste falha.</p>
+
+                <h3>1. Verificar a URL</h3>
+
+                <pre><code>await expect(page).toHaveURL(/css/);
+
+            await expect(page).toHaveURL(
+                'http://localhost:5173/howto/'
+            );</code></pre>
+
+                <h3>2. Verificar o título do documento</h3>
+
+                <pre><code>await expect(page).toHaveTitle(/How2/);</code></pre>
+
+                <h3>3. Verificar se um elemento está visível</h3>
+
+                <pre><code>await expect(
+                page.getByRole('heading', { name: 'CSS' })
+            ).toBeVisible();</code></pre>
+
+                <h3>4. Verificar se um elemento está oculto</h3>
+
+                <pre><code>await expect(
+                page.getByText('Mensagem de erro')
+            ).toBeHidden();</code></pre>
+
+                <h3>5. Verificar se um elemento existe no DOM</h3>
+
+                <pre><code>await expect(
+                page.getByTestId('resultado')
+            ).toHaveCount(1);</code></pre>
+
+                <p>toHaveCount(0) verifica que não há elementos correspondentes. Diferentemente de toBeHidden(), isso também passa quando o elemento não existe no DOM.</p>
+
+                <h3>6. Verificar o texto</h3>
+
+                <pre><code>await expect(
+                page.getByRole('heading', { name: 'CSS' })
+            ).toHaveText('CSS');
+
+            await expect(
+                page.locator('.mensagem')
+            ).toContainText('Salvo');</code></pre>
+
+                <p>toHaveText() verifica o texto esperado; toContainText() verifica se o texto contém a expressão indicada.</p>
+
+                <h3>7. Verificar o valor de um campo</h3>
+
+                <pre><code>await expect(
+                page.getByLabel('Nome')
+            ).toHaveValue('Wagner');</code></pre>
+
+                <h3>8. Verificar se está habilitado ou desabilitado</h3>
+
+                <pre><code>await expect(
+                page.getByRole('button', { name: 'Salvar' })
+            ).toBeEnabled();
+
+            await expect(
+                page.getByRole('button', { name: 'Salvar' })
+            ).toBeDisabled();</code></pre>
+
+                <h3>9. Verificar checkbox marcado</h3>
+
+                <pre><code>await expect(
+                page.getByRole('checkbox', { name: 'Aceito os termos' })
+            ).toBeChecked();</code></pre>
+
+                <p>Para confirmar que está desmarcado:</p>
+
+                <pre><code>await expect(
+                page.getByRole('checkbox', { name: 'Aceito os termos' })
+            ).not.toBeChecked();</code></pre>
+
+                <h3>10. Verificar atributos</h3>
+
+                <pre><code>await expect(
+                page.getByRole('link', { name: 'CSS' })
+            ).toHaveAttribute('href', '/howto/css');</code></pre>
+
+                <h3>11. Verificar classes CSS</h3>
+
+                <pre><code>await expect(
+                page.locator('.categoria')
+            ).toHaveClass(/categoria/);</code></pre>
+
+                <h3>12. Verificar quantidade de elementos</h3>
+
+                <pre><code>// Existem sete links
+            await expect(page.getByRole('link')).toHaveCount(7);</code></pre>
+
+                <p>Use a quantidade que realmente corresponde à página testada. O exemplo acima é ilustrativo.</p>
+
+                <h3>13. Verificar se uma imagem está visível</h3>
+
+                <pre><code>await expect(
+                page.getByRole('img', { name: 'Logotipo do How2' })
+            ).toBeVisible();</code></pre>
+
+                <h3>14. Verificar se um texto não aparece</h3>
+
+                <pre><code>await expect(
+                page.getByText('Erro ao salvar')
+            ).not.toBeVisible();</code></pre>
+
+                <p>Use essa verificação quando o resultado esperado for que a mensagem não esteja visível. Se precisar confirmar que o elemento não existe no DOM, prefira toHaveCount(0).</p>
+            </section>
+
+            <section id="playwright-filtros-listas">
+                <h2>📋 Trabalhar com listas e vários elementos</h2>
+
+                <h3>1. Selecionar o primeiro, último ou um item específico</h3>
+
+                <pre><code>const links = page.getByRole('link');
+
+            await links.first().click();
+            await links.last().click();
+            await links.nth(2).click();</code></pre>
+
+                <p>Os exemplos são alternativas: não execute os três cliques em sequência sem considerar o que cada navegação provoca.</p>
+
+                <h3>2. Verificar uma lista inteira</h3>
+
+                <pre><code>await expect(
+                page.getByRole('link')
+            ).toHaveText([
+                'HTML',
+                'CSS',
+                'JavaScript'
+            ]);</code></pre>
+
+                <p>A lista de textos e a quantidade de links devem corresponder ao conteúdo real da página.</p>
+
+                <h3>3. Percorrer os elementos encontrados</h3>
+
+                <pre><code>const links = await page.getByRole('link').all();
+
+            for (const link of links) {
+                console.log(await link.innerText());
+            }</code></pre>
+
+                <p>all() recolhe os elementos encontrados naquele momento e não espera que uma lista dinâmica termine de carregar. Para verificar textos, prefira expect(locator).toHaveText() quando possível.</p>
+            </section>
+
+            <section id="playwright-esperas">
+                <h2>⏳ Esperas e carregamento</h2>
+
+                <h3>1. Esperar por um elemento aparecer</h3>
+
+                <pre><code>await expect(
+                page.getByText('Carregado')
+            ).toBeVisible();</code></pre>
+
+                <p>As asserções do Playwright tentam novamente até o resultado ser alcançado ou o tempo limite terminar.</p>
+
+                <h3>2. Esperar por uma URL</h3>
+
+                <pre><code>await expect(page).toHaveURL(/css/);</code></pre>
+
+                <h3>3. Esperar por uma resposta de rede específica</h3>
+
+                <pre><code>const respostaPromise = page.waitForResponse(
+                response => response.url().includes('/api/dados')
+            );
+
+            await page.getByRole('button', { name: 'Carregar' }).click();
+
+            const resposta = await respostaPromise;
+
+            expect(resposta.ok()).toBeTruthy();</code></pre>
+
+                <p>Registre a espera antes da ação que provoca a requisição, para não perder uma resposta rápida.</p>
+
+                <h3>4. Espera fixa — usar apenas quando necessário</h3>
+
+                <pre><code>await page.waitForTimeout(1000);</code></pre>
+
+                <p>Isso espera um segundo. Não é a forma preferida de sincronizar testes, pois pode deixar o teste lento ou instável. Prefira esperar pelo elemento, URL ou evento esperado.</p>
+            </section>
+
+            <section id="playwright-dialogos">
+                <h2>💬 Diálogos, abas e downloads</h2>
+
+                <h3>1. Lidar com alert(), confirm() e prompt()</h3>
+
+                <pre><code>page.on('dialog', async dialog => {
+                console.log(dialog.message());
+                await dialog.accept();
+            });</code></pre>
+
+                <p>Registre o listener antes de executar a ação que abre o diálogo. O handler precisa aceitar ou dispensar o diálogo.</p>
+
+                <h3>2. Abrir uma nova aba ou página</h3>
+
+                <pre><code>const paginaPromise = page.context().waitForEvent('page');
+
+            await page.getByRole('link', { name: 'Abrir relatório' }).click();
+
+            const novaPagina = await paginaPromise;
+
+            await expect(novaPagina).toHaveURL(/relatorio/);</code></pre>
+
+                <h3>3. Verificar um download</h3>
+
+                <pre><code>const downloadPromise = page.waitForEvent('download');
+
+            await page.getByRole('button', { name: 'Baixar' }).click();
+
+            const download = await downloadPromise;
+
+            console.log(download.suggestedFilename());</code></pre>
+            </section>
+
+            <section id="playwright-debug-localizadores">
+                <h2>🛠️ Descobrir como localizar um elemento</h2>
+
+                <p>Se não souber qual locator utilizar, o Playwright oferece o Codegen, que observa as suas ações e sugere código.</p>
+
+                <pre><code>npx playwright codegen http://localhost:5173/howto/</code></pre>
+
+                <p>Na janela aberta, navegue pela aplicação, clique nos elementos e observe o código sugerido. Use-o como ponto de partida e revise os locators gerados antes de guardar o teste.</p>
+
+                <p>O Codegen pode sugerir seletores mais específicos do que o necessário. Prefira um locator simples, legível e estável sempre que possível.</p>
+            </section>
+
+            <section id="playwright-exemplo-completo">
+                <h2>🧪 Exemplo completo — testar a navegação para CSS</h2>
+
+                <pre><code>import { test, expect } from '@playwright/test';
+
+            test('abrir CSS pela Home', async ({ page }) => {
+                await page.goto('http://localhost:5173/howto/');
+
+                const linkCSS = page.getByRole('link', {
+                    name: 'CSS'
+                });
+
+                await expect(linkCSS).toBeVisible();
+
+                await linkCSS.click();
+
+                await expect(page).toHaveURL(/css/);
+
+                await expect(
+                    page.getByRole('heading', { name: /CSS/i }).first()
+                ).toBeVisible();
+            });</code></pre>
+
+                <p>Este teste verifica três coisas:</p>
+
+                <ol>
+                    <li>O link CSS está visível na Home;</li>
+                    <li>O clique navega para uma URL que contém CSS;</li>
+                    <li>Um título correspondente a CSS está visível na página de destino.</li>
+                </ol>
+
+                <p>Adapte o nome do link, o título e o endereço à aplicação real. O teste deve verificar o comportamento pretendido, não apenas fazer o código passar.</p>
+            </section>
+
+            <section id="playwright-executar-especifico">
+                <h2>⚙️ Executar testes específicos</h2>
+
+                <p>Executar todos os testes:</p>
+                <pre><code>npx playwright test</code></pre>
+
+                <p>Executar apenas um arquivo:</p>
+                <pre><code>npx playwright test how2.spec.js</code></pre>
+
+                <p>Executar somente no Chromium:</p>
+                <pre><code>npx playwright test --project=chromium</code></pre>
+
+                <p>Executar em modo interativo:</p>
+                <pre><code>npx playwright test --ui</code></pre>
+
+                <p>Executar em modo de depuração:</p>
+                <pre><code>npx playwright test --debug</code></pre>
+            </section>
+
+            <section id="playwright-debug">
+                <h2>🐞 Investigar testes que falham</h2>
+
+                <p>Quando um teste falhar:</p>
+
+                <ol>
+                    <li>Identifique o nome do teste que falhou;</li>
+                    <li>Leia a mensagem de erro;</li>
+                    <li>Confira a URL, o seletor e o resultado esperado;</li>
+                    <li>Reproduza o problema manualmente, se necessário;</li>
+                    <li>Determine se o problema está no teste ou na aplicação;</li>
+                    <li>Corrija a causa e execute novamente.</li>
+                </ol>
+
+                <p>Um teste que falha não prova automaticamente que existe um bug. O próprio teste pode estar incorreto ou desatualizado.</p>
+
+                <p><strong>Regra de QA:</strong> não altere a aplicação apenas para fazer o teste passar. Primeiro descubra se o comportamento esperado está correto.</p>
+            </section>
+
+            <section id="playwright-how2">
+                <h2>🏠 Playwright aplicado ao How2</h2>
+
+                <p>O How2 é o projeto de prática dos testes automatizados. Podemos transformar os testes manuais em verificações repetíveis.</p>
+
+                <ul>
+                    <li>Home: categorias e links;</li>
+                    <li>Navegação: menus e links internos;</li>
+                    <li>Rotas: abrir páginas diretamente e usar Voltar/Avançar;</li>
+                    <li>Responsividade: verificar elementos em telas menores;</li>
+                    <li>Recursos: investigar erros de carregamento;</li>
+                    <li>Regressão: repetir testes depois de alterações no código.</li>
+                </ul>
+
+                <p>Comece com poucos testes, simples e confiáveis. Depois acrescente casos conforme surgirem necessidades reais.</p>
+            </section>
+
+            <section id="playwright-resumo">
+                <h2>🎯 Resumo para consultar rapidamente</h2>
+
+                <pre><code>// 1. Importar
+            import { test, expect } from '@playwright/test';
+
+            // 2. Criar teste
+            test('nome do teste', async ({ page }) => {
+
+                // 3. Abrir página
+                await page.goto('http://localhost:5173/howto/');
+
+                // 4. Executar ação
+                await page.getByRole('link', { name: 'CSS' }).click();
+
+                // 5. Verificar resultado
+                await expect(page).toHaveURL(/css/);
+            });</code></pre>
+
+                <p>Comando principal:</p>
+                <pre><code>npx playwright test</code></pre>
+
+                <p>Relatório:</p>
+                <pre><code>npx playwright show-report</code></pre>
+
+                <p>Ideia central: <strong>preparar a situação → executar uma ação → verificar o resultado esperado.</strong></p>
+            </section>
+
+
+        </section>
+    </main>
+    
+</body>
+</html>
