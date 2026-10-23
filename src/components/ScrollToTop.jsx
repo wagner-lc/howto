@@ -42,7 +42,7 @@ function ScrollToTop() {
             className="scroll-up"
             onClick={voltarAoTopo}
         >
-            ↑
+            ∧
         </button>
     )
 

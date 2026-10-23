@@ -15,6 +15,7 @@ import SqlPage from './pages/Sql'
 import PlaywrightPage from './pages/Playwright'
 import ScrollToTop from './components/ScrollToTop'
 import Footer from './components/Footer'
+import BackToHome from './components/BackToHome'
 
 function Inicio() {
 
@@ -57,6 +58,7 @@ function App() {
 
       <Header />
 
+      <BackToHome />
       <ScrollToTop />
       <Routes>
 

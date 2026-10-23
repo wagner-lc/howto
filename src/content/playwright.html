@@ -80,6 +80,8 @@
 
                 <pre><code>npx playwright show-report</code></pre>
 
+                <pre><code>npx playwright test --reporter=html</code></pre>  
+
                 <p>O relatório ajuda a identificar os testes executados, seus resultados e detalhes das falhas.</p>
             </section>
 
@@ -124,10 +126,13 @@
                 <pre><code>import { test, expect } from '@playwright/test';
 
             test('abrir CSS pela Home', async ({ page }) => {
+                // 1. Abrir a página
                 await page.goto('http://localhost:5173/howto/');
 
+                // 2. Localizar o elemento
                 await page.getByRole('link', { name: 'CSS' }).click();
 
+                // 3. Verificar se há URL
                 await expect(page).toHaveURL(/css/);
             });</code></pre>
 
@@ -386,7 +391,7 @@
 
                 <h3>2. Verificar o título do documento</h3>
 
-                <pre><code>await expect(page).toHaveTitle(/How2/);</code></pre>
+                <pre><code>await expect(page).toHaveTitle(/Howto/i);</code></pre>
 
                 <h3>3. Verificar se um elemento está visível</h3>
 
@@ -691,21 +696,29 @@
             <section id="playwright-resumo">
                 <h2>🎯 Resumo para consultar rapidamente</h2>
 
-                <pre><code>// 1. Importar
-            import { test, expect } from '@playwright/test';
+                <pre><code>
+                    
+        import { test, expect } from '@playwright/test';
 
-            // 2. Criar teste
-            test('nome do teste', async ({ page }) => {
+        test('abrir CSS pela Home', async ({ page }) => {
+            // 1. Abrir a Home
+            await page.goto('http://localhost:5173/howto/');
 
-                // 3. Abrir página
-                await page.goto('http://localhost:5173/howto/');
+            // 2. Encontrar o link CSS
+            const linkCSS = page.getByRole('link', {
+                name: /CSS Estilos/
+            });
 
-                // 4. Executar ação
-                await page.getByRole('link', { name: 'CSS' }).click();
+            // 3. Verificar se o link está visível
+            await expect(linkCSS).toBeVisible();
 
-                // 5. Verificar resultado
-                await expect(page).toHaveURL(/css/);
-            });</code></pre>
+            // 4. Clicar no link
+            await linkCSS.click();
+
+            // 5. Confirmar que a navegação aconteceu
+            await expect(page).toHaveURL(/\/howto\/css\/?$/);
+        });
+            </code></pre>
 
                 <p>Comando principal:</p>
                 <pre><code>npx playwright test</code></pre>

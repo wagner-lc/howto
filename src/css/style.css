@@ -202,6 +202,32 @@ SCROLL UP
     font-size: 20px;
 
 }
+
+.back-home {
+
+    position: fixed;
+
+    left: 20px;
+    top: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    background: #f1eeee;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+
 /* =====================================================
 RODAPÉ
 ===================================================== */
