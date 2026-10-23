@@ -1,9 +1,23 @@
+
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 function ScrollToTop() {
 
     const [visivel, setVisivel] = useState(false)
+    const { pathname } = useLocation()
 
+    // 1. Voltar ao topo sempre que mudar de página
+    useEffect(() => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: 'instant'
+        })
+
+    }, [pathname])
+
+    // 2. Verificar a posição da rolagem
     useEffect(() => {
 
         function verificarScroll() {
@@ -24,6 +38,7 @@ function ScrollToTop() {
 
     }, [])
 
+    // 3. Voltar ao topo ao clicar no botão
     function voltarAoTopo() {
 
         window.scrollTo({
