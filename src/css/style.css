@@ -189,7 +189,7 @@ SCROLL UP
     position: fixed;
 
     right: 20px;
-    bottom: 20px;
+    bottom: 90px;
 
     width: 45px;
     height: 45px;
@@ -227,6 +227,42 @@ SCROLL UP
 
 }
 
+/* Indicador fixo do gesto de voltar */
+.gesture-home-indicator {
+    position: fixed;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+    background: #333;
+    color: white;
+
+    font-size: 38px;
+    line-height: 1;
+
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.85;
+
+    pointer-events: none;
+
+    transition:
+        background 0.15s ease,
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+/* O gesto atingiu a distância necessária */
+.gesture-home-indicator.pronto {
+    background: #198754;
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
 
 /* =====================================================
 RODAPÉ
